@@ -35,12 +35,10 @@ public class Gui1_1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelMenu = new javax.swing.JPanel();
         questionsItemMenu = new javax.swing.JMenuItem();
         categoriesItemMenu = new javax.swing.JMenuItem();
         importItemMenu = new javax.swing.JMenuItem();
         exportItemMenu = new javax.swing.JMenuItem();
-        questionSettingPopupMenu = new javax.swing.JPopupMenu();
         questionBankLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         menuLabel = new javax.swing.JLabel();
@@ -54,17 +52,6 @@ public class Gui1_1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         questionsItemMenu.setForeground(new java.awt.Color(51, 153, 255));
         questionsItemMenu.setText("Questions");
@@ -232,6 +219,8 @@ public class Gui1_1 extends javax.swing.JFrame {
     private void settingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingLabelMouseClicked
         // TODO add your handling code here:
         // Nổi popup chứa các Item Menu //GUI 1.2
+        JPopupMenu questionSettingPopupMenu = new JPopupMenu();
+        
         questionSettingPopupMenu.setLayout(new GridLayout(4,2));
         questionSettingPopupMenu.add(questionBankLabel);
         questionSettingPopupMenu.add(questionsItemMenu);
@@ -296,9 +285,7 @@ public class Gui1_1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel menuLabel;
-    private javax.swing.JPanel panelMenu;
     private javax.swing.JLabel questionBankLabel;
-    private javax.swing.JPopupMenu questionSettingPopupMenu;
     private javax.swing.JMenuItem questionsItemMenu;
     private javax.swing.JLabel settingLabel;
     private javax.swing.JLabel turnEditLabel;
