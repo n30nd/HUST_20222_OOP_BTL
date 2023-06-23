@@ -265,7 +265,7 @@ class viewHomepage implements geticon {
         GridBagConstraints gbc = new GridBagConstraints();
 
         JLabel c_label1 = new JLabel("Add category"),
-               c_label2 = new JLabel("Những mục bắt buộc được đánh dấu", new ImageIcon("src\\GroupProject\\icon\\category_compulsory.png"), 0);
+               c_label2 = new JLabel("Những mục bắt buộc được đánh dấu", new ImageIcon("src\\icon\\category_compulsory.png"), 0);
         JScrollPane sp_categoryInfo = new JScrollPane(categoryInfo);
 
         addCategory.setBackground(Color.RED);
@@ -293,9 +293,9 @@ class viewHomepage implements geticon {
         gbc.gridx = 0; gbc.gridy = 2;                                                                       _categories.add(new JLabel("     Name"), gbc);
         gbc.gridx = 0; gbc.gridy = 3;                  gbc.ipady = 250;                   gbc.weighty = 260; _categories.add(new JLabel("     Category info"), gbc);
         gbc.gridx = 0; gbc.gridy = 4;                  gbc.ipady = 25;                    gbc.weighty = 35; _categories.add(new JLabel("     ID number"), gbc);
-        gbc.gridx = 1; gbc.gridy = 1; gbc.ipadx = 20;                  gbc.weightx = 20;  gbc.weighty = 35; _categories.add(new JLabel(new ImageIcon("src\\GroupProject\\icon\\category_hint.png")), gbc);
-        gbc.gridx = 1; gbc.gridy = 2;                                                                       _categories.add(new JLabel(new ImageIcon("src\\GroupProject\\icon\\category_compulsory.png")), gbc);
-        gbc.gridx = 1; gbc.gridy = 4;                                                                       _categories.add(new JLabel(new ImageIcon("src\\GroupProject\\icon\\category_hint.png")), gbc);
+        gbc.gridx = 1; gbc.gridy = 1; gbc.ipadx = 20;                  gbc.weightx = 20;  gbc.weighty = 35; _categories.add(new JLabel(new ImageIcon("src\\icon\\category_hint.png")), gbc);
+        gbc.gridx = 1; gbc.gridy = 2;                                                                       _categories.add(new JLabel(new ImageIcon("src\\icon\\category_compulsory.png")), gbc);
+        gbc.gridx = 1; gbc.gridy = 4;                                                                       _categories.add(new JLabel(new ImageIcon("src\\icon\\category_hint.png")), gbc);
         gbc.anchor = GridBagConstraints.CENTER; gbc.fill = GridBagConstraints.NONE;
         gbc.gridx = 2; gbc.gridy = 1; gbc.ipadx = 1380;gbc.ipady = 15; gbc.weightx = 1380;                  _categories.add(parentCategory, gbc);
         gbc.anchor = GridBagConstraints.CENTER;
