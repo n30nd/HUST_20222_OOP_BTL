@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
+import java.net.http.WebSocket;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -25,7 +26,7 @@ import javax.swing.JTextField;
 
 import view.controllerHomepage.homepageListener;
 
-class viewHomepage implements geticon {
+class viewHomepage {
     //Controller variables
     public homepageListener hListener;
 
@@ -56,6 +57,9 @@ class viewHomepage implements geticon {
 
     //Constructor
     public viewHomepage(modelHomepage mHomepage) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagLayout gb = new GridBagLayout();
+
         this.mHomepage = mHomepage;
         
         hListener = (new controllerHomepage(this)).new homepageListener();
@@ -63,58 +67,46 @@ class viewHomepage implements geticon {
         homepageFrame.setBackground(Color.WHITE);
         homepageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homepageFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        homepageFrame.setLayout(gb);
         homepageFrame.setSize(500, 500);
 
-        browse();
-        edit();
-        function();
-        title();
+        gbc.anchor = GridBagConstraints.CENTER; gbc.fill = GridBagConstraints.BOTH; gbc.insets = new Insets(0, 0, 10, 0);
+        gbc.gridx = 0; gbc.gridy = 0; gbc.ipadx = 0; gbc.ipady = 30; gbc.weightx = 1920; gbc.weighty = 30;  title(gbc);
+                                                                                    gbc.insets = new Insets(0, 10, 10, 10);
+        gbc.gridx = 0; gbc.gridy = 1; gbc.ipadx = 0; gbc.ipady = 100;                    gbc.weighty = 100; function(gbc);
+        gbc.gridx = 0; gbc.gridy = 2; gbc.ipadx = 0; gbc.ipady = 850;gbc.weightx = 1920; gbc.weighty = 860; browse(gbc);
+                                                                                                               edit(gbc);
 
         homepageFrame.setVisible(true);
     }
     //Mainframe methods
-    public ImageIcon getIcon(String path, String description) {
-        java.net.URL imageURL = this.getClass().getResource(path);
-
-        if (imageURL == null) {
-            System.err.println("Không thể mở hình ảnh");
-            return null;
-        }
-        else {
-            return new ImageIcon(imageURL, description);
-        }
-    }
 
     public void setVisible(boolean b) {
         homepageFrame.setVisible(b);
     }
     
     //Title panel methods
-    private void accountBar() {
-        JLabel accountMenu = new JLabel("Group Hehe");
 
-        accountMenu.setBounds(1700, 5, 200, 40);
-
-        titlePanel.add(accountMenu);
-    }
-
-    private void title() {
-        JLabel label = new JLabel(new ImageIcon("src\\icon\\title.png"));
+    private void title(GridBagConstraints gbc) {
+        GridBagConstraints _gbc = new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(0, 0, 0, 20), 150, 5);
+        GridBagLayout _gc = new GridBagLayout();
+        JLabel label = new JLabel("Group HEHE", new ImageIcon("src\\icon\\avatar.png"), JLabel.RIGHT);
         titlePanel = new JPanel();
 
-        label.setBounds(0, 0, 1920, 50);
+        label.setForeground(Color.WHITE);
+        
+        titlePanel.setLayout(_gc);
+        titlePanel.add(label, _gbc);
+        titlePanel.setBackground(Color.LIGHT_GRAY);
 
-        accountBar();
-        titlePanel.add(label);
-        titlePanel.setBounds(0, 0, 1920, 50);
-        titlePanel.setLayout(null);
-
-        homepageFrame.add(titlePanel);
+        homepageFrame.add(titlePanel, gbc);
     }
     
     //Function panel methods
 
-    private void function() {
+    private void function(GridBagConstraints gbc) {
+        GridBagConstraints _gbc = new GridBagConstraints();
+        GridBagLayout _gb = new GridBagLayout();
         JLabel label = new JLabel(new ImageIcon("src\\icon\\mainLogo.png"));
         edit = new JButton("Bật chế độ chỉnh sửa");
         functionPanel = new JPanel();
@@ -122,23 +114,26 @@ class viewHomepage implements geticon {
 
         edit.addActionListener(hListener);
         edit.setBackground(Color.BLUE);
-        edit.setBounds(1685, 50, 175, 30);
         edit.setFont(edit.getFont().deriveFont(Font.BOLD));
         edit.setForeground(Color.WHITE);
 
-        label.setBounds(5, 5, 124, 51);
+        label.setHorizontalAlignment(JLabel.LEFT);
         questionSetup.addActionListener(hListener);
-        questionSetup.setBounds(1830, 20, 30, 20);
+        questionSetup.setSize(20, 10);
+        
+        functionPanel.setLayout(_gb);
+        functionPanel.setSize(1900, 100);
 
-        functionPanel.add(edit);
-        functionPanel.add(label);
-        functionPanel.add(questionSetup);
+        _gbc.anchor = GridBagConstraints.WEST; _gbc.fill = GridBagConstraints.NONE; _gbc.insets = new Insets(5, 10, 0, 0);
+        _gbc.gridx = 0; _gbc.gridy = 0; _gbc.ipadx = 0; _gbc.ipady = 0; _gbc.weightx = 930; _gbc.weighty = 70; functionPanel.add(label, _gbc);
+        _gbc.anchor = GridBagConstraints.SOUTHEAST;                                 _gbc.insets = new Insets(0, 0, 10, 10);
+        _gbc.gridx = 1; _gbc.gridy = 0; _gbc.ipadx = 0; _gbc.ipady = 0;                                        functionPanel.add(questionSetup, _gbc);
+        _gbc.anchor = GridBagConstraints.NORTHEAST;                                 _gbc.insets = new Insets(0, 0, 0, 10);
+        _gbc.gridx = 1; _gbc.gridy = 1; _gbc.ipadx = 0; _gbc.ipady = 0; _gbc.weightx = 175; _gbc.weighty = 30; functionPanel.add(edit, _gbc);
         functionPanel.setBackground(Color.WHITE);
         functionPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        functionPanel.setBounds(5, 70, 1900, 100);
-        functionPanel.setLayout(null);
 
-        homepageFrame.add(functionPanel);
+        homepageFrame.add(functionPanel, gbc);
     }
 
     public void popupQuestion() {
@@ -152,10 +147,13 @@ class viewHomepage implements geticon {
         popupMenu.setLayout(new GridLayout(4, 2));
         puQues_categories = new JMenuItem("Danh mục");
         puQues_categories.setForeground(Color.BLUE);
+        puQues_categories.addMouseListener(hListener);
         puQues_export = new JMenuItem("Xuất câu hỏi");
         puQues_export.setForeground(Color.BLUE);
+        puQues_export.addMouseListener(hListener);
         puQues_import = new JMenuItem("Nhập câu hỏi");
         puQues_import.setForeground(Color.BLUE);
+        puQues_import.addMouseListener(hListener);
         puQues_questions = new JMenuItem("Câu hỏi");
         puQues_questions.addMouseListener(hListener);
         puQues_questions.setForeground(Color.BLUE);
@@ -175,17 +173,16 @@ class viewHomepage implements geticon {
     }
     
     //Content panel
-    public void browse() {
+    public void browse(GridBagConstraints gbc) {
         browsePanel = new JPanel();
 
         browsePanel.setBackground(Color.WHITE);
         browsePanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        browsePanel.setBounds(5, 180, 1900, 850);
 
-        homepageFrame.add(browsePanel);
+        homepageFrame.add(browsePanel, gbc);
     }
    
-    public void edit() {
+    public void edit(GridBagConstraints gbc) {
         JPanel _categories = new JPanel(), _export = new JPanel(), _import = new JPanel(), _questions = new JPanel();
         editPanel = new JPanel();
 
@@ -204,26 +201,10 @@ class viewHomepage implements geticon {
         editTabbedPane.setMnemonicAt(0, KeyEvent.VK_4);
 
         editPanel.add(editTabbedPane);
-        editPanel.setBounds(5, 180, 1900, 850);
         editPanel.setLayout(new GridLayout(1, 4));
 
-        homepageFrame.add(editPanel);
+        homepageFrame.add(editPanel, gbc);
         editPanel.setVisible(false);
-    }
-    
-    public void editingMode() {
-        if (editPanel.isVisible()) {
-            browsePanel.setVisible(true);
-            editPanel.setVisible(false);
-            edit.setBackground(Color.BLUE);
-            edit.setText("Bật chế độ chỉnh sửa");
-        }
-        else {
-            browsePanel.setVisible(false);
-            editPanel.setVisible(true);
-            edit.setBackground(Color.RED);
-            edit.setText("Tắt chế độ chỉnh sửa");
-        }
     }
         //Tabs
     public void questionTab(JPanel _questions) {
@@ -293,9 +274,9 @@ class viewHomepage implements geticon {
         gbc.gridx = 0; gbc.gridy = 2;                                                                       _categories.add(new JLabel("     Name"), gbc);
         gbc.gridx = 0; gbc.gridy = 3;                  gbc.ipady = 250;                   gbc.weighty = 260; _categories.add(new JLabel("     Category info"), gbc);
         gbc.gridx = 0; gbc.gridy = 4;                  gbc.ipady = 25;                    gbc.weighty = 35; _categories.add(new JLabel("     ID number"), gbc);
-        gbc.gridx = 1; gbc.gridy = 1; gbc.ipadx = 20;                  gbc.weightx = 20;  gbc.weighty = 35; _categories.add(new JLabel(new ImageIcon("src\\icon\\category_hint.png")), gbc);
-        gbc.gridx = 1; gbc.gridy = 2;                                                                       _categories.add(new JLabel(new ImageIcon("src\\icon\\category_compulsory.png")), gbc);
-        gbc.gridx = 1; gbc.gridy = 4;                                                                       _categories.add(new JLabel(new ImageIcon("src\\icon\\category_hint.png")), gbc);
+        gbc.gridx = 1; gbc.gridy = 1; gbc.ipadx = 20;                  gbc.weightx = 20;  gbc.weighty = 35; _categories.add(new JLabel(new ImageIcon("src\\\\icon\\category_hint.png")), gbc);
+        gbc.gridx = 1; gbc.gridy = 2;                                                                       _categories.add(new JLabel(new ImageIcon("src\\\\icon\\category_compulsory.png")), gbc);
+        gbc.gridx = 1; gbc.gridy = 4;                                                                       _categories.add(new JLabel(new ImageIcon("src\\\\icon\\category_hint.png")), gbc);
         gbc.anchor = GridBagConstraints.CENTER; gbc.fill = GridBagConstraints.NONE;
         gbc.gridx = 2; gbc.gridy = 1; gbc.ipadx = 1380;gbc.ipady = 15; gbc.weightx = 1380;                  _categories.add(parentCategory, gbc);
         gbc.anchor = GridBagConstraints.CENTER;
@@ -332,8 +313,12 @@ class viewHomepage implements geticon {
         gbc.gridx = 0; gbc.gridy = 2;                                                                       _import.add(label3, gbc);
         gbc.gridx = 0; gbc.gridy = 3;                                                                       _import.add(label4, gbc);
     }
+    
     //Getter
-    public JButton getEdit() {return edit;}
+    public JPanel getBrowsePanel() {return browsePanel;}
+    public JButton getEdit() {return edit;}    
+    public JPanel getEditPanel() {return editPanel;}
+    public JTabbedPane getEditTabbedPane() {return editTabbedPane;}
     public modelHomepage getModelHomepage() {return mHomepage;}
     public JMenuItem getPuQues_categories() {return puQues_categories;}
     public JMenuItem getPuQues_export() {return puQues_export;}
