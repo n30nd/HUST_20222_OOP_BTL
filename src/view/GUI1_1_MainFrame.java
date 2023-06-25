@@ -289,7 +289,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void showMainMenu() {
-        ShowMainMenu showMainMenu = new ShowMainMenu(panel_content);
+        ShowMainMenu showMainMenu = new ShowMainMenu(this);
         List<JMenuItem> menuItems = new ArrayList<JMenuItem>();
         menuItems.add(question_MenuItem);
         menuItems.add(catagories_MenuItem);

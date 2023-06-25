@@ -1,6 +1,6 @@
-
 package view;
 
+import java.awt.BorderLayout;
 import javax.swing.JTabbedPane;
 
 /**
@@ -9,10 +9,14 @@ import javax.swing.JTabbedPane;
  */
 public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
+    private GUI1_1_MainFrame mainFrame;
+
     /**
      * Creates new form panel_PopUpMenu
+     * @param mainFrame
      */
-    public GUI_2_TabbedPaneMenu() {
+    public GUI_2_TabbedPaneMenu(GUI1_1_MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         initComponents();
     }
 
@@ -73,6 +77,12 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("CREATE A NEW QUESTION");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createNewQuestion(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -248,6 +258,17 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void createNewQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewQuestion
+        // TODO add your handling code here:
+        GUI3_2_Add_Question gui3_2_Add_Question = new GUI3_2_Add_Question(mainFrame);
+        mainFrame.getPanel_content().removeAll();
+        gui3_2_Add_Question.setSize(1083,530);
+        gui3_2_Add_Question.setLocation(-20, 0);
+        mainFrame.getPanel_content().add(gui3_2_Add_Question, BorderLayout.CENTER);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_createNewQuestion
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TabbedPaneMenu;
@@ -282,8 +303,5 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     public void setTabbedPaneMenu(JTabbedPane TabbedPaneMenu) {
         this.TabbedPaneMenu = TabbedPaneMenu;
     }
-
-    
-
 
 }

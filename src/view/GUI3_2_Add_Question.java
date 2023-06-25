@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Beans/Customizer.java to edit this template
- */
+
 package view;
 
 /**
@@ -9,13 +6,15 @@ package view;
  * @author HQViet
  */
 public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.beans.Customizer {
-    
+    private GUI1_1_MainFrame mainFrame;
     private Object bean;
 
     /**
      * Creates new customizer GUI3_2_Add_Question
+     * @param mainFrame
      */
-    public GUI3_2_Add_Question() {
+    public GUI3_2_Add_Question(GUI1_1_MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         initComponents();
     }
     

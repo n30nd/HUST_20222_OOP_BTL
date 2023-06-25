@@ -10,14 +10,14 @@ package view;
  */
 public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
 
-    private GUI1_1_MainFrame root;
+    private GUI1_1_MainFrame mainFrame;
     /**
      * Creates new form NewJPanel
-     * @param root
+     * @param mainFrame
      */
-    public GUI_5_1_AddNewQuiz(GUI1_1_MainFrame root) {
+    public GUI_5_1_AddNewQuiz(GUI1_1_MainFrame mainFrame) {
         initComponents();
-        this.root = root;
+        this.mainFrame = mainFrame;
     }
 
     /**
@@ -167,10 +167,10 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
 
     private void closeAddNewQuiz(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeAddNewQuiz
         // TODO add your handling code here:
-        root.getPanel_content().removeAll();
-        root.getPanel_content().add(root.getPanel_examList());
-        root.validate();
-        root.repaint();
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(mainFrame.getPanel_examList());
+        mainFrame.validate();
+        mainFrame.repaint();
     }//GEN-LAST:event_closeAddNewQuiz
 
 
