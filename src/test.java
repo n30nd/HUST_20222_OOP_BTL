@@ -3,23 +3,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.text.AbstractDocument.BranchElement;
-import java.awt.FlowLayout;
-import java.awt.Frame;
 
 import model.Category;
 import model.Question;
