@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\icon",
+    "\\src\\model",
+    "\\src\\view"
   ],
-  "SelectedNode": "\\C:\\Users\\plyqu\\Source\\Repos\\HUST_20222_OOP_BTL",
+  "SelectedNode": "\\src\\view\\viewHomepage.java",
   "PreviewInSolutionExplorer": false
 }

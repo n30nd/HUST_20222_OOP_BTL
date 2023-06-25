@@ -1,5 +1,3 @@
-package view;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -24,7 +22,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import view.controllerHomepage.homepageListener;
+import controller.controllerHomepage.homepageListener;
 
 class viewHomepage {
     //Controller variables
