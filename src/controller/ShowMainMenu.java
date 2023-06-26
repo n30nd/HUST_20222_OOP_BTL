@@ -64,7 +64,7 @@ public class ShowMainMenu {
                     node.getTabbedPaneMenu().setSelectedIndex(0);
                     break;
             }
-            node.setSize(1035, 521);
+            node.setSize(1038, 521);
             node.setLocation(0, 0);
             mainFrame.getPanel_content().removeAll();
             mainFrame.getPanel_content().add(node, BorderLayout.CENTER);
