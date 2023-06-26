@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\controller",
+    "\\src\\Data",
+    "\\src\\model",
+    "\\src\\test",
     "\\src\\view"
   ],
-  "SelectedNode": "\\src\\model",
+  "SelectedNode": "\\src\\Data",
   "PreviewInSolutionExplorer": false
 }
