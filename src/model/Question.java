@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
@@ -12,8 +13,13 @@ public class Question {
     private int level;
 
     public Question() {
+        categoryID = -1;
+        name = "";
+        text = "";
         level = 0;
         mark = 1;
+        choice = new ArrayList<String>();
+        answer = new ArrayList<Float>();
     }
     public Question(Integer _categoryID, String _name, String _text, float _mark) {
         categoryID = _categoryID;
@@ -39,4 +45,13 @@ public class Question {
     public void setChoice(List<String> _choice) {choice = _choice;}
     public void setAnswer(List<Float> _answer) {answer = _answer;}
     public void setLevel(int _level) {level = _level;}
+
+    public void display() {
+        System.out.println(categoryID + " " + name + " " + text + " " + mark + " " + choice.toString() + " " + answer.toString() + " " + level);
+    }
+    public void displayChoice() {
+        for (int i = 0; i < choice.size(); i++) {
+            System.out.println(choice.get(i));
+        }
+    }
 }

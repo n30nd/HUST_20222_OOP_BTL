@@ -1,9 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class Category {
     private String parent;
     private String name;
@@ -11,12 +7,19 @@ public class Category {
     private Integer id;
     private int numOfQuestions;
 
-    public Category() {};
+    public Category() {
+        parent = "";
+        name = "";
+        info = "";
+        id = 0;
+        numOfQuestions = 0;
+    };
     public Category(String _parent, String _name, String _info, Integer _id) {
         parent = _parent;
         name = _name;
         info = _info;
         id = _id;
+        numOfQuestions = 0;
     }
 
     //Getter

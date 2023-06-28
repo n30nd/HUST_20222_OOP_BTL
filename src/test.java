@@ -2,7 +2,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,7 +19,7 @@ public class test {
         Category category;
         List<Category> _cList = new ArrayList<Category>();
         try {
-            Scanner sc = new Scanner(new File(System.getProperty("user.dir") + "\\HUST_20222_OOP_BTL\\src\\Data\\categorySource.txt"), "UTF-8");
+            Scanner sc = new Scanner(new File(System.getProperty("user.dir") + "\\src\\Data\\categorySource.txt"), "UTF-8");
             while (sc.hasNextLine()) {
                 if (sc.nextLine() == "") {
                     category = new Category(sc.nextLine(), sc.nextLine(), sc.nextLine(), Integer.parseInt(sc.nextLine()));
@@ -35,7 +34,7 @@ public class test {
         return _cList;
     }
     public static void writeCategoryList(List<Category> _cList) {
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(System.getProperty("user.dir") + "\\HUST_20222_OOP_BTL\\src\\Data\\categorySource.txt"), StandardCharsets.UTF_8)) {
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(System.getProperty("user.dir") + "\\src\\Data\\categorySource.txt"), StandardCharsets.UTF_8)) {
             for (int i = 0; i < _cList.size(); i++) {
                 writer.write('\n');
                 writer.write(_cList.get(i).getParent() + '\n');
@@ -66,7 +65,7 @@ public class test {
         Question question;
         List<Question> _qList = new ArrayList<Question>();
         try {
-            Scanner sc = new Scanner(new File(System.getProperty("user.dir") + "\\HUST_20222_OOP_BTL\\src\\Data\\questionSource.txt"), "UTF-8");
+            Scanner sc = new Scanner(new File(System.getProperty("user.dir") + "\\src\\Data\\questionSource.txt"), "UTF-8");
             String str;
 
             while (sc.hasNextLine()) {
@@ -91,23 +90,25 @@ public class test {
                     //Read level
                     question.setLevel(Integer.parseInt(str));
 
-                    if (question.getLevel() == _categoryId) _qList.add(question);
+                    if (question.getLevel() == _categoryId) {
+                        _qList.add(question);
+                    }
                 }
             }
             sc.close();
 
             return _qList;
         } catch (InputMismatchException e) {
-            System.err.println("File not found!");
+            System.err.println("Mismatch exception!");
         } catch (FileNotFoundException e) {
-            System.err.println("Filllll not found");
+            System.err.println("File not found");
         }
 
         return _qList;
     }
-    public static void writeQuestionList(Question _question) {
+    public static void writeQuestion(Question _question) {
         try {
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(System.getProperty("user.dir") + "\\HUST_20222_OOP_BTL\\src\\Data\\questionSource.txt", true), "UTF-8"));
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(System.getProperty("user.dir") + "\\src\\Data\\questionSource.txt", true), "UTF-8"));
             writer.write("\n");
             writer.write(_question.getCategory().toString() + "\n");
             writer.write(_question.getName() + '\n');
@@ -122,7 +123,7 @@ public class test {
             writer.write(_question.getLevel() + "\n");
 
             writer.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -180,6 +181,56 @@ public class test {
         }
     }
 
+    public static void fetchQuestion(int _categoryId, String directory) {
+        try {
+            int row = 0;
+            Scanner sc = new Scanner(new File(directory), "UTF-8");
+            Question _question;
+            String str;
+            List<String> _choice;
+            List<Float> _answer;
+
+            while (sc.hasNextLine()) {
+                str = sc.nextLine(); row++;
+                _choice = new ArrayList<String>();
+                _answer = new ArrayList<Float>();
+
+                if (str == "") {
+                    _question = new Question();
+                    
+                    _question.setCategory(_categoryId);
+                    str = sc.nextLine(); row++;
+                    if (str.substring(0, 5).equals("Easy:")) {_question.setLevel(1); str = str.replace("Easy:", "");} else
+                    if (str.substring(0, 7).equals("Medium:")) {_question.setLevel(2); str = str.replace("Medium:", "");} else
+                    if (str.substring(0, 5).equals("Hard:")) {_question.setLevel(3); str = str.replace("Hard:", "");} else
+                    {_question.setLevel(0);}
+                    _question.setName(str);
+
+                    str = sc.nextLine(); row++;
+                    if (str.charAt(0) > 90 || str.charAt(0) < 65) {System.out.println("Error at row: " + row); return;}
+                    while (str.charAt(0) >= 65 && str.charAt(0) <= 90 && str.charAt(1) == '.') {
+                        _choice.add(str);
+                        str = sc.nextLine(); row++;
+                    }
+                    _question.setChoice(_choice);
+
+                    if (!str.substring(0, 7).equals("ANSWER:")) {System.out.println("Error at row: " + row); return;}
+                    str = str.replace("ANSWER:", "").replaceAll("\\s", "").replaceAll(",", "");
+                    str = str.toUpperCase();
+                    for (int i = 0; i < _choice.size(); i++) {_answer.add((float)0.0);}
+                    _question.setChoice(_choice);
+                    for (int i = 0; i < str.length(); i++) {_answer.set(str.charAt(i) - 65, (float)1.0/str.length());}
+                    _question.setAnswer(_answer);
+                    
+                    writeQuestion(_question);
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            System.err.println("Has exception!");
+        }
+    }
+
     public static void main(String[] args) {
         List <Category> cList = readCategoryList();
         List <Question> qList;
@@ -187,7 +238,7 @@ public class test {
         Scanner sc = new Scanner(System.in, "UTF-8");
 
         while (choice != 0) {
-            System.out.println("1. Hiển thị danh sách Category\n2. Hiển thị danh sách câu hỏi thuộc một Category\n3. Thêm câu hỏi\n4. Thêm Category");
+            System.out.println("1. Hiển thị danh sách Category\n2. Hiển thị danh sách câu hỏi thuộc một Category\n3. Thêm câu hỏi từ file\n4. Thêm Category");
             System.out.print("Lựa chọn của bạn: ");
             
             choice = sc.nextInt();
@@ -200,7 +251,7 @@ public class test {
                     displayQuestions(qList);
                     break;
                 case 3:
-                    writeQuestionList(new Question());
+                    System.out.println("Nhập mã Category: "); fetchQuestion(sc.nextInt(), System.getProperty("user.dir") + "\\src\\Data\\newQuestion.txt");
                     break;
                 case 4: addCategory(cList); break;
                 default:
