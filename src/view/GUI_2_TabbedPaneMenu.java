@@ -1,13 +1,18 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
+import java.awt.dnd.DropTargetListener;
 import java.io.File;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -26,6 +31,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     public GUI_2_TabbedPaneMenu(GUI1_1_MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
+        dragToImportFile();
     }
 
     /**
@@ -267,7 +273,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jLabel17.setText("Maximum size for new files: 100MB");
 
         selectedFileContainer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        selectedFileContainer.setText("Selected file will appear here");
+        selectedFileContainer.setText("You can drag and drop files here to add them");
         selectedFileContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         selectedFileContainer.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         selectedFileContainer.setPreferredSize(new java.awt.Dimension(80, 16));
@@ -458,9 +464,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         if (x == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             // Hiển thị file trên label
-            selectedFileContainer.setHorizontalAlignment(SwingConstants.LEFT);
-            selectedFileContainer.setVerticalAlignment(SwingConstants.TOP);
-            selectedFileContainer.setText("Selected File: " + file.getName());
+            System.out.println(file.getName());
 
             // Hiển thị thông báo import thành công
             Object[] options = {"OK"};
@@ -524,6 +528,58 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     public void setTabbedPaneMenu(JTabbedPane TabbedPaneMenu) {
         this.TabbedPaneMenu = TabbedPaneMenu;
+    }
+
+    public void dragToImportFile() {
+        DropTargetListener dropTargetListener = new DropTargetListener() {
+            @Override
+            public void dragEnter(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dragOver(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dropActionChanged(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dragExit(DropTargetEvent dte) {
+            }
+
+            @Override
+            public void drop(DropTargetDropEvent event) {
+                try {
+                    event.acceptDrop(DnDConstants.ACTION_COPY);
+                    List<File> droppedFiles = (List<File>) event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+                    if (droppedFiles.size() > 1) {
+                        JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Only choose 1 file !", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        File file = droppedFiles.get(0);
+                        System.out.println(file.getAbsolutePath());
+
+                        if (file.getName().toLowerCase().endsWith(".txt")) {
+                            Object[] options = {"OK"};
+                            JOptionPane.showOptionDialog(GUI_2_TabbedPaneMenu.this, "Import Complete!", "Notification",
+                                    JOptionPane.PLAIN_MESSAGE,
+                                    JOptionPane.QUESTION_MESSAGE,
+                                    null,
+                                    options,
+                                    options[0]);
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        DropTarget dropTarget = new DropTarget(selectedFileContainer, dropTargetListener);
+        GUI_2_TabbedPaneMenu.this.selectedFileContainer.setDropTarget(dropTarget);
     }
 
 }

@@ -543,7 +543,7 @@
             <Component class="javax.swing.JLabel" name="selectedFileContainer">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Selected file will appear here"/>
+                <Property name="text" type="java.lang.String" value="You can drag and drop files here to add them"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder/>
