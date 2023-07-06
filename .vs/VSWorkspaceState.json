@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\controller",
-    "\\src\\Data",
-    "\\src\\model",
-    "\\src\\test",
-    "\\src\\view"
+    ""
   ],
-  "SelectedNode": "\\src\\view\\GUI_2_TabbedPaneMenu.java",
   "PreviewInSolutionExplorer": false
 }
