@@ -8,12 +8,16 @@ import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -22,6 +26,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     private GUI1_1_MainFrame mainFrame;
+    private boolean isValidFileImport;
 
     /**
      * Creates new form panel_PopUpMenu
@@ -76,7 +81,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         selectedFileContainer = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btn_importFile = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
@@ -278,13 +283,13 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         selectedFileContainer.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         selectedFileContainer.setPreferredSize(new java.awt.Dimension(80, 16));
 
-        jButton3.setBackground(new java.awt.Color(193, 41, 36));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("IMPORT");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_importFile.setBackground(new java.awt.Color(193, 41, 36));
+        btn_importFile.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_importFile.setForeground(new java.awt.Color(255, 255, 255));
+        btn_importFile.setText("IMPORT");
+        btn_importFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_importFileActionPerformed(evt);
             }
         });
 
@@ -340,7 +345,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                                     .addComponent(selectedFileContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(import_panelLayout.createSequentialGroup()
                                         .addGap(8, 8, 8)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn_importFile, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(import_panelLayout.createSequentialGroup()
                                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -397,7 +402,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(selectedFileContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_importFile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(import_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
@@ -438,9 +443,9 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_importFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_importFileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_importFileActionPerformed
 
     private void createNewQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewQuestion
         // TODO add your handling code here:
@@ -456,36 +461,48 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private void chooseFile(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseFile
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("văn bản", "txt");
-        fileChooser.setFileFilter(txtFilter);
+        //FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("văn bản", "txt");
+        //fileChooser.setFileFilter(txtFilter);
         fileChooser.setMultiSelectionEnabled(false);
 
         int x = fileChooser.showDialog(this.import_panel, "CHOOSE A FILE");
         if (x == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            // Hiển thị file trên label
-            System.out.println(file.getName());
+            
+            isValidFileImport = true;
 
-            // Hiển thị thông báo import thành công
-            Object[] options = {"OK"};
-            JOptionPane.showOptionDialog(this.import_panel, "Import Complete!", "Thông báo",
-                    JOptionPane.PLAIN_MESSAGE,
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    options,
-                    options[0]);
+
+            if (!file.getName().toLowerCase().endsWith(".txt")) {
+                isValidFileImport = false;
+                JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (checkAikenFormat(file.getAbsolutePath()) != -1) {
+                    isValidFileImport = false;
+                    JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Error at line " + checkAikenFormat(file.getAbsolutePath()), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            if (isValidFileImport == true) {
+                Object[] options = {"OK"};
+                JOptionPane.showOptionDialog(GUI_2_TabbedPaneMenu.this, "Import Complete!", "Notification",
+                        JOptionPane.PLAIN_MESSAGE,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[0]);
+            }
         }
     }//GEN-LAST:event_chooseFile
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TabbedPaneMenu;
+    private javax.swing.JButton btn_importFile;
     private javax.swing.JPanel categories_panel;
     private javax.swing.JPanel export_panel;
     private javax.swing.JPanel import_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -557,9 +574,20 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Only choose 1 file !", "Error", JOptionPane.ERROR_MESSAGE);
                     } else {
                         File file = droppedFiles.get(0);
-                        System.out.println(file.getAbsolutePath());
+                        isValidFileImport = true;
+                        //System.out.println(file.getAbsolutePath());
 
-                        if (file.getName().toLowerCase().endsWith(".txt")) {
+                        if (!file.getName().toLowerCase().endsWith(".txt")) {
+                            isValidFileImport = false;
+                            JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            if (checkAikenFormat(file.getAbsolutePath()) != -1) {
+                                isValidFileImport = false;
+                                JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Error at line " + checkAikenFormat(file.getAbsolutePath()), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+
+                        if (isValidFileImport == true) {
                             Object[] options = {"OK"};
                             JOptionPane.showOptionDialog(GUI_2_TabbedPaneMenu.this, "Import Complete!", "Notification",
                                     JOptionPane.PLAIN_MESSAGE,
@@ -568,10 +596,19 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                                     options,
                                     options[0]);
                         }
-                        else {
-                            JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
 
+//                        if (file.getName().toLowerCase().endsWith(".txt")) {
+//                            Object[] options = {"OK"};
+//                            JOptionPane.showOptionDialog(GUI_2_TabbedPaneMenu.this, "Import Complete!", "Notification",
+//                                    JOptionPane.PLAIN_MESSAGE,
+//                                    JOptionPane.QUESTION_MESSAGE,
+//                                    null,
+//                                    options,
+//                                    options[0]);
+//                        }
+//                        else {
+//                            JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
+//                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -580,6 +617,43 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         };
         DropTarget dropTarget = new DropTarget(selectedFileContainer, dropTargetListener);
         GUI_2_TabbedPaneMenu.this.selectedFileContainer.setDropTarget(dropTarget);
+    }
+
+    // Hàm kiểm tra định dạng aiken và trả về dòng đầu tiên bị lỗi (nếu có)
+    public int checkAikenFormat(String fileName) {
+        int errorLine = -1;
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            int lineNumber = 0;
+            boolean inQuestion = false;
+            boolean hasAnswer = false;
+            Pattern answerPattern = Pattern.compile("^ANSWER:\\s[A-Z]$");
+            while ((line = br.readLine()) != null) {
+                lineNumber++;
+                if (line.isEmpty()) {
+                    if (inQuestion && !hasAnswer) {
+                        errorLine = lineNumber;
+                        return errorLine;
+                    }
+                    inQuestion = false;
+                    hasAnswer = false;
+                } else if (!inQuestion) {
+                    inQuestion = true;
+                } else {
+                    Matcher answerMatcher = answerPattern.matcher(line);
+                    if (answerMatcher.matches()) {
+                        hasAnswer = true;
+                    } else if (!line.matches("^[A-Z]\\.\\s.+")) {
+                        errorLine = lineNumber;
+                        return errorLine;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return errorLine;
     }
 
 }
