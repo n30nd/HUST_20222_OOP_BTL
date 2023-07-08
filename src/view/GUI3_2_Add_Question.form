@@ -22,18 +22,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="jScrollPane3" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="jScrollPane3" pref="933" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Component id="jScrollPane3" pref="694" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="580" max="-2" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,10 +63,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="SaveChButton1" min="-2" pref="471" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -77,47 +73,52 @@
                               </Group>
                               <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="RedNote1" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="RedNote2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RedNote3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RedNote1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RedNote3" min="-2" pref="43" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Choice2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="Choice1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="Markfield1" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                          <Component id="MoreChoiceButton1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MoreChoiceButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="CateBox1" max="32767" attributes="0"/>
-                                              <EmptySpace min="63" pref="63" max="-2" attributes="0"/>
+                                              <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="QnameField1" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="Choice2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Choice1" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="add" min="-2" pref="500" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="general1" min="-2" pref="176" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
-                                      <Component id="SaveButton1" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                      <Component id="CancelButton1" max="32767" attributes="0"/>
-                                  </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="add" min="-2" pref="500" max="-2" attributes="0"/>
+                                  <Component id="general1" min="-2" pref="176" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                              <EmptySpace min="210" pref="369" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="SaveChButton1" min="-2" pref="423" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
+                              <Component id="SaveButton1" min="-2" pref="189" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="CancelButton1" min="-2" pref="138" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -127,21 +128,21 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="add" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="general1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Cate1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CateBox1" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="CateBox1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="RedNote1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="Qname1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="QnameField1" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="QnameField1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -151,16 +152,14 @@
                           <Component id="RedNote2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="Markfield1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="Mark1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Mark1" pref="46" max="32767" attributes="0"/>
                           <Component id="RedNote3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Markfield1" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="Choice1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Component id="Choice2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="MoreChoiceButton1" min="-2" pref="40" max="-2" attributes="0"/>
@@ -171,7 +170,7 @@
                           <Component id="SaveButton1" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="CancelButton1" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -180,7 +179,7 @@
             <Component class="javax.swing.JLabel" name="add">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="34" style="0"/>
+                  <Font name="Segoe UI" size="32" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="24" green="29" red="c2" type="rgb"/>
@@ -193,7 +192,7 @@
             <Component class="javax.swing.JLabel" name="general1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="30" style="0"/>
+                  <Font name="Segoe UI" size="28" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="24" green="29" red="c2" type="rgb"/>
@@ -210,7 +209,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -225,7 +224,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -240,7 +239,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -252,7 +251,7 @@
             <Component class="javax.swing.JComboBox" name="CateBox1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -276,7 +275,7 @@
             <Component class="javax.swing.JTextField" name="QnameField1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -294,7 +293,7 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
@@ -307,7 +306,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -319,7 +318,7 @@
             <Component class="javax.swing.JTextField" name="Markfield1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI" size="20" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="1"/>
               </Properties>
@@ -366,19 +365,19 @@
                               <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField3" max="32767" attributes="0"/>
+                              <Component id="jComboBox6" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextField3" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" max="32767" attributes="0"/>
@@ -386,9 +385,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel10" alignment="3" max="32767" attributes="0"/>
-                              <Component id="jComboBox6" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jComboBox6" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -397,7 +396,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Grade"/>
                   </Properties>
@@ -405,7 +404,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Choice 1"/>
                   </Properties>
@@ -413,7 +412,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField3">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -423,7 +422,7 @@
                 <Component class="javax.swing.JComboBox" name="jComboBox6">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="20" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="39">
@@ -469,6 +468,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox6ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -493,19 +495,19 @@
                               <Component id="jLabel15" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jComboBox7" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField6" max="32767" attributes="0"/>
+                              <Component id="jComboBox7" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextField6" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="jLabel15" alignment="3" max="32767" attributes="0"/>
@@ -524,7 +526,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Grade"/>
                   </Properties>
@@ -532,7 +534,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Choice 2"/>
                   </Properties>
@@ -540,7 +542,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField6">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -550,7 +552,7 @@
                 <Component class="javax.swing.JComboBox" name="jComboBox7">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="20" style="0"/>
+                      <Font name="Segoe UI" size="20" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="39">
@@ -608,7 +610,7 @@
                   <Color blue="ff" green="66" red="33" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="20" style="0"/>
+                  <Font name="Segoe UI Semibold" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -625,7 +627,7 @@
                   <Color blue="ff" green="66" red="33" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="22" style="0"/>
+                  <Font name="Segoe UI Semibold" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -642,7 +644,7 @@
                   <Color blue="33" green="33" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI Semibold" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -659,7 +661,7 @@
                   <Color blue="ff" green="66" red="33" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Segoe UI Semibold" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
