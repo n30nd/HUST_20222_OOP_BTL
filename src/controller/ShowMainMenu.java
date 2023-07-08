@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.awt.BorderLayout;
@@ -13,7 +12,6 @@ import view.GUI_2_TabbedPaneMenu;
  *
  * @author anhqu
  */
-
 // Sự kiện hiện menu chính khi chọn Popup Menu
 public class ShowMainMenu {
 
@@ -64,10 +62,13 @@ public class ShowMainMenu {
                     node.getTabbedPaneMenu().setSelectedIndex(0);
                     break;
             }
+            int selectedIndex = node.getTabbedPaneMenu().getSelectedIndex();
+            String selectedTabTitle = node.getTabbedPaneMenu().getTitleAt(selectedIndex);
             node.setSize(1038, 521);
             node.setLocation(0, 0);
             mainFrame.getPanel_content().removeAll();
             mainFrame.getPanel_content().add(node, BorderLayout.CENTER);
+            mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ" + " / " + selectedTabTitle);
             mainFrame.validate();
             mainFrame.repaint();
         }

@@ -163,17 +163,21 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="852" max="32767" attributes="0"/>
-                              <Component id="btn_turnOnEditting" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="lbl_HomeLogo" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lbl_settingToShowPopUpMenu" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="MainPath" min="-2" pref="335" max="-2" attributes="0"/>
+                              <EmptySpace pref="490" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbl_settingToShowPopUpMenu" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_turnOnEditting" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
@@ -193,7 +197,10 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_turnOnEditting" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btn_turnOnEditting" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="MainPath" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -250,6 +257,11 @@
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="returnHomeFrame"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="MainPath">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Home / My Courses / THI CU&#x1ed0;I K&#x1ef2;"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_content">
@@ -296,7 +308,7 @@
                           <Component id="jLabel2" min="-2" pref="28" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="28" max="-2" attributes="0"/>
-                          <EmptySpace pref="433" max="32767" attributes="0"/>
+                          <EmptySpace pref="432" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

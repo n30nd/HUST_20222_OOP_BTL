@@ -42,6 +42,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         lbl_settingToShowPopUpMenu = new javax.swing.JLabel();
         btn_turnOnEditting = new javax.swing.JButton();
         lbl_HomeLogo = new javax.swing.JLabel();
+        MainPath = new javax.swing.JLabel();
         panel_content = new javax.swing.JPanel();
         panel_examList = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -118,20 +119,25 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
             }
         });
 
+        MainPath.setText("Home / My Courses / THI CUỐI KỲ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(852, Short.MAX_VALUE)
-                        .addComponent(btn_turnOnEditting))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addComponent(lbl_HomeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_settingToShowPopUpMenu)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(MainPath, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 490, Short.MAX_VALUE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_settingToShowPopUpMenu, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_turnOnEditting, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(38, 38, 38))
         );
         jPanel3Layout.setVerticalGroup(
@@ -145,7 +151,9 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lbl_HomeLogo)))
                 .addGap(18, 18, 18)
-                .addComponent(btn_turnOnEditting, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_turnOnEditting, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MainPath, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -173,7 +181,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addContainerGap(432, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel_contentLayout = new javax.swing.GroupLayout(panel_content);
@@ -251,15 +259,17 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.panel_content.removeAll();
         this.panel_content.add(panel_examList);
+        this.MainPath.setText("Home / My Courses / THI CUỐI KỲ");
         this.validate();
         this.repaint();
     }//GEN-LAST:event_returnHomeFrame
 
     private void addNewQuiz(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewQuiz
         // TODO add your handling code here:
+        this.MainPath.setText("Home / My Courses / THI CUỐI KỲ / Add new Question");
         GUI_5_1_AddNewQuiz addNewQuiz = new GUI_5_1_AddNewQuiz(this);
         this.panel_content.removeAll();
-        addNewQuiz.setSize(1030, 470);
+        addNewQuiz.setSize(1030, 519);
         addNewQuiz.setLocation(5, 2);
         this.panel_content.add(addNewQuiz);
         this.validate();
@@ -271,6 +281,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel MainPath;
     private javax.swing.JPopupMenu PopUpMenu;
     private javax.swing.JButton btn_turnOnEditting;
     private javax.swing.JMenuItem catagories_MenuItem;
@@ -313,6 +324,16 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     public void setPanel_examList(JPanel panel_examList) {
         this.panel_examList = panel_examList;
     }
+
+    public JLabel getMainPath() {
+        return MainPath;
+    }
+
+    public void setMainPath(JLabel MainPath) {
+        this.MainPath = MainPath;
+    }
+    
+    
     
     
     

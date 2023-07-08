@@ -91,6 +91,11 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         export_panel = new javax.swing.JPanel();
 
         TabbedPaneMenu.setForeground(new java.awt.Color(0, 159, 229));
+        TabbedPaneMenu.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabbedPaneMenuStateChanged(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto Slab Medium", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(193, 41, 36));
@@ -468,9 +473,8 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         int x = fileChooser.showDialog(this.import_panel, "CHOOSE A FILE");
         if (x == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            
-            isValidFileImport = true;
 
+            isValidFileImport = true;
 
             if (!file.getName().toLowerCase().endsWith(".txt")) {
                 isValidFileImport = false;
@@ -494,6 +498,12 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_chooseFile
 
+    private void TabbedPaneMenuStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneMenuStateChanged
+        // TODO add your handling code here:
+        int selectedIndex = TabbedPaneMenu.getSelectedIndex();
+        String selectedTabTitle = TabbedPaneMenu.getTitleAt(selectedIndex);
+        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ" + " / " + selectedTabTitle);
+    }//GEN-LAST:event_TabbedPaneMenuStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TabbedPaneMenu;
@@ -547,7 +557,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         this.TabbedPaneMenu = TabbedPaneMenu;
     }
 
-    public void dragToImportFile() {
+    private void dragToImportFile() {
         DropTargetListener dropTargetListener = new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {

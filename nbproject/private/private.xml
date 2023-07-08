@@ -7,11 +7,11 @@
         </group>
         <group name="Case">
             <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/view/GUI_2_TabbedPaneMenu.java</file>
-            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/Data/newQuestion.txt</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/view/TabbedPaneMenu.java</file>
             <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/view/GUI_7_2_StartAttempt.java</file>
             <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/view/GUI_5_1_AddNewQuiz.java</file>
-            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/model/Question.java</file>
             <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/controller/ShowMainMenu.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/view/GUI1_1_MainFrame.java</file>
             <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/BTL_OOP_20222_HUST/HUST_20222_OOP_BTL/src/controller/AikenFormatChecker.java</file>
         </group>
     </open-files>
