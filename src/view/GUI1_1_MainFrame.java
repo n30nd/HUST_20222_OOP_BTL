@@ -45,8 +45,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         MainPath = new javax.swing.JLabel();
         panel_content = new javax.swing.JPanel();
         panel_examList = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_exam1 = new javax.swing.JLabel();
 
         question_MenuItem.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         question_MenuItem.setForeground(new java.awt.Color(0, 159, 229));
@@ -126,15 +125,15 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addComponent(lbl_HomeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 791, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(MainPath, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 490, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(MainPath, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_settingToShowPopUpMenu, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_turnOnEditting, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -159,9 +158,21 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
 
         panel_content.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setText("Bài 1");
-
-        jLabel1.setText("Bài 2");
+        lbl_exam1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        lbl_exam1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Txt.32.png"))); // NOI18N
+        lbl_exam1.setText("Thi giữa kỳ 2 môn Công nghệ");
+        lbl_exam1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_exam1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbl_exam1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbl_exam1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_exam1MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_examListLayout = new javax.swing.GroupLayout(panel_examList);
         panel_examList.setLayout(panel_examListLayout);
@@ -169,19 +180,15 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
             panel_examListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_examListLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(panel_examListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lbl_exam1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_examListLayout.setVerticalGroup(
             panel_examListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_examListLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(432, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(lbl_exam1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel_contentLayout = new javax.swing.GroupLayout(panel_content);
@@ -276,6 +283,28 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_addNewQuiz
 
+    private void lbl_exam1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_exam1MousePressed
+        // TODO add your handling code here:
+        GUI_6_1 gui6_1_exam = new GUI_6_1(this);
+        this.MainPath.setText("Home / My Courses / THI CUỐI KỲ / " + lbl_exam1.getText());
+        this.panel_content.removeAll();
+        gui6_1_exam.setSize(1030, 519);
+        gui6_1_exam.setLocation(0,0);
+        this.panel_content.add(gui6_1_exam);
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_lbl_exam1MousePressed
+
+    private void lbl_exam1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_exam1MouseEntered
+        // TODO add your handling code here:
+        lbl_exam1.setForeground(Color.red);
+    }//GEN-LAST:event_lbl_exam1MouseEntered
+
+    private void lbl_exam1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_exam1MouseExited
+        // TODO add your handling code here:
+        lbl_exam1.setForeground(Color.black);
+    }//GEN-LAST:event_lbl_exam1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -287,10 +316,9 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem catagories_MenuItem;
     private javax.swing.JMenuItem export_MenuItem;
     private javax.swing.JMenuItem import_MenuItem;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lbl_HomeLogo;
+    private javax.swing.JLabel lbl_exam1;
     private javax.swing.JLabel lbl_settingToShowPopUpMenu;
     private javax.swing.JPanel panel_ContainsAll;
     private javax.swing.JPanel panel_content;
@@ -299,7 +327,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem question_MenuItem;
     // End of variables declaration//GEN-END:variables
 
-    public void showMainMenu() {
+    private void showMainMenu() {
         ShowMainMenu showMainMenu = new ShowMainMenu(this);
         List<JMenuItem> menuItems = new ArrayList<JMenuItem>();
         menuItems.add(question_MenuItem);
@@ -331,6 +359,14 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
 
     public void setMainPath(JLabel MainPath) {
         this.MainPath = MainPath;
+    }
+
+    public JLabel getLbl_exam1() {
+        return lbl_exam1;
+    }
+
+    public void setLbl_exam1(JLabel lbl_exam1) {
+        this.lbl_exam1 = lbl_exam1;
     }
     
     
