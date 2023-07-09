@@ -455,6 +455,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private void createNewQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewQuestion
         // TODO add your handling code here:
         GUI3_2_Add_Question gui3_2_Add_Question = new GUI3_2_Add_Question(mainFrame);
+        // GUI_7_2_StartAttempt gui3_2_Add_Question = new GUI_7_2_StartAttempt(mainFrame);        
         mainFrame.getPanel_content().removeAll();
         gui3_2_Add_Question.setSize(1083, 530);
         gui3_2_Add_Question.setLocation(-20, 0);

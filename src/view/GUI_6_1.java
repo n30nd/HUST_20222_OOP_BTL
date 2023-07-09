@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author viet0
@@ -139,6 +141,11 @@ public class GUI_6_1 extends javax.swing.JPanel implements java.beans.Customizer
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("PREVIEW QUIZ NOW");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -215,6 +222,17 @@ public class GUI_6_1 extends javax.swing.JPanel implements java.beans.Customizer
         this.getMainFrame().repaint();
     }//GEN-LAST:event_EditButtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        GUI_7_2_StartAttempt gui_7_2_StartAttempt = new GUI_7_2_StartAttempt(mainFrame);
+        mainFrame.getPanel_content().removeAll();
+        gui_7_2_StartAttempt.setSize(1083, 530);
+        gui_7_2_StartAttempt.setLocation(-20, 0);
+        mainFrame.getPanel_content().add(gui_7_2_StartAttempt, BorderLayout.CENTER);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditButton;
