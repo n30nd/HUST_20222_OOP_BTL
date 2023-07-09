@@ -136,4 +136,54 @@ public class Xuatnhapcategoryquestion {
             e.printStackTrace();
         }
     }
+    public static void fetchQuestion(int _categoryId, String directory) {
+        try {
+            int row = 0;
+            Scanner sc = new Scanner(new File(directory), "UTF-8");
+            Question _question;
+            String str;
+            List<String> _choice;
+            List<Float> _answer;
+
+            while (sc.hasNextLine()) {
+                str = sc.nextLine(); row++;
+                _choice = new ArrayList<String>();
+                _answer = new ArrayList<Float>();
+
+                if (str == "") {
+                    _question = new Question();
+                    
+                    _question.setCategory(_categoryId);
+                    str = sc.nextLine(); row++;
+                    if (str.substring(0, 5).equals("Easy:")) {_question.setLevel(1); str = str.replace("Easy:", "");} else
+                    if (str.substring(0, 7).equals("Medium:")) {_question.setLevel(2); str = str.replace("Medium:", "");} else
+                    if (str.substring(0, 5).equals("Hard:")) {_question.setLevel(3); str = str.replace("Hard:", "");} else
+                    {_question.setLevel(0);}
+                    _question.setName(str);
+
+                    str = sc.nextLine(); row++;
+                    if (str.charAt(0) > 90 || str.charAt(0) < 65) {System.out.println("Error at row: " + row); return;}
+                    while (str.charAt(0) >= 65 && str.charAt(0) <= 90 && str.charAt(1) == '.') {
+                        _choice.add(str);
+                        str = sc.nextLine(); row++;
+                    }
+                    _question.setChoice(_choice);
+
+                    if (!str.substring(0, 7).equals("ANSWER:")) {System.out.println("Error at row: " + row); return;}
+                    str = str.replace("ANSWER:", "").replaceAll("\\s", "").replaceAll(",", "");
+                    str = str.toUpperCase();
+                    for (int i = 0; i < _choice.size(); i++) {_answer.add((float)0.0);}
+                    _question.setChoice(_choice);
+                    for (int i = 0; i < str.length(); i++) {_answer.set(str.charAt(i) - 65, (float)1.0/str.length());}
+                    _question.setAnswer(_answer);
+                    
+                    writeQuestion(_question);
+                    
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            System.err.println("Has exception!");
+        }
+    }
 }

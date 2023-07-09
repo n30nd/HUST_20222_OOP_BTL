@@ -33,4 +33,10 @@ public class Category {
     public void setName(String _name) {name = _name;}
     public void setInfo(String _info) {info = _info;}
     public void setId(Integer _id) {id = _id;}
+
+    public void setNumOfQuestions(int size) {this.numOfQuestions = size;
+    }
+
+    public String toString1() {return  this.name +"("+this.numOfQuestions+")";
+    }
 }
