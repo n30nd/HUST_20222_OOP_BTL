@@ -4,18 +4,23 @@
  */
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author DANG VAN DANG
  */
 public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
-
+    private GUI1_1_MainFrame mainFrame;
     /**
      * Creates new form GUI_7_2_StartAttempt
+     * @param mainFrame
      */
-    public GUI_7_2_StartAttempt() {
+    public GUI_7_2_StartAttempt(GUI1_1_MainFrame frame) {
+        this.mainFrame = frame;
         initComponents();
     }
 
@@ -118,6 +123,11 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("START ATTEMPT");
+        jButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                startAttempt();
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(51, 102, 255));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,8 +183,19 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
+
     }// </editor-fold>//GEN-END:initComponents
 
+    public void startAttempt() {
+        GUI_7_3_Exam gui_7_3_Exam = new GUI_7_3_Exam(mainFrame);
+
+        gui_7_3_Exam.setLocation(0, 0);
+        
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(gui_7_3_Exam, BorderLayout.CENTER);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
