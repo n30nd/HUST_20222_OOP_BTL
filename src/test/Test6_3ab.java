@@ -5,11 +5,19 @@
 package test;
 
 
+import java.util.List;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import model.Question;
+
 import view.GUI6_3ab;
 
 public class Test6_3ab {
     public static void main(String[] args) {
+        
+        
+        
+        
         // Tạo đối tượng JFrame hoặc JPanel
         GUI6_3ab panel = new GUI6_3ab();
 //        panel.setContentPane(new JScrollPane(panel));

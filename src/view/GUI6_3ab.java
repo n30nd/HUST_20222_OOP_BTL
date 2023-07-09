@@ -5,16 +5,27 @@
 package view;
 
 import controller.Xuatnhapcategoryquestion;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import model.Category;
 import model.Question;
 
@@ -48,8 +59,9 @@ public class GUI6_3ab extends javax.swing.JPanel {
         jCheckBox4 = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        selectQsButton = new javax.swing.JButton();
+        tickAllQsCheckbox = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        panelQuestions = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -58,7 +70,8 @@ public class GUI6_3ab extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        selectQsButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        panelQuestions = new javax.swing.JPanel();
 
         jLabel5.setText("jLabel5");
 
@@ -88,20 +101,18 @@ public class GUI6_3ab extends javax.swing.JPanel {
             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        selectQsButton.setText("ADD SELECTED QUESTION TO THE QUIZ");
+        selectQsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectQsButtonMouseClicked(evt);
+            }
+        });
+
+        tickAllQsCheckbox.setText("Question");
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setText("Add from the question bank at the end");
-
-        javax.swing.GroupLayout panelQuestionsLayout = new javax.swing.GroupLayout(panelQuestions);
-        panelQuestions.setLayout(panelQuestionsLayout);
-        panelQuestionsLayout.setHorizontalGroup(
-            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
-        );
-        panelQuestionsLayout.setVerticalGroup(
-            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
-        );
 
         jLabel4.setText("Search options");
 
@@ -119,11 +130,24 @@ public class GUI6_3ab extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/blue_triangle.png"))); // NOI18N
 
+        javax.swing.GroupLayout panelQuestionsLayout = new javax.swing.GroupLayout(panelQuestions);
+        panelQuestions.setLayout(panelQuestionsLayout);
+        panelQuestionsLayout.setHorizontalGroup(
+            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 837, Short.MAX_VALUE)
+        );
+        panelQuestionsLayout.setVerticalGroup(
+            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 468, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(panelQuestions);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -137,6 +161,9 @@ public class GUI6_3ab extends javax.swing.JPanel {
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2))
                 .addGap(116, 116, 116))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,24 +180,20 @@ public class GUI6_3ab extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2))
+                .addComponent(jCheckBox2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-
-        selectQsButton.setText("ADD SELECTED QUESTION TO THE QUIZ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelQuestions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(selectQsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,11 +201,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelQuestions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectQsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(58, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,6 +209,16 @@ public class GUI6_3ab extends javax.swing.JPanel {
         // TODO add your handling code here:
         showQuestion(jComboBox1.getSelectedIndex());
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void selectQsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectQsButtonMouseClicked
+        // TODO add your handling code here:
+        qstoQuiz = new ArrayList<>();
+        for(int idx =0;idx<tick.length;idx ++){
+            if(tick[idx] == 1){
+                qstoQuiz.add(questionChooses.get(idx));
+            }
+        }
+    }//GEN-LAST:event_selectQsButtonMouseClicked
 
     List<Category> categories;
     
@@ -242,28 +271,51 @@ public class GUI6_3ab extends javax.swing.JPanel {
         }
     }
 
-        
-//private void showPanelQuestions(){
-//    panelQuestions.setLayout(new BoxLayout(panelQuestions,BoxLayout.Y_AXIS));
-//    
-//    
-//}
+
+    
+    public List<Question> qstoQuiz;
+    public List<JCheckBox> jCheckBoxs;
+    public List<Question> questionChooses;
+    public int[] tick = new int[100]; // Khai báo mảng tick có 100 phần tử
+
 
     private void showQuestion(int i) {
-
+        
+        Arrays.fill(tick, 0);
         panelQuestions.removeAll();
         
         Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
+        // Khởi tạo jCheckBoxs
+    jCheckBoxs = new ArrayList<>();
         
-        List<Question> questionChooses = xn.readQuestionList(categories.get(i).getId());
+        questionChooses = xn.readQuestionList(categories.get(i).getId());
         panelQuestions.setLayout(new BoxLayout(panelQuestions, BoxLayout.Y_AXIS));
 
+        
+
+
+    panelQuestions.add(tickAllQsCheckbox);
+
+        tickAllQsCheckbox.addItemListener(new ItemListener() {
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            for (JCheckBox checkBox : jCheckBoxs) {
+                checkBox.setSelected(true);
+            }
+        } else {
+            for (JCheckBox checkBox : jCheckBoxs) {
+                checkBox.setSelected(false);
+            }
+        }
+    }
+});
         for (Question qs : questionChooses) {
           //  panelQuestions.add(new JLabel(qs.getName()));
           // jLabel5.setText(qs.getName());
            //panelQuestions.add(jPanel2);
            JLabel label1 = new JLabel("Label 1");
-    JCheckBox checkBox = new JCheckBox("Checkbox");
+   JCheckBox checkBox = new JCheckBox("Checkbox");
     JLabel label2 = new JLabel(qs.getName());
     JLabel label3 = new JLabel("Label 3");
     
@@ -280,6 +332,21 @@ public class GUI6_3ab extends javax.swing.JPanel {
     checkBox.setMinimumSize(checkBoxSize);
     checkBox.setMaximumSize(checkBoxSize);
     checkBox.setPreferredSize(checkBoxSize);
+    jCheckBoxs.add(checkBox);
+    checkBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                 int idx = questionChooses.indexOf(qs);
+                 tick[idx] = 1;
+                    System.out.println("Đã tick câu "+idx+qs.getName());
+                } else {
+                    int idx = questionChooses.indexOf(qs);
+                 tick[idx] = 0;
+
+                }
+            }
+        });
     
     // Vị trí và kích thước cố định cho label2
     Dimension label2Size = new Dimension(300, 25); // Kích thước cố định cho label2
@@ -304,12 +371,23 @@ public class GUI6_3ab extends javax.swing.JPanel {
     panelQuestions.add(questionBox);
 
         }
+        //Thêm selectQsbuuton vào cuối các câu hỏi
+        Box box = Box.createHorizontalBox();
+        box.add(selectQsButton);
+        panelQuestions.add(box);
+        
+        
+        
         panelQuestions.validate();
         panelQuestions.repaint();
         // Thực hiện hành động sau khi người dùng chọn phần tử
     }
 
 
+    
+
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -324,9 +402,11 @@ public class GUI6_3ab extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel panelQuestions;
     private javax.swing.JButton selectQsButton;
+    private javax.swing.JCheckBox tickAllQsCheckbox;
     // End of variables declaration//GEN-END:variables
 
     public void setLocationRelativeTo(Object object) {
