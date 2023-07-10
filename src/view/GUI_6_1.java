@@ -10,9 +10,8 @@ import java.awt.BorderLayout;
  *
  * @author viet0
  */
-public class GUI_6_1 extends javax.swing.JPanel implements java.beans.Customizer {
+public class GUI_6_1 extends javax.swing.JPanel {
    
-    private Object bean;
     private GUI1_1_MainFrame mainFrame;
 
     /**
@@ -21,10 +20,6 @@ public class GUI_6_1 extends javax.swing.JPanel implements java.beans.Customizer
     public GUI_6_1(GUI1_1_MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
-    }
-    
-    public void setObject(Object bean) {
-        this.bean = bean;
     }
 
     /**
@@ -211,15 +206,15 @@ public class GUI_6_1 extends javax.swing.JPanel implements java.beans.Customizer
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-        GUI_6_2_a gui6_2_editQuiz = new GUI_6_2_a(this);
-        this.getMainFrame().getMainPath().setText("Home / My Courses / THI CUỐI KỲ / "+ this.getMainFrame().getLbl_exam1().getText() + " / " + "Edit Quiz");
-        this.getMainFrame().getPanel_content().removeAll();
+        GUI_6_2_a gui6_2_editQuiz = new GUI_6_2_a(mainFrame);
+        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ / " + mainFrame.getLbl_exam1().getText() + " / " + "Edit Quiz");
+        mainFrame.getPanel_content().removeAll();
         
         gui6_2_editQuiz.setSize(1030, 519);
         gui6_2_editQuiz.setLocation(0,0);
-        this.getMainFrame().getPanel_content().add(gui6_2_editQuiz);
-        this.getMainFrame().validate();
-        this.getMainFrame().repaint();
+        mainFrame.getPanel_content().add(gui6_2_editQuiz);
+        mainFrame.validate();
+        mainFrame.repaint();
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -248,13 +243,4 @@ public class GUI_6_1 extends javax.swing.JPanel implements java.beans.Customizer
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
-
-    public GUI1_1_MainFrame getMainFrame() {
-        return mainFrame;
-    }
-
-    public void setMainFrame(GUI1_1_MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
-    }
- 
 }  

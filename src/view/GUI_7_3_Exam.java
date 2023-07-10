@@ -278,7 +278,7 @@ public class GUI_7_3_Exam extends JPanel {
 
         _frame.setBackground(Color.WHITE);
         _frame.setLayout(new BorderLayout(10, 10));
-        _frame.setLocationRelativeTo(finishLabel);
+        _frame.setLocationRelativeTo(mainFrame);
         _frame.setSize(300, 110);
 
         JPanel _okPanel = new JPanel(new FlowLayout()), _cancelPanel = new JPanel(new FlowLayout());
@@ -382,15 +382,4 @@ public class GUI_7_3_Exam extends JPanel {
 
         return mark;
     }
-    
-    // public static void main(String[] args) {
-    //     JFrame mainFrame = new JFrame();
-
-    //     new GUI_7_3_Exam(mainFrame);
-
-    //     mainFrame.setSize(1067, 778);
-    //     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //     mainFrame.setLayout(null);
-    //     mainFrame.setVisible(true);
-    // }
 }

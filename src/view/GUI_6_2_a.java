@@ -11,18 +11,17 @@ import java.awt.event.ActionListener;
  */
 public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customizer {
     
-    private Object bean;
-    private GUI_6_1 parent;
     /**
      * Creates new customizer GUI_6_2_a
+     * @param mainFrame
      */
     
-    public GUI_6_2_a(GUI_6_1 parent) {
+    public GUI_6_2_a(GUI1_1_MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         initComponents();
     }
     
     public void setObject(Object bean) {
-        this.bean = bean;
     }
 
     /**
@@ -265,7 +264,15 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_newQ_MenuItemActionPerformed
 
     private void Qbank_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Qbank_MenuItemActionPerformed
-        
+        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame);
+
+        gui6_3ab.setLocation(0, 0);
+
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(gui6_3ab);
+        mainFrame.validate();
+        mainFrame.repaint();
+
     }//GEN-LAST:event_Qbank_MenuItemActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -288,5 +295,6 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     private java.awt.Label label1;
     private javax.swing.JMenuItem newQ_MenuItem;
     private javax.swing.JMenuItem randQ_MenuItem;
+    private GUI1_1_MainFrame mainFrame;
     // End of variables declaration//GEN-END:variables
 }
