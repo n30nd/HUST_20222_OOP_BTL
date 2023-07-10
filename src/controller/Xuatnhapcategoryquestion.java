@@ -99,7 +99,7 @@ public class Xuatnhapcategoryquestion {
                     //Read level
                     question.setLevel(Integer.parseInt(str));
 
-                    if (question.getLevel() == _categoryId) {
+                    if (question.getCategory() == _categoryId) {
                         _qList.add(question);
                     }
                 }

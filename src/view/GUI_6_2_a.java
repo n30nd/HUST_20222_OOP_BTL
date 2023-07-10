@@ -3,6 +3,8 @@ package view;
 
 import javax.swing.JPopupMenu;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author viet0
@@ -64,6 +66,11 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         Qbank_MenuItem.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Qbank_MenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/blue_plus.png"))); // NOI18N
         Qbank_MenuItem.setText("  From question bank");
+        Qbank_MenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                Qbank_MenuItemActionPerformed(ae);
+            }
+        });
         jPopupMenuGUI62b.add(Qbank_MenuItem);
 
         randQ_MenuItem.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -246,7 +253,6 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         jPopupMenuGUI62b.setLayout(new GridLayout(3, 1, 50, 0));
        // jPopupMenuGUI62b.setForeground(new Color(255,255,255));
         
-        
         jPopupMenuGUI62b.add(newQ_MenuItem);
         jPopupMenuGUI62b.add(Qbank_MenuItem);
         jPopupMenuGUI62b.add(randQ_MenuItem);
@@ -258,6 +264,9 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         // TODO add your handling code here:
     }//GEN-LAST:event_newQ_MenuItemActionPerformed
 
+    private void Qbank_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Qbank_MenuItemActionPerformed
+        
+    }//GEN-LAST:event_Qbank_MenuItemActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Qbank_MenuItem;

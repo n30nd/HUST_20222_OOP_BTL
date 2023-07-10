@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -97,6 +98,7 @@ public class GUI_7_3_Exam extends JPanel {
         // Verify window
         finishLabel = new JLabel("  Finish attempt...");
         finishLabel.setBackground(Color.WHITE);
+        finishLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         finishLabel.setOpaque(true);
         finishLabel.setForeground(Color.BLUE);
         finishLabel.addMouseListener(new MouseListener() {
