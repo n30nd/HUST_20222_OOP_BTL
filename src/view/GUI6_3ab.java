@@ -5,7 +5,10 @@
 package view;
 
 import controller.Xuatnhapcategoryquestion;
+
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.BufferedReader;
@@ -14,6 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
@@ -27,11 +32,13 @@ import model.Question;
  * @author Vu Quang Nam
  */
 public class GUI6_3ab extends javax.swing.JPanel {
-
+    GUI1_1_MainFrame mainFrame;
     /**
      * Creates new form NewJPanel
+     * @param mainframe;
      */
-    public GUI6_3ab() {
+    public GUI6_3ab(GUI1_1_MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         initComponents();
         loadCategories();
         //showPanelQuestions();
@@ -45,6 +52,9 @@ public class GUI6_3ab extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        setBounds(10, 200, 1034, 527);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setBackground(Color.WHITE);
 
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -102,14 +112,16 @@ public class GUI6_3ab extends javax.swing.JPanel {
 
         tickAllQsCheckbox.setText("Question");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("Add from the question bank at the end");
+        jLabel1.setText("    Add from the question bank at the end");
 
         jLabel4.setText("Search options");
 
+        jCheckBox1.setBackground(Color.WHITE);
         jCheckBox1.setText("Also show questions from subcategories");
 
+        jCheckBox2.setBackground(Color.WHITE);
         jCheckBox2.setText("Also show old questions");
 
         jLabel2.setText("Select a Category: ");
@@ -126,7 +138,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
         panelQuestions.setLayout(panelQuestionsLayout);
         panelQuestionsLayout.setHorizontalGroup(
             panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 837, Short.MAX_VALUE)
+            .addGap(10, 837, Short.MAX_VALUE)
         );
         panelQuestionsLayout.setVerticalGroup(
             panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,6 +148,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
         jScrollPane2.setViewportView(panelQuestions);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setBackground(Color.WHITE);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +166,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2))
                 .addGap(116, 116, 116))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane2)
                 .addContainerGap())
         );
@@ -181,10 +194,10 @@ public class GUI6_3ab extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1034, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -262,8 +275,6 @@ public class GUI6_3ab extends javax.swing.JPanel {
             jComboBox1.addItem(categories.get(i).toString1());
         }
     }
-
-
     
     public List<Question> qstoQuiz;
     public List<JCheckBox> jCheckBoxs;
@@ -288,20 +299,20 @@ public class GUI6_3ab extends javax.swing.JPanel {
 
     panelQuestions.add(tickAllQsCheckbox);
 
-        tickAllQsCheckbox.addItemListener(new ItemListener() {
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        if (e.getStateChange() == ItemEvent.SELECTED) {
-            for (JCheckBox checkBox : jCheckBoxs) {
-                checkBox.setSelected(true);
-            }
-        } else {
-            for (JCheckBox checkBox : jCheckBoxs) {
-                checkBox.setSelected(false);
+    tickAllQsCheckbox.addItemListener(new ItemListener() {
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                for (JCheckBox checkBox : jCheckBoxs) {
+                    checkBox.setSelected(true);
+                }
+            } else {
+                for (JCheckBox checkBox : jCheckBoxs) {
+                    checkBox.setSelected(false);
+                }
             }
         }
-    }
-});
+    });
         for (Question qs : questionChooses) {
           //  panelQuestions.add(new JLabel(qs.getName()));
           // jLabel5.setText(qs.getName());
@@ -374,11 +385,6 @@ public class GUI6_3ab extends javax.swing.JPanel {
         panelQuestions.repaint();
         // Thực hiện hành động sau khi người dùng chọn phần tử
     }
-
-
-    
-
-
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBox1;
