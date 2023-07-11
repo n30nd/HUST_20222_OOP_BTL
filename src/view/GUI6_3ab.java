@@ -8,7 +8,7 @@ import controller.Xuatnhapcategoryquestion;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.BufferedReader;
@@ -20,9 +20,11 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 import model.Category;
 import model.Question;
 
@@ -52,9 +54,9 @@ public class GUI6_3ab extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        setBounds(10, 200, 1034, 527);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setBackground(Color.WHITE);
+        setBorder(BorderFactory.createLineBorder(Color.GRAY, 1, false));
+        setBounds(0, 0, 1034, 527);
 
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -82,6 +84,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Txt.32.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setBackground(Color.WHITE);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,11 +113,12 @@ public class GUI6_3ab extends javax.swing.JPanel {
             }
         });
 
+        tickAllQsCheckbox.setAlignmentX(JCheckBox.LEFT_ALIGNMENT);
         tickAllQsCheckbox.setText("Question");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("    Add from the question bank at the end");
+        jLabel1.setText("Add from the question bank at the end");
 
         jLabel4.setText("Search options");
 
@@ -134,17 +138,20 @@ public class GUI6_3ab extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/blue_triangle.png"))); // NOI18N
 
+        panelQuestions.setPreferredSize(new java.awt.Dimension(1016, 456));
+
         javax.swing.GroupLayout panelQuestionsLayout = new javax.swing.GroupLayout(panelQuestions);
         panelQuestions.setLayout(panelQuestionsLayout);
         panelQuestionsLayout.setHorizontalGroup(
-            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(10, 837, Short.MAX_VALUE)
+            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
         panelQuestionsLayout.setVerticalGroup(
-            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            panelQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
+        jScrollPane2.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
         jScrollPane2.setViewportView(panelQuestions);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -166,7 +173,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2))
                 .addGap(116, 116, 116))
-            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane2)
                 .addContainerGap())
         );
@@ -187,14 +194,14 @@ public class GUI6_3ab extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1034, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,24 +212,39 @@ public class GUI6_3ab extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
         showQuestion(jComboBox1.getSelectedIndex());
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void selectQsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectQsButtonMouseClicked
-        // TODO add your handling code here:
-        qstoQuiz = new ArrayList<>();
-        for(int idx =0;idx<tick.length;idx ++){
-            if(tick[idx] == 1){
+        qstoQuiz = new ArrayList<Question>();
+        
+        for (int idx = 0; idx < tick.length; idx++) {
+            if (tick[idx] == true) {
                 qstoQuiz.add(questionChooses.get(idx));
             }
         }
+
+        GUI_6_2_a gui_6_2_a = new GUI_6_2_a(mainFrame);
+        gui_6_2_a.setLocation(0, 0);
+        gui_6_2_a.setSize(1034, 527);
+        mainFrame.getPanel_content().removeAll();
+        
+        if (qstoQuiz.size() > 0) {
+            GUI_6_4_Quoc gui_6_4 = new GUI_6_4_Quoc(mainFrame, qstoQuiz);
+            gui_6_4.setLocation(0, 293);
+            gui_6_4.setSize(1034, qstoQuiz.size() * 25);
+            mainFrame.getPanel_content().add(gui_6_4);
+        }
+        mainFrame.getPanel_content().add(gui_6_2_a);
+        mainFrame.validate();
+        mainFrame.repaint();
+
     }//GEN-LAST:event_selectQsButtonMouseClicked
 
     List<Category> categories;
@@ -279,108 +301,105 @@ public class GUI6_3ab extends javax.swing.JPanel {
     public List<Question> qstoQuiz;
     public List<JCheckBox> jCheckBoxs;
     public List<Question> questionChooses;
-    public int[] tick = new int[100]; // Khai báo mảng tick có 100 phần tử
+    public boolean[] tick = new boolean[100]; // Khai báo mảng tick có 100 phần tử
 
 
     private void showQuestion(int i) {
-        
-        Arrays.fill(tick, 0);
+        Arrays.fill(tick, false);
         panelQuestions.removeAll();
         
         Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
         // Khởi tạo jCheckBoxs
-    jCheckBoxs = new ArrayList<>();
+        jCheckBoxs = new ArrayList<JCheckBox>();
         
         questionChooses = xn.readQuestionList(categories.get(i).getId());
-        panelQuestions.setLayout(new BoxLayout(panelQuestions, BoxLayout.Y_AXIS));
 
-        
+        panelQuestions.setLayout(new GridLayout(questionChooses.size() + 2, 1));
+        panelQuestions.add(tickAllQsCheckbox);
 
-
-    panelQuestions.add(tickAllQsCheckbox);
-
-    tickAllQsCheckbox.addItemListener(new ItemListener() {
-        @Override
-        public void itemStateChanged(ItemEvent e) {
-            if (e.getStateChange() == ItemEvent.SELECTED) {
-                for (JCheckBox checkBox : jCheckBoxs) {
-                    checkBox.setSelected(true);
-                }
-            } else {
-                for (JCheckBox checkBox : jCheckBoxs) {
-                    checkBox.setSelected(false);
-                }
-            }
-        }
-    });
-        for (Question qs : questionChooses) {
-          //  panelQuestions.add(new JLabel(qs.getName()));
-          // jLabel5.setText(qs.getName());
-           //panelQuestions.add(jPanel2);
-           JLabel label1 = new JLabel("Label 1");
-   JCheckBox checkBox = new JCheckBox("Checkbox");
-    JLabel label2 = new JLabel(qs.getName());
-    JLabel label3 = new JLabel("Label 3");
-    
-    Box questionBox = Box.createHorizontalBox();
-    
-    // Vị trí và kích thước cố định cho label1
-    Dimension label1Size = new Dimension(40, 25); // Kích thước cố định cho label1
-    label1.setMinimumSize(label1Size);
-    label1.setMaximumSize(label1Size);
-    label1.setPreferredSize(label1Size);
-    
-    // Vị trí và kích thước cố định cho checkBox
-    Dimension checkBoxSize = new Dimension(80, 25); // Kích thước cố định cho checkBox
-    checkBox.setMinimumSize(checkBoxSize);
-    checkBox.setMaximumSize(checkBoxSize);
-    checkBox.setPreferredSize(checkBoxSize);
-    jCheckBoxs.add(checkBox);
-    checkBox.addItemListener(new ItemListener() {
+        tickAllQsCheckbox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                 int idx = questionChooses.indexOf(qs);
-                 tick[idx] = 1;
-                    System.out.println("Đã tick câu "+idx+qs.getName());
+                    for (JCheckBox checkBox : jCheckBoxs) {
+                        checkBox.setSelected(true);
+                    }
                 } else {
-                    int idx = questionChooses.indexOf(qs);
-                 tick[idx] = 0;
-
+                    for (JCheckBox checkBox : jCheckBoxs) {
+                        checkBox.setSelected(false);
+                    }
                 }
             }
         });
-    
-    // Vị trí và kích thước cố định cho label2
-    Dimension label2Size = new Dimension(300, 25); // Kích thước cố định cho label2
-    label2.setMinimumSize(label2Size);
-    label2.setMaximumSize(label2Size);
-    label2.setPreferredSize(label2Size);
-    
-    // Vị trí và kích thước cố định cho label3
-    Dimension label3Size = new Dimension(100, 25); // Kích thước cố định cho label3
-    label3.setMinimumSize(label3Size);
-    label3.setMaximumSize(label3Size);
-    label3.setPreferredSize(label3Size);
-    
-    questionBox.add(label1);
-    questionBox.add(Box.createHorizontalStrut(1)); // Khoảng cách ngang giữa label1 và checkBox
-    questionBox.add(checkBox);
-    questionBox.add(Box.createHorizontalStrut(2)); // Khoảng cách ngang giữa checkBox và label2
-    questionBox.add(label2);
-    questionBox.add(Box.createHorizontalGlue()); // Khoảng cách ngang giữa label2 và label3
-    questionBox.add(label3);
-    
-    panelQuestions.add(questionBox);
+        
+        for (Question qs : questionChooses) {
+            Box questionBox = Box.createHorizontalBox();
+            JCheckBox checkBox = new JCheckBox();
+            JLabel label = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\detail.png"));
+            JLabel label1 = new JLabel(new ImageIcon(System.getProperty("user.dir") +"\\src\\view\\img\\blue_plus.png"));
+            JLabel label2 = new JLabel(qs.getName());
+            JLabel label3 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\zoom_in.png"));
+        
+            // Vị trí và kích thước cố định cho label1
+            Dimension label1Size = new Dimension(40, 25); // Kích thước cố định cho label1
+            label1.setMinimumSize(label1Size);
+            label1.setMaximumSize(label1Size);
+            label1.setPreferredSize(label1Size);
+        
+            // Vị trí và kích thước cố định cho checkBox
+            Dimension checkBoxSize = new Dimension(30, 25); // Kích thước cố định cho checkBox
+            checkBox.setMinimumSize(checkBoxSize);
+            checkBox.setMaximumSize(checkBoxSize);
+            checkBox.setPreferredSize(checkBoxSize);
+            jCheckBoxs.add(checkBox);
+            checkBox.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        int idx = questionChooses.indexOf(qs);
+                        tick[idx] = true;
+                    } else {
+                        int idx = questionChooses.indexOf(qs);
+                        tick[idx] = false;
+                    }
+                }
+            });
+        
+            Dimension labelSize = new Dimension(25, 25);
+            label.setMinimumSize(labelSize);
+            label.setMaximumSize(labelSize);
+            label.setPreferredSize(labelSize);
 
+            // Vị trí và kích thước cố định cho label2
+            Dimension label2Size = new Dimension(300, 25); // Kích thước cố định cho label2
+            label2.setMinimumSize(label2Size);
+            label2.setMaximumSize(label2Size);
+            label2.setPreferredSize(label2Size);
+        
+            // Vị trí và kích thước cố định cho label3
+            Dimension label3Size = new Dimension(100, 25); // Kích thước cố định cho label3
+            label3.setMinimumSize(label3Size);
+            label3.setMaximumSize(label3Size);
+            label3.setPreferredSize(label3Size);
+        
+            questionBox.add(label1);
+            questionBox.add(Box.createHorizontalStrut(1)); // Khoảng cách ngang giữa label1 và checkBox
+            questionBox.add(checkBox);
+            questionBox.add(label);
+            questionBox.add(Box.createHorizontalStrut(2)); // Khoảng cách ngang giữa checkBox và label2
+            questionBox.add(label2);
+            questionBox.add(Box.createHorizontalGlue()); // Khoảng cách ngang giữa label2 và label3
+            questionBox.add(label3);
+        
+            panelQuestions.add(questionBox);
         }
         //Thêm selectQsbuuton vào cuối các câu hỏi
         Box box = Box.createHorizontalBox();
+        box.add(Box.createHorizontalGlue());
         box.add(selectQsButton);
+        box.add(Box.createHorizontalGlue());
+
         panelQuestions.add(box);
-        
-        
-        
         panelQuestions.validate();
         panelQuestions.repaint();
         // Thực hiện hành động sau khi người dùng chọn phần tử

@@ -5,6 +5,8 @@ import javax.swing.JPopupMenu;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import model.Question;
 /**
  *
  * @author viet0
@@ -17,7 +19,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
      */
     
     public GUI_6_2_a(GUI1_1_MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
+        this.mainFrame = mainFrame;        
         initComponents();
     }
     
