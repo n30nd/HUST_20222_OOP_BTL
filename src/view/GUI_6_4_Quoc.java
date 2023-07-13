@@ -46,7 +46,26 @@ public class GUI_6_4_Quoc extends JPanel {
             JLabel label = new JLabel();
             JLabel label5 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\setting_24.png"));
             JLabel label6 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\trash.png"));
+            JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            panel1.setBackground(Color.WHITE); // Thiết lập màu nền của panel là màu trắng
 
+            // Tạo JLabel label7 và label8
+            JLabel label7 = new JLabel("1.00");
+            JLabel label8 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\blue_pen.png"));
+
+            // Thiết lập màu nền của label7 và label8 là màu trắng
+            label7.setBackground(Color.WHITE);
+            label8.setBackground(Color.WHITE);
+
+            // Thiết lập label7 và label8 hiển thị trên cùng một hàng
+            label7.setVerticalAlignment(JLabel.CENTER);
+            label8.setVerticalAlignment(JLabel.CENTER);
+
+            // Thêm label7 và label8 vào panel
+            panel1.add(label7);
+            panel1.add(label8);
+            
+            
             JPanel panel = new JPanel();
 
             panel.setBackground(Color.LIGHT_GRAY);
@@ -75,6 +94,9 @@ public class GUI_6_4_Quoc extends JPanel {
             panel.add(label5, gbc);
             gbc.gridx = 6; gbc.weightx = 25;
             panel.add(label6, gbc);
+            gbc.gridx = 7;gbc.weightx = 25;
+            panel.add(panel1,gbc);
+            gbc.gridx = 8;gbc.weightx = 25;
 
             panelQuestionsList.add(panel);
         }
