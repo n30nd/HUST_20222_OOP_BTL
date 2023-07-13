@@ -78,6 +78,11 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         randQ_MenuItem.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         randQ_MenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/blue_plus.png"))); // NOI18N
         randQ_MenuItem.setText("  A random question");
+        randQ_MenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randQ_MenuItemActionPerformed(evt);
+            }
+        });
         jPopupMenuGUI62b.add(randQ_MenuItem);
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -302,6 +307,19 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         mainFrame.validate();
         mainFrame.repaint();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void randQ_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randQ_MenuItemActionPerformed
+        // TODO add your handling code here:
+       GUI_6_5 gui_6_5 = new GUI_6_5(mainFrame);
+
+        gui_6_5.setLocation(0, 0);
+        gui_6_5.setSize(1030, 519);
+
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(gui_6_5);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_randQ_MenuItemActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Qbank_MenuItem;

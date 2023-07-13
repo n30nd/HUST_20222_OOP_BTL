@@ -9,11 +9,12 @@ package view;
  * @author msonc
  */
 public class GUI_6_5 extends javax.swing.JPanel {
-
+    GUI1_1_MainFrame mainFrame;
     /**
      * Creates new form GUI_6_3_b
      */
-    public GUI_6_5() {
+    public GUI_6_5(GUI1_1_MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         initComponents();
     }
 
