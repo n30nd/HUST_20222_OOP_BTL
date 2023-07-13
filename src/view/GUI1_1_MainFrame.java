@@ -262,7 +262,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         PopUpMenu.show(evt.getComponent(), evt.getX() - 380, evt.getY());
     }//GEN-LAST:event_showPopupMenu
 
-    private void returnHomeFrame(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnHomeFrame
+    public void returnHomeFrame(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnHomeFrame
         // TODO add your handling code here:
         this.panel_content.removeAll();
         this.panel_content.add(panel_examList);

@@ -61,6 +61,8 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         SaveButton1 = new javax.swing.JButton();
         CancelButton1 = new javax.swing.JButton();
 
+        jScrollPane3.getVerticalScrollBar().setUnitIncrement(10);
+
         setPreferredSize(new java.awt.Dimension(1000, 725));
 
         Maingui32.setBackground(new java.awt.Color(255, 255, 255));

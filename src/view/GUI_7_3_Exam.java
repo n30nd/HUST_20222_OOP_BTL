@@ -17,6 +17,7 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -27,6 +28,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,7 +48,6 @@ public class GUI_7_3_Exam extends JPanel {
     private ButtonGroup[] onlyChoice = new ButtonGroup[listOfQuestions.size()];
     private JPanel[] multiChoice = new JPanel[listOfQuestions.size()];
 
-    private JFrame mainFrame;
     private JLabel label1, finishLabel;
     private JPanel navigationPanel, qListPanel, quizPanel, labelState = new JPanel(new GridLayout(6, 1)), state = new JPanel(new GridLayout(6, 1));
     private JScrollPane quizScrollPane;
@@ -56,7 +57,10 @@ public class GUI_7_3_Exam extends JPanel {
     private JLabel _label;
     private JButton _okButton, _cancelButton;
 
-    public GUI_7_3_Exam(JFrame mainFrame) {
+    private GUI1_1_MainFrame mainFrame;
+
+    public GUI_7_3_Exam(GUI1_1_MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         UIManager.put("Label.font", new Font("SegoeUI", Font.PLAIN, 14));
         
         GridBagLayout gb = new GridBagLayout(), _gb = new GridBagLayout();
@@ -71,9 +75,10 @@ public class GUI_7_3_Exam extends JPanel {
         label1.setFont(new Font("SegoeUI", Font.BOLD, 20));
         label1.setForeground(Color.RED);
         // List question table
-        qListPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        qListPanel = new JPanel();
         qListPanel.setBackground(Color.WHITE);
-        qListPanel.setPreferredSize(new Dimension(0, 0));
+        qListPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
+        qListPanel.setMinimumSize(new Dimension(100, 520));
         for (int i = 0; i < listOfQuestions.size(); i++) {
             questionLabel.add(new JLabel("" + (i + 1), JLabel.CENTER));
             questionLabel.get(i).setBackground(Color.WHITE);
@@ -118,6 +123,7 @@ public class GUI_7_3_Exam extends JPanel {
         navigationPanel = new JPanel();
         navigationPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1, false));
         navigationPanel.setLayout(new BorderLayout());
+        navigationPanel.setMaximumSize(new Dimension(254, 520));
         navigationPanel.add(label1, BorderLayout.NORTH); navigationPanel.add(qListPanel, BorderLayout.CENTER);
         navigationPanel.add(finishLabel, BorderLayout.SOUTH);
 
@@ -320,6 +326,11 @@ public class GUI_7_3_Exam extends JPanel {
         finishLabel.removeMouseListener(finishLabel.getMouseListeners()[0]);
         finishLabel.setForeground(Color.GRAY);
         finishLabel.setText("  Finish review");
+        finishLabel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                mainFrame.returnHomeFrame(me);
+            }
+        });
 
         labelState.add(new JLabel("Started on", JLabel.RIGHT));
         labelState.add(new JLabel("State", JLabel.RIGHT));
