@@ -1,5 +1,12 @@
 package view;
 
+import controller.ExamsMouseEvent;
+import java.awt.Cursor;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import model.Quiz;
+
 /**
  *
  * @author anhqu
@@ -32,7 +39,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtextField_quizName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -53,7 +60,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
         cbb_closeHour = new javax.swing.JComboBox<>();
         cbb_closeMinute = new javax.swing.JComboBox<>();
         cbb_timeUnit = new javax.swing.JComboBox<>();
-        jtextField_time = new javax.swing.JTextField();
+        jtextField_timeNum = new javax.swing.JTextField();
         cb_enableOpen = new javax.swing.JCheckBox();
         cb_enableClose = new javax.swing.JCheckBox();
         cb_enableTimeLimit = new javax.swing.JCheckBox();
@@ -97,6 +104,11 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Roboto Slab", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("CREATE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(193, 41, 36));
         jButton3.setFont(new java.awt.Font("Roboto Slab", 0, 12)); // NOI18N
@@ -159,8 +171,8 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
         cbb_timeUnit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "minutes", "hours" }));
         cbb_timeUnit.setEnabled(false);
 
-        jtextField_time.setText("0");
-        jtextField_time.setEnabled(false);
+        jtextField_timeNum.setText("0");
+        jtextField_timeNum.setEnabled(false);
 
         cb_enableOpen.setText("Enable");
         cb_enableOpen.addActionListener(new java.awt.event.ActionListener() {
@@ -205,13 +217,6 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -229,7 +234,14 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                                         .addComponent(jLabel12)))
-                                .addGap(3, 3, 3)))
+                                .addGap(3, 3, 3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -239,7 +251,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel14))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jtextField_quizName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +270,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(cbb_openMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jtextField_time, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jtextField_timeNum, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(cbb_timeUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -296,7 +308,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtextField_quizName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -353,7 +365,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(cbb_timeUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtextField_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtextField_timeNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cb_enableTimeLimit))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -366,7 +378,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbb_openDay, cbb_openMonth});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbb_timeUnit, jComboBox1, jtextField_time});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbb_timeUnit, jComboBox1, jtextField_timeNum});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -402,7 +414,7 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
     private void cb_enableTimeLimitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_enableTimeLimitActionPerformed
         // TODO add your handling code here:
         boolean enable = cb_enableTimeLimit.isSelected();
-        jtextField_time.setEnabled(enable);
+        jtextField_timeNum.setEnabled(enable);
         cbb_timeUnit.setEnabled(enable);
     }//GEN-LAST:event_cb_enableTimeLimitActionPerformed
 
@@ -410,6 +422,28 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbb_closeHourActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String newQuizName = jtextField_quizName.getText();
+        String timeLimit = jtextField_timeNum + " " + (String) cbb_timeUnit.getSelectedItem();
+        Quiz quiz = new Quiz(newQuizName, timeLimit);
+
+        JLabel newQuiz = new JLabel(newQuizName);
+        newQuiz.setIcon(new ImageIcon(getClass().getResource("/view/img/Txt.32.png")));
+        newQuiz.setFont(new Font("Roboto Medium", Font.PLAIN, 14));
+        newQuiz.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        ExamsMouseEvent examMouseEvent = new ExamsMouseEvent(newQuiz, this.mainFrame);
+        newQuiz.addMouseListener(examMouseEvent);
+
+        mainFrame.getPanel_examList().add(newQuiz);
+
+        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ");
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(mainFrame.getPanel_examList());
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cb_enableClose;
@@ -445,8 +479,8 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jtextField_time;
+    private javax.swing.JTextField jtextField_quizName;
+    private javax.swing.JTextField jtextField_timeNum;
     // End of variables declaration//GEN-END:variables
 
 }

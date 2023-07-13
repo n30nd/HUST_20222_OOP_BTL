@@ -210,7 +210,7 @@ public class GUI_6_1 extends javax.swing.JPanel {
         mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ / " + mainFrame.getLbl_exam1().getText() + " / " + "Edit Quiz");
         mainFrame.getPanel_content().removeAll();
         
-        gui6_2_editQuiz.setSize(1030, 519);
+        gui6_2_editQuiz.setSize(1050, 519);
         gui6_2_editQuiz.setLocation(0,0);
         mainFrame.getPanel_content().add(gui6_2_editQuiz);
         mainFrame.validate();
