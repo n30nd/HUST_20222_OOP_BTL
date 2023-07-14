@@ -158,6 +158,9 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
 
         panel_content.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        panel_examList.setMinimumSize(new java.awt.Dimension(222, 519));
+        panel_examList.setLayout(new java.awt.GridLayout(8, 0));
+
         lbl_exam1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         lbl_exam1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Txt.32.png"))); // NOI18N
         lbl_exam1.setText("Thi giữa kỳ 2 môn Công nghệ");
@@ -173,23 +176,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
                 lbl_exam1MousePressed(evt);
             }
         });
-
-        javax.swing.GroupLayout panel_examListLayout = new javax.swing.GroupLayout(panel_examList);
-        panel_examList.setLayout(panel_examListLayout);
-        panel_examListLayout.setHorizontalGroup(
-            panel_examListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_examListLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lbl_exam1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel_examListLayout.setVerticalGroup(
-            panel_examListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_examListLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lbl_exam1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(458, Short.MAX_VALUE))
-        );
+        panel_examList.add(lbl_exam1);
 
         javax.swing.GroupLayout panel_contentLayout = new javax.swing.GroupLayout(panel_content);
         panel_content.setLayout(panel_contentLayout);
@@ -288,7 +275,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         GUI_6_1 gui6_1_exam = new GUI_6_1(this);
         this.MainPath.setText("Home / My Courses / THI CUỐI KỲ / " + lbl_exam1.getText());
         this.panel_content.removeAll();
-        gui6_1_exam.setSize(1030, 519);
+        gui6_1_exam.setSize(1050, 519);
         gui6_1_exam.setLocation(0,0);
         this.panel_content.add(gui6_1_exam);
         this.validate();
