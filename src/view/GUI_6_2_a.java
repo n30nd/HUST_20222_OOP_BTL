@@ -13,6 +13,7 @@ import model.Question;
  */
 public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customizer {
     
+     GUI1_1_MainFrame mainFrame;
     /**
      * Creates new customizer GUI_6_2_a
      * @param mainFrame
@@ -67,9 +68,9 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         Qbank_MenuItem.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Qbank_MenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/blue_plus.png"))); // NOI18N
         Qbank_MenuItem.setText("  From question bank");
-        Qbank_MenuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                Qbank_MenuItemActionPerformed(ae);
+        Qbank_MenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Qbank_MenuItemActionPerformed(evt);
             }
         });
         jPopupMenuGUI62b.add(Qbank_MenuItem);
@@ -77,6 +78,11 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         randQ_MenuItem.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         randQ_MenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/blue_plus.png"))); // NOI18N
         randQ_MenuItem.setText("  A random question");
+        randQ_MenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randQ_MenuItemActionPerformed(evt);
+            }
+        });
         jPopupMenuGUI62b.add(randQ_MenuItem);
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -94,6 +100,11 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SAVE");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -175,7 +186,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox1)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
@@ -277,6 +288,39 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
 
     }//GEN-LAST:event_Qbank_MenuItemActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+//       GUI_6_1 gui_6_1 = new GUI_6_1(mainFrame);
+//
+//        gui_6_1.setLocation(0, 0);
+//
+//        mainFrame.getPanel_content().removeAll();
+//        mainFrame.getPanel_content().add(gui_6_1);
+//        mainFrame.validate();
+//        mainFrame.repaint();
+
+        GUI_6_1 gui6_1_exam = new GUI_6_1(mainFrame);
+        mainFrame.getPanel_content().removeAll();
+        gui6_1_exam.setSize(1030, 519);
+        gui6_1_exam.setLocation(0,0);
+        mainFrame.getPanel_content().add(gui6_1_exam);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void randQ_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randQ_MenuItemActionPerformed
+        // TODO add your handling code here:
+       GUI_6_5 gui_6_5 = new GUI_6_5(mainFrame);
+
+        gui_6_5.setLocation(0, 0);
+        gui_6_5.setSize(1030, 519);
+
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(gui_6_5);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_randQ_MenuItemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Qbank_MenuItem;
     private javax.swing.JButton jButton1;
@@ -297,6 +341,5 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     private java.awt.Label label1;
     private javax.swing.JMenuItem newQ_MenuItem;
     private javax.swing.JMenuItem randQ_MenuItem;
-    private GUI1_1_MainFrame mainFrame;
     // End of variables declaration//GEN-END:variables
 }
