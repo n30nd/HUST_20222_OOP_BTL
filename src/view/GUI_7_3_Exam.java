@@ -59,7 +59,7 @@ public class GUI_7_3_Exam extends JPanel {
     private JButton _okButton, _cancelButton;
 
     private Timer countDownTimer;
-    private int timeRemaining = 10;
+    private int timeRemaining = 3600;
 
     private GUI1_1_MainFrame mainFrame;
 
