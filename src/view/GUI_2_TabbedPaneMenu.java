@@ -55,6 +55,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private void initComponents() {
         xn = new Xuatnhapcategoryquestion();
         categories = xn.readCategoryList();
+        for (Category c : categories) c.setNumOfQuestions(xn.readQuestionList(c.getId()).size());
 
         TabbedPaneMenu = new javax.swing.JTabbedPane();
         question_panel = new javax.swing.JPanel();
@@ -112,7 +113,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jLabel2.setText("Select a Category:");
 
         categoryName[0] = " ";
-        for (int i = 0; i < categories.size(); i++) categoryName[i + 1] = categories.get(i).getName();
+        for (int i = 0; i < categories.size(); i++) categoryName[i + 1] = categories.get(i).getName() + " (" + categories.get(i).getNumOfQuestions() + ")";
 
         jComboBox1 = new JComboBox<String>(categoryName);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
