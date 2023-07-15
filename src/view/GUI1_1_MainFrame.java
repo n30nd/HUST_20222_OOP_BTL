@@ -241,7 +241,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     private void showPopupMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showPopupMenu
         PopUpMenu = new JPopupMenu();
         PopUpMenu.setLayout(new GridLayout(4, 2, 50, 0));
-        
+
         JPanel panel_menuPopUpLeft = new JPanel();
         JLabel popupTitle = new JLabel("Question Bank");
         popupTitle.setFont(new Font("Roboto Black", Font.BOLD, 24));
@@ -263,12 +263,12 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     public void returnHomeFrame() {//GEN-FIRST:event_returnHomeFrame
         lbl_exam = new ArrayList<JLabel>();
         panel_examList.removeAll();
-        
+
         for (int i = 0; i < quizzes.size(); i++) {
             final int temp = i;
-            
+
             lbl_exam.add(new JLabel(quizzes.get(i).getName(), new ImageIcon(getClass().getResource("/view/img/Txt.32.png")), JLabel.LEFT));
-            
+           
             lbl_exam.get(i).setFont(new Font("Segoe UI", 0, 14));
             lbl_exam.get(i).setCursor(new Cursor(Cursor.HAND_CURSOR));
             lbl_exam.get(i).addMouseListener(new MouseAdapter() {
@@ -305,30 +305,30 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addNewQuiz
 
     private void lbl_examMouseClicked(java.awt.event.MouseEvent evt, Quiz quiz) {//GEN-FIRST:event_lbl_exam1MousePressed
-        JLabel label = (JLabel)evt.getSource();
+        JLabel label = (JLabel) evt.getSource();
         GUI_6_1 gui6_1_exam = new GUI_6_1(this, quiz);
 
         this.MainPath.setText("Home / My Courses / THI CUỐI KỲ / " + label.getText());
         this.panel_content.removeAll();
 
         gui6_1_exam.setSize(1050, 519);
-        gui6_1_exam.setLocation(0,0);
+        gui6_1_exam.setLocation(0, 0);
 
         this.panel_content.removeAll();
         this.panel_content.add(gui6_1_exam);
         this.validate();
         this.repaint();
-    } //GEN-LAST:event_lbl_exam1MousePressed
+    }//GEN-LAST:event_lbl_exam1MousePressed
 
     private void lbl_examMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_exam1MouseEntered
-        JLabel label = (JLabel)evt.getSource();
+        JLabel label = (JLabel) evt.getSource();
         label.setForeground(Color.RED);
-    } //GEN-LAST:event_lbl_exam1MouseEntered
+    }//GEN-LAST:event_lbl_exam1MouseEntered
 
     private void lbl_examMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_exam1MouseExited
-        JLabel label = (JLabel)evt.getSource();
+        JLabel label = (JLabel) evt.getSource();
         label.setForeground(Color.BLACK);
-    } //GEN-LAST:event_lbl_exam1MouseExited
+    }//GEN-LAST:event_lbl_exam1MouseExited
 
     /**
      * @param args the command line arguments
@@ -366,15 +366,19 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     public JPanel getPanel_content() {
         return panel_content;
     }
+
     public JPanel getPanel_examList() {
         return panel_examList;
     }
+
     public JLabel getMainPath() {
         return MainPath;
     }
+
     public List<JLabel> getLbl_exam() {
         return lbl_exam;
     }
+
     public List<Quiz> getQuizzes() {
         return quizzes;
     }
@@ -382,16 +386,16 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     public void setPanel_content(JPanel panel_content) {
         this.panel_content = panel_content;
     }
+
     public void setPanel_examList(JPanel panel_examList) {
         this.panel_examList = panel_examList;
     }
+
     public void setMainPath(JLabel MainPath) {
         this.MainPath = MainPath;
     }
+
     public void setLbl_exam1(List<JLabel> lbl_exam) {
         // this.lbl_exam1 = lbl_exam1;
     }
 }
-
-
-

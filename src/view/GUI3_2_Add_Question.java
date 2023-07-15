@@ -7,14 +7,16 @@ package view;
  */
 public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.beans.Customizer {
     private GUI1_1_MainFrame mainFrame;
+    private GUI_2_TabbedPaneMenu tabbedPaneMenu;
     private Object bean;
 
     /**
      * Creates new customizer GUI3_2_Add_Question
      * @param mainFrame
      */
-    public GUI3_2_Add_Question(GUI1_1_MainFrame mainFrame) {
+    public GUI3_2_Add_Question(GUI1_1_MainFrame mainFrame, GUI_2_TabbedPaneMenu tabbedPaneMenu) {
         this.mainFrame = mainFrame;
+        this.tabbedPaneMenu = tabbedPaneMenu;
         initComponents();
     }
     
@@ -60,8 +62,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         SaveChButton1 = new javax.swing.JButton();
         SaveButton1 = new javax.swing.JButton();
         CancelButton1 = new javax.swing.JButton();
-
-        jScrollPane3.getVerticalScrollBar().setUnitIncrement(10);
 
         setPreferredSize(new java.awt.Dimension(1000, 725));
 
@@ -272,6 +272,11 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         CancelButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 20)); // NOI18N
         CancelButton1.setForeground(new java.awt.Color(255, 255, 255));
         CancelButton1.setText("CANCEL");
+        CancelButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Maingui32Layout = new javax.swing.GroupLayout(Maingui32);
         Maingui32.setLayout(Maingui32Layout);
@@ -422,6 +427,15 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox6ActionPerformed
+
+    private void CancelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButton1ActionPerformed
+        // TODO add your handling code here:
+        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ");
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(tabbedPaneMenu.getComponent(0));
+        mainFrame.validate();
+        mainFrame.repaint();
+    }//GEN-LAST:event_CancelButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

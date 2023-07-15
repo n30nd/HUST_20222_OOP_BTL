@@ -1,10 +1,10 @@
 package view;
 
-import controller.ExamsMouseEvent;
 import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import model.Quiz;
 
 /**
@@ -428,9 +428,17 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
         int timeLimit = Integer.parseInt(jtextField_timeNum.getText()) * (cbb_timeUnit.getSelectedItem().toString().equals("hours") ? 3600 : 1);
         Quiz quiz = new Quiz(newQuizName, timeLimit);
 
-        mainFrame.getQuizzes().add(quiz);
+        if(newQuizName.trim().isEmpty() && timeLimit == 0){
+            JOptionPane.showMessageDialog(this, "Please fill in all the required information ");
+        } else if (newQuizName.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Quiz name is empty!");
+        } else if (timeLimit == 0){
+            JOptionPane.showMessageDialog(this, "Time limit cannot be set to 0! ");
+        } else {
+            mainFrame.getQuizzes().add(quiz);
+            mainFrame.returnHomeFrame();
+        }
 
-        mainFrame.returnHomeFrame();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

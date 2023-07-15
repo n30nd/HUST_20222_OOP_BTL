@@ -5,5 +5,18 @@
         <group>
             <file>file:/D:/Quoc/Project/HUST_20222_OOP_BTL/src/view/GUI1_1_MainFrame.java</file>
         </group>
+        <group name="Case">
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/GUI1_1_MainFrame.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/GUI6_3ab.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/GUI_2_TabbedPaneMenu.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/GUI_5_1_AddNewQuiz.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/TabbedPaneMenu.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/controller/Xuatnhapcategoryquestion.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/Data/questionSource.txt</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/Data/categorySource.txt</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/GUI3_2_Add_Question.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/NewJPanel.java</file>
+            <file>file:/C:/Users/anhqu/OneDrive/Máy%20tính/HUST_20222_OOP_BTL/src/view/GUI_7_3_Exam.java</file>
+        </group>
     </open-files>
 </project-private>

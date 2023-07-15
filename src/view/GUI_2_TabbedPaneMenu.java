@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -180,14 +181,11 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTextField1.setText("jTextField1");
         jTextField1.setMinimumSize(new java.awt.Dimension(64, 30));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
-
-        jTextField2.setText("jTextField2");
 
         jButton2.setBackground(new java.awt.Color(193, 41, 36));
         jButton2.setFont(new java.awt.Font("Roboto Slab", 0, 12)); // NOI18N
@@ -454,10 +452,10 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     private void createNewQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewQuestion
         // TODO add your handling code here:
-        GUI3_2_Add_Question gui3_2_Add_Question = new GUI3_2_Add_Question(mainFrame);       
+        GUI3_2_Add_Question gui3_2_Add_Question = new GUI3_2_Add_Question(mainFrame, this);       
         mainFrame.getPanel_content().removeAll();
-        gui3_2_Add_Question.setSize(1083, 530);
-        gui3_2_Add_Question.setLocation(-20, 0);
+        gui3_2_Add_Question.setSize(1115, 530);
+        gui3_2_Add_Question.setLocation(-32, 0);
         mainFrame.getPanel_content().add(gui3_2_Add_Question, BorderLayout.CENTER);
         mainFrame.validate();
         mainFrame.repaint();
@@ -466,8 +464,8 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private void chooseFile(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseFile
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
-        //FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("văn bản", "txt");
-        //fileChooser.setFileFilter(txtFilter);
+        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("văn bản", "txt", "docx");
+        fileChooser.setFileFilter(txtFilter);
         fileChooser.setMultiSelectionEnabled(false);
 
         int x = fileChooser.showDialog(this.import_panel, "CHOOSE A FILE");
@@ -476,7 +474,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
             isValidFileImport = true;
 
-            if (!file.getName().toLowerCase().endsWith(".txt")) {
+            if (!file.getName().toLowerCase().endsWith(".txt") && !file.getName().toLowerCase().endsWith(".docx")) {
                 isValidFileImport = false;
                 JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -587,7 +585,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                         isValidFileImport = true;
                         //System.out.println(file.getAbsolutePath());
 
-                        if (!file.getName().toLowerCase().endsWith(".txt")) {
+                        if (!file.getName().toLowerCase().endsWith(".txt") && !file.getName().toLowerCase().endsWith(".docx")) {
                             isValidFileImport = false;
                             JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Wrong Format", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
