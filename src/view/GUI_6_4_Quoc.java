@@ -7,8 +7,6 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -40,7 +38,7 @@ public class GUI_6_4_Quoc extends JPanel {
         gbc.fill = GridBagConstraints.BOTH; gbc.ipadx = 0; gbc.gridy = 0; gbc.weighty = 1;
         for (int i = 0; i < qsOfQuiz.size(); i++) {
             JLabel label1 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\drag.png"));
-            JLabel label2 = new JLabel("" + i, JLabel.CENTER);
+            JLabel label2 = new JLabel("" + (i + 1), JLabel.CENTER);
             JLabel label3 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\detail.png"));
             JLabel label4 = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\src\\vier\\img\\setting_24.png"));
             JLabel label = new JLabel();

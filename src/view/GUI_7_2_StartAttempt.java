@@ -8,6 +8,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -56,7 +58,13 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
         jLabel1.setText("Start attempt");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/cancel.png"))); // NOI18N
+        jButton1.setBackground(Color.WHITE);
         jButton1.setBorder(null);
+        jButton1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                back(me);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +140,11 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(51, 102, 255));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("CANCEL");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -183,8 +196,18 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
-
     }// </editor-fold>//GEN-END:initComponents
+
+    private void back(MouseEvent evt) {
+        GUI_6_1 gui_6_1 = new GUI_6_1(mainFrame);
+
+        gui_6_1.setLocation(0, 0);
+
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(gui_6_1, BorderLayout.CENTER);
+        mainFrame.validate();
+        mainFrame.repaint();
+    }
 
     public void startAttempt() {
         GUI_7_3_Exam gui_7_3_Exam = new GUI_7_3_Exam(mainFrame);

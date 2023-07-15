@@ -37,6 +37,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import model.Question;
@@ -47,7 +49,7 @@ public class GUI_7_3_Exam extends JPanel {
     private ButtonGroup[] onlyChoice = new ButtonGroup[listOfQuestions.size()];
     private JPanel[] multiChoice = new JPanel[listOfQuestions.size()];
 
-    private JLabel label1, finishLabel;
+    private JLabel label1, finishLabel, timer;
     private JPanel navigationPanel, qListPanel, quizPanel, labelState = new JPanel(new GridLayout(6, 1)), state = new JPanel(new GridLayout(6, 1));
     private JScrollPane quizScrollPane;
     private LocalDateTime begin = LocalDateTime.now(), end;
@@ -56,10 +58,15 @@ public class GUI_7_3_Exam extends JPanel {
     private JLabel _label;
     private JButton _okButton, _cancelButton;
 
+    private Timer countDownTimer;
+    private int timeRemaining = 10;
+
     private GUI1_1_MainFrame mainFrame;
 
     public GUI_7_3_Exam(GUI1_1_MainFrame mainFrame) {
         this.mainFrame = mainFrame;
+        mainFrame.add(this);
+
         UIManager.put("Label.font", new Font("SegoeUI", Font.PLAIN, 14));
         
         GridBagLayout gb = new GridBagLayout(), _gb = new GridBagLayout();
@@ -209,8 +216,31 @@ public class GUI_7_3_Exam extends JPanel {
         gbc.gridx = 0; gbc.gridy = 1; gbc.weightx = 4; gbc.weighty = 1; add(quizScrollPane, gbc);
         gbc.gridx = 1;                gbc.weightx = 1;                  add(navigationPanel, gbc);
         
-        this.mainFrame = mainFrame;
-        mainFrame.add(this);
+        timer = new JLabel("");
+        timer.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 1, true));
+        timer.setPreferredSize(new Dimension(100, 50));
+    
+        state.setLayout(new GridLayout(1, 1));
+        state.add(timer);
+        
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                countDownTimer = new Timer(1000, new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        if (timeRemaining > 0) {
+                            timeRemaining--;
+                            timer.setText("Time Left " + timeRemaining / 3600 + ":" + timeRemaining % 3600 / 60 + ":" + timeRemaining % 60);
+                        }
+                        else {
+                            countDownTimer.stop();
+                            review();
+                        }
+                    }
+                });
+
+                countDownTimer.start();
+            }
+        });
     }
 
     public List<Question> readQuestionList(Integer _categoryId) {
@@ -292,6 +322,7 @@ public class GUI_7_3_Exam extends JPanel {
         _okButton.setPreferredSize(new Dimension(90, 25));
         _okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
+                getCountDownTimer().stop();
                 review();
             }
         });
@@ -320,7 +351,7 @@ public class GUI_7_3_Exam extends JPanel {
     //GUI_7_4_Review
     public void review() {
         end = LocalDateTime.now();
-        _frame.setVisible(false);
+        if (_frame != null) _frame.setVisible(false);
 
         finishLabel.removeMouseListener(finishLabel.getMouseListeners()[0]);
         finishLabel.setForeground(Color.GRAY);
@@ -331,6 +362,7 @@ public class GUI_7_3_Exam extends JPanel {
             }
         });
 
+        labelState.setLayout(new GridLayout(6, 1));
         labelState.add(new JLabel("Started on", JLabel.RIGHT));
         labelState.add(new JLabel("State", JLabel.RIGHT));
         labelState.add(new JLabel("Completed on", JLabel.RIGHT));
@@ -347,6 +379,8 @@ public class GUI_7_3_Exam extends JPanel {
         }
 
         Double[] mark = check(quizPanel);
+        state.setLayout(new GridLayout(6, 1));
+        state.removeAll();
         state.add(new JLabel("  " + begin.getDayOfWeek().toString() + ", " + begin.getDayOfMonth() + " " + begin.getMonth() + " " + begin.getYear() + ", " + begin.getHour() + ":" + begin.getMinute()));
         state.add(new JLabel("  " + "Finished"));
         state.add(new JLabel("  " + end.getDayOfWeek().toString() + ", " + end.getDayOfMonth() + " " + end.getMonth() + " " + end.getYear() + ", " + end.getHour() + ":" + end.getMinute()));
@@ -392,4 +426,6 @@ public class GUI_7_3_Exam extends JPanel {
 
         return mark;
     }
+
+    public Timer getCountDownTimer() {return countDownTimer;}
 }
