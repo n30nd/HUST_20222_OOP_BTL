@@ -1,6 +1,11 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
@@ -8,22 +13,31 @@ import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.Xuatnhapcategoryquestion;
 import model.Category;
+import model.Question;
 
 /**
  *
@@ -59,6 +73,8 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
         TabbedPaneMenu = new javax.swing.JTabbedPane();
         question_panel = new javax.swing.JPanel();
+        question_panel_list = new javax.swing.JPanel();
+        question_scrollPane = new javax.swing.JScrollPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -116,9 +132,9 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         for (int i = 0; i < categories.size(); i++) categoryName[i + 1] = categories.get(i).getName() + " (" + categories.get(i).getNumOfQuestions() + ")";
 
         jComboBox1 = new JComboBox<String>(categoryName);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+        jComboBox1.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ie) {
+                jComboBox1ItemStateChanged(ie);
             }
         });
 
@@ -136,6 +152,9 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
             }
         });
 
+        question_scrollPane = new JScrollPane(question_panel_list);
+        question_scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
+
         javax.swing.GroupLayout question_panelLayout = new javax.swing.GroupLayout(question_panel);
         question_panel.setLayout(question_panelLayout);
         question_panelLayout.setHorizontalGroup(
@@ -143,6 +162,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
             .addGroup(question_panelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(question_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(question_scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 994, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox1)
                     .addGroup(question_panelLayout.createSequentialGroup()
@@ -151,6 +171,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(16, 16, 16)
                 .addContainerGap(725, Short.MAX_VALUE))
         );
         question_panelLayout.setVerticalGroup(
@@ -168,6 +189,8 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                 .addComponent(jCheckBox2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(question_scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(218, Short.MAX_VALUE))
         );
 
@@ -452,9 +475,35 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void jComboBox1ItemStateChanged(ItemEvent ie) {
+        if (ie.getStateChange() == ItemEvent.SELECTED) {
+            List<Question> questions = xn.readQuestionList(categories.get(jComboBox1.getSelectedIndex()).getId());
+
+            question_panel_list.removeAll();
+            question_panel_list.setLayout(new GridLayout(questions.size() + 2, 1));
+
+            question_panel_list.add(new JPanel(new BorderLayout(10, 0)));
+            ((JPanel)question_panel_list.getComponent(0)).add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/drop_arrow_increase.png")), BorderLayout.WEST);
+            ((JPanel)question_panel_list.getComponent(0)).add(new JLabel("Question"), BorderLayout.CENTER);
+            ((JPanel)question_panel_list.getComponent(0)).add(new JLabel("Actions"), BorderLayout.EAST);
+            question_panel_list.add(new JPanel(new BorderLayout(10, 0)));
+            ((JPanel)question_panel_list.getComponent(1)).add(new JCheckBox(), BorderLayout.WEST);
+            ((JPanel)question_panel_list.getComponent(1)).add(new JLabel("Question name  /  ID number"), BorderLayout.CENTER);
+            ((BorderLayout)((JPanel)question_panel_list.getComponent(1)).getLayout()).getLayoutComponent(BorderLayout.CENTER).setForeground(Color.BLUE);
+
+            for (int i = 2; i < questions.size() + 2; i++) {
+                question_panel_list.add(new JPanel(new BorderLayout(0, 0)));
+                ((JPanel)question_panel_list.getComponent(i)).add(new JCheckBox(), BorderLayout.WEST);
+                ((JPanel)question_panel_list.getComponent(i)).add(new JLabel(questions.get(i - 2).getName(), new ImageIcon(System.getProperty("user.dir") + "/src/view/img/detail.png"), JLabel.LEFT), BorderLayout.CENTER);
+                ((JPanel)question_panel_list.getComponent(i)).add(new JLabel("Edit   ", new ImageIcon(System.getProperty("user.dir") + "/src/view/img/drop_arrow_open.png"), JLabel.LEFT), BorderLayout.EAST);
+                ((BorderLayout)((JPanel)question_panel_list.getComponent(i)).getLayout()).getLayoutComponent(BorderLayout.EAST).setForeground(Color.BLUE);
+                ((JLabel)((BorderLayout)((JPanel)question_panel_list.getComponent(i)).getLayout()).getLayoutComponent(BorderLayout.EAST)).setHorizontalTextPosition(JLabel.LEFT);
+            }
+
+            mainFrame.revalidate();
+            mainFrame.repaint();
+        }
+    }
 
     private void btn_importFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_importFileActionPerformed
         // TODO add your handling code here:
@@ -554,6 +603,8 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JPanel question_panel;
+    private javax.swing.JPanel question_panel_list;
+    private javax.swing.JScrollPane question_scrollPane;
     private javax.swing.JLabel selectedFileContainer;
     private List<Category> categories;
     private String[] categoryName;
@@ -676,5 +727,4 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
         return errorLine;
     }
-
 }
