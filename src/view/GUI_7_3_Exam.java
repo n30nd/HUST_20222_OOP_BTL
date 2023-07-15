@@ -339,6 +339,7 @@ public class GUI_7_3_Exam extends JPanel {
         _cancelButton.setPreferredSize(new Dimension(70, 25));
         _cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
+                mainFrame.setEnabled(true);
                 _frame.setVisible(false);
             }
         });
@@ -354,6 +355,10 @@ public class GUI_7_3_Exam extends JPanel {
     }
     //GUI_7_4_Review
     public void review() {
+        for (int i = 0; i < listOfQuestions.size(); i++) {
+            for (Component c : multiChoice[i].getComponents()) c.setEnabled(false);
+        }
+
         end = LocalDateTime.now();
         if (_frame != null) _frame.setVisible(false);
 

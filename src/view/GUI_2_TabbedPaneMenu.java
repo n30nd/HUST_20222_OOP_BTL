@@ -15,10 +15,15 @@ import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import controller.Xuatnhapcategoryquestion;
+import model.Category;
 
 /**
  *
@@ -48,12 +53,13 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        xn = new Xuatnhapcategoryquestion();
+        categories = xn.readCategoryList();
 
         TabbedPaneMenu = new javax.swing.JTabbedPane();
         question_panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
@@ -63,7 +69,6 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -90,6 +95,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jToggleButton3 = new javax.swing.JToggleButton();
         jButton4 = new javax.swing.JButton();
         export_panel = new javax.swing.JPanel();
+        categoryName = new String[categories.size() + 1];
 
         TabbedPaneMenu.setForeground(new java.awt.Color(0, 159, 229));
         TabbedPaneMenu.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -105,7 +111,10 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel2.setText("Select a Category:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        categoryName[0] = " ";
+        for (int i = 0; i < categories.size(); i++) categoryName[i + 1] = categories.get(i).getName();
+
+        jComboBox1 = new JComboBox<String>(categoryName);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -179,7 +188,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel7.setText("ID number");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2 = new JComboBox<String>(categoryName);
 
         jTextField1.setMinimumSize(new java.awt.Dimension(64, 30));
 
@@ -545,6 +554,9 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JPanel question_panel;
     private javax.swing.JLabel selectedFileContainer;
+    private List<Category> categories;
+    private String[] categoryName;
+    private Xuatnhapcategoryquestion xn;
     // End of variables declaration//GEN-END:variables
 
     public JTabbedPane getTabbedPaneMenu() {
