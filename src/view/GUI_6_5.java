@@ -4,13 +4,14 @@
  */
 package view;
 
-import controller.Xuatnhapcategoryquestion;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import model.Category;
 
 /**
  *
@@ -23,6 +24,7 @@ public class GUI_6_5 extends javax.swing.JPanel {
      */
     public GUI_6_5(GUI1_1_MainFrame mainFrame) {
         initComponents();
+        importCategories();
     }
 
     /**
@@ -374,7 +376,7 @@ public class GUI_6_5 extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        showQuestion(jComboBox1.getSelectedIndex());
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -404,59 +406,21 @@ public class GUI_6_5 extends javax.swing.JPanel {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    List<Category> categories;
-    
-    public List<Category> readCategoriesFromFile(String filePath) {
-        categories = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader("src\\Data\\categorySource.txt"))) {
+          
+    private void importCategories() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/Data/categorySource.txt"))) {
             String line;
-            Category category = null;
-
+            int lineCount = 1;
             while ((line = reader.readLine()) != null) {
-                if (line.isEmpty()) {
-                    // Nếu dòng trống, tiếp tục đọc dòng tiếp theo
-                    continue;
+                if (lineCount % 5 == 3) {
+                    jComboBox1.addItem(line);
                 }
-
-                if (category == null) {
-                    // Nếu chưa có đối tượng Category hiện tại, tạo mới
-                    category = new Category();
-                    category.setParent(line);
-                } else if (category.getName().isEmpty()) {
-                    // Nếu chưa có giá trị cho trường name, gán giá trị đọc được từ file
-                    category.setName(line);
-                } else if (category.getInfo().isEmpty()) {
-                    // Nếu chưa có giá trị cho trường info, gán giá trị đọc được từ file
-                    category.setInfo(line);
-                } else {
-                    // Nếu đã đọc đủ thông tin cho đối tượng Category hiện tại,
-                    // gán giá trị cho trường numOfQuestions và thêm vào danh sách
-                    category.setId(Integer.valueOf(line));
-                    categories.add(category);
-
-                    // Đặt category về null để chuẩn bị cho đối tượng Category tiếp theo
-                    category = null;
-                }
+                lineCount++;
             }
-        } catch (IOException e) {}
-
-        return categories;
-    }
-    
-    private void loadCategories(){
-        // List<Category> categories = readCategoriesFromFile("src\\Data\\categorySource.txt");
-        Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
-       
-        categories = xn.readCategoryList();
-        for(int i = 0; i < categories.size(); i++){
-            // xn.fetchQuestion(category.getId(), System.getProperty("user.dir") + "\\src\\Data\\newQuestion.txt");
-            categories.get(i).setNumOfQuestions(xn.readQuestionList(categories.get(i).getId()).size());// tính số câu hỏi trong mỗi category
-            jComboBox1.addItem(categories.get(i).toString1());
+        } catch (Exception e) {
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -493,7 +457,7 @@ public class GUI_6_5 extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
-    private void showQuestion(int selectedIndex) {
+    private void showQuestion() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
