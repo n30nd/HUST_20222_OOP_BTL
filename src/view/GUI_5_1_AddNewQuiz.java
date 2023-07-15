@@ -425,24 +425,12 @@ public class GUI_5_1_AddNewQuiz extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String newQuizName = jtextField_quizName.getText();
-        String timeLimit = jtextField_timeNum + " " + (String) cbb_timeUnit.getSelectedItem();
+        int timeLimit = Integer.parseInt(jtextField_timeNum.getText()) * (cbb_timeUnit.getSelectedItem().toString().equals("hours") ? 3600 : 1);
         Quiz quiz = new Quiz(newQuizName, timeLimit);
 
-        JLabel newQuiz = new JLabel(newQuizName);
-        newQuiz.setIcon(new ImageIcon(getClass().getResource("/view/img/Txt.32.png")));
-        newQuiz.setFont(new Font("Roboto Medium", Font.PLAIN, 14));
-        newQuiz.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        mainFrame.getQuizzes().add(quiz);
 
-        ExamsMouseEvent examMouseEvent = new ExamsMouseEvent(newQuiz, this.mainFrame);
-        newQuiz.addMouseListener(examMouseEvent);
-
-        mainFrame.getPanel_examList().add(newQuiz);
-
-        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ");
-        mainFrame.getPanel_content().removeAll();
-        mainFrame.getPanel_content().add(mainFrame.getPanel_examList());
-        mainFrame.validate();
-        mainFrame.repaint();
+        mainFrame.returnHomeFrame();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

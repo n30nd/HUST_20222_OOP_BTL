@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import model.Quiz;
+
 /**
  *
  * @author DANG VAN DANG
@@ -21,8 +23,9 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
      * Creates new form GUI_7_2_StartAttempt
      * @param mainFrame
      */
-    public GUI_7_2_StartAttempt(GUI1_1_MainFrame frame) {
+    public GUI_7_2_StartAttempt(GUI1_1_MainFrame frame, Quiz quiz) {
         this.mainFrame = frame;
+        this.quiz = quiz;
         initComponents();
     }
 
@@ -199,9 +202,10 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void back(MouseEvent evt) {
-        GUI_6_1 gui_6_1 = new GUI_6_1(mainFrame);
+        GUI_6_1 gui_6_1 = new GUI_6_1(mainFrame, quiz);
 
         gui_6_1.setLocation(0, 0);
+        gui_6_1.setSize(1050, 519);
 
         mainFrame.getPanel_content().removeAll();
         mainFrame.getPanel_content().add(gui_6_1, BorderLayout.CENTER);
@@ -214,6 +218,7 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
 
         gui_7_3_Exam.setLocation(0, 0);
         
+        mainFrame.getMainPath().setText(mainFrame.getMainPath().getText() + " / Preview");
         mainFrame.getPanel_content().removeAll();
         mainFrame.getPanel_content().add(gui_7_3_Exam, BorderLayout.CENTER);
         mainFrame.validate();
@@ -231,5 +236,6 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private Quiz quiz;
     // End of variables declaration//GEN-END:variables
 }

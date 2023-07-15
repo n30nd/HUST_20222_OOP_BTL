@@ -5,6 +5,12 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+
+import model.Quiz;
 
 /**
  *
@@ -17,8 +23,9 @@ public class GUI_6_1 extends javax.swing.JPanel {
     /**
      * Creates new customizer GUI_6_1
      */
-    public GUI_6_1(GUI1_1_MainFrame mainFrame) {
+    public GUI_6_1(GUI1_1_MainFrame mainFrame, Quiz quiz) {
         this.mainFrame = mainFrame;
+        this.quiz = quiz;
         initComponents();
     }
 
@@ -30,7 +37,7 @@ public class GUI_6_1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label1 = new java.awt.Label();
+        label1 = new javax.swing.JLabel();
         EditButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,7 +55,7 @@ public class GUI_6_1 extends javax.swing.JPanel {
 
         label1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 28)); // NOI18N
         label1.setForeground(new java.awt.Color(193, 41, 36));
-        label1.setText("Thi giữa kì 2 môn công nghệ");
+        label1.setText(quiz.getName());
 
         EditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/setting_24.png"))); // NOI18N
         EditButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -64,7 +71,8 @@ public class GUI_6_1 extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Time limit: 1 hour");
+        jLabel2.setPreferredSize(new Dimension(500, 30));
+        jLabel2.setText("Time limit: " + quiz.getTimeLimit() / 3600 + " hours " + quiz.getTimeLimit() % 3600 + " minutes");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -158,8 +166,8 @@ public class GUI_6_1 extends javax.swing.JPanel {
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,8 +214,8 @@ public class GUI_6_1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-        GUI_6_2_a gui6_2_editQuiz = new GUI_6_2_a(mainFrame);
-        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ / " + mainFrame.getLbl_exam1().getText() + " / " + "Edit Quiz");
+        GUI_6_2_a gui6_2_editQuiz = new GUI_6_2_a(mainFrame, quiz);
+        mainFrame.getMainPath().setText(mainFrame.getMainPath().getText() + " / " + "Edit Quiz");
         mainFrame.getPanel_content().removeAll();
         
         gui6_2_editQuiz.setSize(1050, 519);
@@ -218,7 +226,7 @@ public class GUI_6_1 extends javax.swing.JPanel {
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        GUI_7_2_StartAttempt gui_7_2_StartAttempt = new GUI_7_2_StartAttempt(mainFrame);
+        GUI_7_2_StartAttempt gui_7_2_StartAttempt = new GUI_7_2_StartAttempt(mainFrame, quiz);
         mainFrame.getPanel_content().removeAll();
         gui_7_2_StartAttempt.setSize(1083, 530);
         gui_7_2_StartAttempt.setLocation(-20, 0);
@@ -226,8 +234,6 @@ public class GUI_6_1 extends javax.swing.JPanel {
         mainFrame.validate();
         mainFrame.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditButton;
@@ -241,6 +247,7 @@ public class GUI_6_1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.Label label1;
+    private javax.swing.JLabel label1;
+    private Quiz quiz;
     // End of variables declaration//GEN-END:variables
 }  

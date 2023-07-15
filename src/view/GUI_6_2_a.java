@@ -1,4 +1,3 @@
-
 package view;
 
 import javax.swing.JPopupMenu;
@@ -7,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import model.Question;
+import model.Quiz;
 /**
  *
  * @author viet0
@@ -19,13 +19,13 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
      * @param mainFrame
      */
     
-    public GUI_6_2_a(GUI1_1_MainFrame mainFrame) {
-        this.mainFrame = mainFrame;        
+    public GUI_6_2_a(GUI1_1_MainFrame mainFrame, Quiz quiz) {
+        this.mainFrame = mainFrame;
+        this.quiz = quiz;
         initComponents();
     }
     
-    public void setObject(Object bean) {
-    }
+    public void setObject(Object bean) {}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -277,7 +277,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_newQ_MenuItemActionPerformed
 
     private void Qbank_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Qbank_MenuItemActionPerformed
-        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame);
+        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame, quiz);
 
         gui6_3ab.setLocation(0, 0);
 
@@ -289,27 +289,19 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_Qbank_MenuItemActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-//       GUI_6_1 gui_6_1 = new GUI_6_1(mainFrame);
-//
-//        gui_6_1.setLocation(0, 0);
-//
-//        mainFrame.getPanel_content().removeAll();
-//        mainFrame.getPanel_content().add(gui_6_1);
-//        mainFrame.validate();
-//        mainFrame.repaint();
+        GUI_6_1 gui6_1_exam = new GUI_6_1(mainFrame, quiz);
 
-        GUI_6_1 gui6_1_exam = new GUI_6_1(mainFrame);
-        mainFrame.getPanel_content().removeAll();
         gui6_1_exam.setSize(1030, 519);
         gui6_1_exam.setLocation(0,0);
+
+        mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ / " + quiz.getName());
+        mainFrame.getPanel_content().removeAll();
         mainFrame.getPanel_content().add(gui6_1_exam);
         mainFrame.validate();
         mainFrame.repaint();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void randQ_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randQ_MenuItemActionPerformed
-        // TODO add your handling code here:
        GUI_6_5 gui_6_5 = new GUI_6_5(mainFrame);
 
         gui_6_5.setLocation(0, 0);
@@ -341,5 +333,6 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     private java.awt.Label label1;
     private javax.swing.JMenuItem newQ_MenuItem;
     private javax.swing.JMenuItem randQ_MenuItem;
+    private Quiz quiz;
     // End of variables declaration//GEN-END:variables
 }

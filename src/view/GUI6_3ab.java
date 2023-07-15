@@ -27,6 +27,7 @@ import javax.swing.JScrollPane;
 
 import model.Category;
 import model.Question;
+import model.Quiz;
 
 
 /**
@@ -39,8 +40,9 @@ public class GUI6_3ab extends javax.swing.JPanel {
      * Creates new form NewJPanel
      * @param mainframe;
      */
-    public GUI6_3ab(GUI1_1_MainFrame mainFrame) {
+    public GUI6_3ab(GUI1_1_MainFrame mainFrame, Quiz quiz) {
         this.mainFrame = mainFrame;
+        this.quiz = quiz;
         initComponents();
         loadCategories();
         //showPanelQuestions();
@@ -230,7 +232,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
             }
         }
 
-        GUI_6_2_a gui_6_2_a = new GUI_6_2_a(mainFrame);
+        GUI_6_2_a gui_6_2_a = new GUI_6_2_a(mainFrame, quiz);
         gui_6_2_a.setLocation(0, 0);
         gui_6_2_a.setSize(1034, 527);
         mainFrame.getPanel_content().removeAll();
@@ -424,6 +426,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
     private javax.swing.JPanel panelQuestions;
     private javax.swing.JButton selectQsButton;
     private javax.swing.JCheckBox tickAllQsCheckbox;
+    private Quiz quiz;
     // End of variables declaration//GEN-END:variables
 
     public void setLocationRelativeTo(Object object) {

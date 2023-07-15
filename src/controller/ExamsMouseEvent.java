@@ -6,7 +6,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import view.GUI1_1_MainFrame;
-import view.GUI_6_1;
 
 /**
  *
@@ -25,6 +24,7 @@ public class ExamsMouseEvent implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        label.setForeground(Color.BLACK);
     }
 
     @Override
@@ -43,7 +43,6 @@ public class ExamsMouseEvent implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-        label.setForeground(Color.black);
     }
 
 }

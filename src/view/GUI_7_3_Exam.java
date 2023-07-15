@@ -217,11 +217,15 @@ public class GUI_7_3_Exam extends JPanel {
         gbc.gridx = 1;                gbc.weightx = 1;                  add(navigationPanel, gbc);
         
         timer = new JLabel("");
+        timer.setBackground(Color.LIGHT_GRAY);
         timer.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 1, true));
-        timer.setPreferredSize(new Dimension(100, 50));
-    
-        state.setLayout(new GridLayout(1, 1));
-        state.add(timer);
+        timer.setOpaque(true);
+        timer.setPreferredSize(new Dimension(50, 50));
+
+        labelState.setBackground(Color.WHITE);
+        state.setBackground(Color.WHITE);
+        state.setLayout(new GridLayout(1, 4));
+        state.add(new JLabel()); state.add(new JLabel()); state.add(new JLabel()); state.add(timer);
         
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -358,7 +362,7 @@ public class GUI_7_3_Exam extends JPanel {
         finishLabel.setText("  Finish review");
         finishLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
-                mainFrame.returnHomeFrame(me);
+                mainFrame.returnHomeFrame();
             }
         });
 
