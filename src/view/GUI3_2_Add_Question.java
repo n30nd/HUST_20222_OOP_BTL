@@ -3,7 +3,7 @@ package view;
 
 import controller.Xuatnhapcategoryquestion;
 import java.awt.BorderLayout;
-<<<<<<< HEAD
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-=======
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,8 +22,6 @@ import java.util.List;
 import model.Category;
 import model.Question;
 
-
->>>>>>> 32f3ff7ed7767d1c8f00fed9e69624f5a637dc96
 /**
  *
  * @author HQViet
@@ -120,6 +118,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jLabel27 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jComboBox13 = new javax.swing.JComboBox<>();
+        jPanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1000, 725));
 
@@ -175,7 +174,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         QtextArea1.setColumns(20);
         QtextArea1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         QtextArea1.setRows(5);
-<<<<<<< HEAD
+
         jPanel.setLayout(new BorderLayout());
         jPanel.add(QtextArea1, BorderLayout.CENTER);
         jPanel.add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png")), BorderLayout.SOUTH);
@@ -185,9 +184,8 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
             }
         });
         jScrollPane1.setViewportView(jPanel);
-=======
+
         jScrollPane1.setViewportView(QtextArea1);
->>>>>>> 32f3ff7ed7767d1c8f00fed9e69624f5a637dc96
 
         Mark1.setBackground(new java.awt.Color(255, 255, 255));
         Mark1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -865,7 +863,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         CANCEL();
     }//GEN-LAST:event_CancelButton1ActionPerformed
 
-<<<<<<< HEAD
     private void chooseImage(MouseEvent me) {
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
         FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Hình ảnh", "png", "jpg", "jpeg");
@@ -885,7 +882,9 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
             }
 
             ((JLabel)me.getSource()).setIcon(new ImageIcon(file.getAbsolutePath()));
-=======
+        }
+    }
+
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
@@ -1074,7 +1073,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
             // xn.fetchQuestion(category.getId(), System.getProperty("user.dir") + "\\src\\Data\\newQuestion.txt");
             categories.get(i).setNumOfQuestions(xn.readQuestionList(categories.get(i).getId()).size());// tính số câu hỏi trong mỗi category
             CateBox1.addItem(categories.get(i).toString1());
->>>>>>> 32f3ff7ed7767d1c8f00fed9e69624f5a637dc96
         }
     }
 
@@ -1141,5 +1139,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JPanel jPanel;
     // End of variables declaration//GEN-END:variables
 }

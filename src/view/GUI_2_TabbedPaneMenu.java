@@ -156,6 +156,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
         question_scrollPane = new JScrollPane(question_panel_list);
         question_scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
+        question_scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
         javax.swing.GroupLayout question_panelLayout = new javax.swing.GroupLayout(question_panel);
         question_panel.setLayout(question_panelLayout);
@@ -220,6 +221,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(20);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton2.setBackground(new java.awt.Color(193, 41, 36));
@@ -529,7 +531,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     private void createNewQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewQuestion
         // TODO add your handling code here:
-        GUI3_2_Add_Question gui3_2_Add_Question = new GUI3_2_Add_Question(mainFrame, this);       
+        GUI3_2_Add_Question gui3_2_Add_Question = new GUI3_2_Add_Question(mainFrame);       
         mainFrame.getPanel_content().removeAll();
         gui3_2_Add_Question.setSize(1115, 530);
         gui3_2_Add_Question.setLocation(-32, 0);
