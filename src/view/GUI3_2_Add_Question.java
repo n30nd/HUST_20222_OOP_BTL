@@ -185,8 +185,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         });
         jScrollPane1.setViewportView(jPanel);
 
-        jScrollPane1.setViewportView(QtextArea1);
-
         Mark1.setBackground(new java.awt.Color(255, 255, 255));
         Mark1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Mark1.setForeground(new java.awt.Color(102, 102, 102));
