@@ -539,7 +539,6 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_createNewQuestion
 
     private void chooseFile(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseFile
-        // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("văn bản", "txt", "docx");
         fileChooser.setFileFilter(txtFilter);

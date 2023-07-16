@@ -1,9 +1,15 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author HQViet
@@ -124,7 +130,11 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jPanel.setLayout(new BorderLayout());
         jPanel.add(QtextArea1, BorderLayout.CENTER);
         jPanel.add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png")), BorderLayout.SOUTH);
-        
+        ((BorderLayout)jPanel.getLayout()).getLayoutComponent(BorderLayout.SOUTH).addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
         jScrollPane1.setViewportView(jPanel);
 
         Mark1.setBackground(new java.awt.Color(255, 255, 255));
@@ -446,6 +456,27 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         mainFrame.repaint();
     }//GEN-LAST:event_CancelButton1ActionPerformed
 
+    private void chooseImage(MouseEvent me) {
+        JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Hình ảnh", "png", "jpg", "jpeg");
+
+        fileChooser.setFileFilter(txtFilter);
+        fileChooser.setMultiSelectionEnabled(false);
+
+        int x = fileChooser.showDialog(this, "Choose an image");
+        if (x == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+
+            if (file.getName().toLowerCase().endsWith(".png") || !file.getName().toLowerCase().endsWith(".jpg") || !file.getName().toLowerCase().endsWith(".jpeg")) {
+                String[] options = {"OK"};
+                JOptionPane.showOptionDialog(GUI3_2_Add_Question.this, "Import complete!", "Message", JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            } else {
+                JOptionPane.showMessageDialog(GUI3_2_Add_Question.this, "Wrong type", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            ((JLabel)me.getSource()).setIcon(new ImageIcon(file.getAbsolutePath()));
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton1;
