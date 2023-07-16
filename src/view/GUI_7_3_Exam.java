@@ -403,7 +403,6 @@ public class GUI_7_3_Exam extends JPanel {
             ((JLabel)c).setBackground(i % 2 == 0 ? new Color(197, 223, 248, 255) : new Color(120, 149, 203, 255)); i++;
             ((JLabel)c).setFont(((JLabel)c).getFont().deriveFont(Font.BOLD));
             ((JLabel)c).setOpaque(true);
-            (JLabel)c;
         }
     }
     public Double[] check(JPanel _quizPanel) {
