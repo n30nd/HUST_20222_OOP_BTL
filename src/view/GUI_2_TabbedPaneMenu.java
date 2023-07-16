@@ -13,6 +13,8 @@ import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.BufferedReader;
@@ -486,9 +488,11 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
             ((JPanel)question_panel_list.getComponent(0)).add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/drop_arrow_increase.png")), BorderLayout.WEST);
             ((JPanel)question_panel_list.getComponent(0)).add(new JLabel("Question"), BorderLayout.CENTER);
             ((JPanel)question_panel_list.getComponent(0)).add(new JLabel("Actions"), BorderLayout.EAST);
+
             question_panel_list.add(new JPanel(new BorderLayout(10, 0)));
             ((JPanel)question_panel_list.getComponent(1)).add(new JCheckBox(), BorderLayout.WEST);
             ((JPanel)question_panel_list.getComponent(1)).add(new JLabel("Question name  /  ID number"), BorderLayout.CENTER);
+            
             ((BorderLayout)((JPanel)question_panel_list.getComponent(1)).getLayout()).getLayoutComponent(BorderLayout.CENTER).setForeground(Color.BLUE);
 
             for (int i = 2; i < questions.size() + 2; i++) {
@@ -499,6 +503,20 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                 ((BorderLayout)((JPanel)question_panel_list.getComponent(i)).getLayout()).getLayoutComponent(BorderLayout.EAST).setForeground(Color.BLUE);
                 ((JLabel)((BorderLayout)((JPanel)question_panel_list.getComponent(i)).getLayout()).getLayoutComponent(BorderLayout.EAST)).setHorizontalTextPosition(JLabel.LEFT);
             }
+
+            ((JCheckBox)((JPanel)question_panel_list.getComponent(1)).getComponent(0)).addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    if (((JCheckBox)((JPanel)question_panel_list.getComponent(1)).getComponent(0)).isSelected()) {
+                        for (int i = 2; i < questions.size() + 2; i++) {
+                            ((JCheckBox)((JPanel)question_panel_list.getComponent(i)).getComponent(0)).setSelected(true);
+                        }
+                    } else {
+                        for (int i = 2; i < questions.size() + 2; i++) {
+                            ((JCheckBox)((JPanel)question_panel_list.getComponent(i)).getComponent(0)).setSelected(false);
+                        }
+                    }
+                }
+            });
 
             mainFrame.revalidate();
             mainFrame.repaint();
