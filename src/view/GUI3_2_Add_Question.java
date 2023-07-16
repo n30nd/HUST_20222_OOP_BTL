@@ -1,6 +1,9 @@
-
 package view;
 
+import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 /**
  *
  * @author HQViet
@@ -62,6 +65,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         SaveChButton1 = new javax.swing.JButton();
         SaveButton1 = new javax.swing.JButton();
         CancelButton1 = new javax.swing.JButton();
+        jPanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1000, 725));
 
@@ -117,7 +121,11 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         QtextArea1.setColumns(20);
         QtextArea1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         QtextArea1.setRows(5);
-        jScrollPane1.setViewportView(QtextArea1);
+        jPanel.setLayout(new BorderLayout());
+        jPanel.add(QtextArea1, BorderLayout.CENTER);
+        jPanel.add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png")), BorderLayout.SOUTH);
+        
+        jScrollPane1.setViewportView(jPanel);
 
         Mark1.setBackground(new java.awt.Color(255, 255, 255));
         Mark1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -372,6 +380,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGap(0, 70, Short.MAX_VALUE))
         );
 
+        jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
         jScrollPane3.setViewportView(Maingui32);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -469,5 +478,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JPanel jPanel;
     // End of variables declaration//GEN-END:variables
 }
