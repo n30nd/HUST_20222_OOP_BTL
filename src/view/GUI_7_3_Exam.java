@@ -41,11 +41,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 
+import controller.Xuatnhapcategoryquestion;
 import model.Question;
 
 public class GUI_7_3_Exam extends JPanel {
+    private Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
     private List<JLabel> questionLabel = new ArrayList<JLabel>();
-    private List<Question> listOfQuestions = readQuestionList(0);
+    private List<Question> listOfQuestions = xn.readQuestionList(0);
     private ButtonGroup[] onlyChoice = new ButtonGroup[listOfQuestions.size()];
     private JPanel[] multiChoice = new JPanel[listOfQuestions.size()];
 
@@ -245,52 +247,6 @@ public class GUI_7_3_Exam extends JPanel {
                 countDownTimer.start();
             }
         });
-    }
-
-    public List<Question> readQuestionList(Integer _categoryId) {
-        Question question;
-        List<Question> _qList = new ArrayList<Question>();
-        try {
-            Scanner sc = new Scanner(new File(System.getProperty("user.dir") + "\\src\\Data\\questionSource.txt"), "UTF-8");
-            String str;
-
-            while (sc.hasNextLine()) {
-                if (sc.nextLine() == "") {
-                    List<String> _choice = new ArrayList<String>();
-                    List<Float> _answer = new ArrayList<Float>();
-
-                    question = new Question(Integer.parseInt(sc.nextLine()), sc.nextLine(), sc.nextLine(), Float.parseFloat(sc.nextLine()));
-                    //Read choice
-                    str = sc.nextLine();
-                    while (str.charAt(0) <= 90 && str.charAt(0) >= 65) {
-                        _choice.add(str);
-                        str = sc.nextLine();
-                    }
-                    question.setChoice(_choice);
-                    //Read answer point percent
-                    for (int i = 0; i < _choice.size(); i++) {
-                        _answer.add(Float.parseFloat(str));
-                        str = sc.nextLine();
-                    }
-                    question.setAnswer(_answer);
-                    //Read level
-                    question.setLevel(Integer.parseInt(str));
-
-                    if (question.getCategory() == _categoryId) {
-                        _qList.add(question);
-                    }
-                }
-            }
-            sc.close();
-
-            return _qList;
-        } catch (InputMismatchException e) {
-            System.err.println("Mismatch exception!");
-        } catch (FileNotFoundException e) {
-            System.err.println("File not found");
-        }
-
-        return _qList;
     }
 
     private boolean checkMutiple(Question q) {

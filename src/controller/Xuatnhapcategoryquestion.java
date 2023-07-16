@@ -80,16 +80,22 @@ public class Xuatnhapcategoryquestion {
             while (sc.hasNextLine()) {
                 if (sc.nextLine() == "") {
                     List<String> _choice = new ArrayList<String>();
+                    List<String> _choiceImage = new ArrayList<String>();
                     List<Float> _answer = new ArrayList<Float>();
 
-                    question = new Question(Integer.parseInt(sc.nextLine()), sc.nextLine(), sc.nextLine(), Float.parseFloat(sc.nextLine()));
+                    question = new Question(Integer.parseInt(sc.nextLine()), sc.nextLine(), sc.nextLine(), sc.nextLine(), Float.parseFloat(sc.nextLine()));
                     //Read choice
                     str = sc.nextLine();
-                    while (str.charAt(0) <= 90 && str.charAt(0) >= 65) {
+                    while (str.length() > 0 && str.charAt(0) <= 'Z' && str.charAt(0) >= 'A' && str.charAt(1) == '.') {
                         _choice.add(str);
                         str = sc.nextLine();
                     }
                     question.setChoice(_choice);
+                    //Read images of choice
+                    for (int i = 0; i < _choice.size(); i++) {
+                        _choiceImage.add(str);
+                        str = sc.nextLine();
+                    }
                     //Read answer point percent
                     for (int i = 0; i < _choice.size(); i++) {
                         _answer.add(Float.parseFloat(str));
@@ -122,9 +128,13 @@ public class Xuatnhapcategoryquestion {
             writer.write(_question.getCategory().toString() + "\n");
             writer.write(_question.getName() + '\n');
             writer.write(_question.getText() + '\n');
+            writer.write(_question.getQuestionImage() + '\n');
             writer.write(_question.getMark() + "\n");
             for (int i = 0; i < _question.getChoice().size(); i++) {
                 writer.write(_question.getChoice().get(i) + '\n');
+            }
+            for (int i = 0; i < _question.getChoiceImage().size(); i++) {
+                writer.write(_question.getChoiceImage().get(i) + '\n');
             }
             for (int i = 0; i < _question.getAnswer().size(); i++) {
                 writer.write(_question.getAnswer().get(i) + "\n");

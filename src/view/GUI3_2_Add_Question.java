@@ -83,42 +83,59 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jLabel11 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        image1 = new javax.swing.JLabel();
         Choice2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jComboBox7 = new javax.swing.JComboBox<>();
+        jLabel28 = new javax.swing.JLabel();
+        image2 = new javax.swing.JLabel();
         Choice3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jComboBox8 = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        image3 = new javax.swing.JLabel();
         Choice4 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jComboBox9 = new javax.swing.JComboBox<>();
+        jLabel30 = new javax.swing.JLabel();
+        image4 = new javax.swing.JLabel();
         Choice5 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jComboBox10 = new javax.swing.JComboBox<>();
+        jLabel31 = new javax.swing.JLabel();
+        image5 = new javax.swing.JLabel();
         Choice6 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         jComboBox11 = new javax.swing.JComboBox<>();
+        jLabel32 = new javax.swing.JLabel();
+        image6 = new javax.swing.JLabel();
         Choice7 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jComboBox12 = new javax.swing.JComboBox<>();
+        jLabel33 = new javax.swing.JLabel();
+        image7 = new javax.swing.JLabel();
         Choice8 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jComboBox13 = new javax.swing.JComboBox<>();
+        jLabel34 = new javax.swing.JLabel();
+        image8 = new javax.swing.JLabel();
         jPanel = new javax.swing.JPanel();
+        jLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1000, 725));
 
@@ -175,14 +192,15 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         QtextArea1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         QtextArea1.setRows(5);
 
-        jPanel.setLayout(new BorderLayout());
-        jPanel.add(QtextArea1, BorderLayout.CENTER);
-        jPanel.add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png")), BorderLayout.SOUTH);
-        ((BorderLayout)jPanel.getLayout()).getLayoutComponent(BorderLayout.SOUTH).addMouseListener(new MouseAdapter() {
+        jLabel.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        jLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 chooseImage(me);
             }
         });
+        jPanel.setLayout(new BorderLayout());
+        jPanel.add(QtextArea1, BorderLayout.CENTER);
+        jPanel.add(jLabel, BorderLayout.SOUTH);
         jScrollPane1.setViewportView(jPanel);
 
         Mark1.setBackground(new java.awt.Color(255, 255, 255));
@@ -274,6 +292,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel12.setText("Image");
+
+        image1.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));;
+        image1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice1Layout = new javax.swing.GroupLayout(Choice1);
         Choice1.setLayout(Choice1Layout);
         Choice1Layout.setHorizontalGroup(
@@ -282,11 +310,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField3)
-                    .addComponent(jComboBox6, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox6, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice1Layout.setVerticalGroup(
@@ -300,7 +330,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice1Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(Choice1Layout.createSequentialGroup()
+                        .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -321,6 +358,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel28.setText("Image");
+
+        image2.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        image2.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice2Layout = new javax.swing.GroupLayout(Choice2);
         Choice2.setLayout(Choice2Layout);
         Choice2Layout.setHorizontalGroup(
@@ -329,11 +376,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField6)
-                    .addComponent(jComboBox7, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox7, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice2Layout.setVerticalGroup(
@@ -347,7 +396,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice2Layout.createSequentialGroup()
+                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(Choice2Layout.createSequentialGroup()
+                        .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -368,6 +424,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel29.setText("Image");
+
+        image3.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image/png"));
+        image3.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice3Layout = new javax.swing.GroupLayout(Choice3);
         Choice3.setLayout(Choice3Layout);
         Choice3Layout.setHorizontalGroup(
@@ -376,11 +442,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField7)
-                    .addComponent(jComboBox8, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox8, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice3Layout.setVerticalGroup(
@@ -394,7 +462,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice3Layout.createSequentialGroup()
+                        .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(Choice3Layout.createSequentialGroup()
+                        .addComponent(image3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -415,6 +490,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel30.setText("Image");
+
+        image4.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        image4.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice4Layout = new javax.swing.GroupLayout(Choice4);
         Choice4.setLayout(Choice4Layout);
         Choice4Layout.setHorizontalGroup(
@@ -423,11 +508,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField8)
-                    .addComponent(jComboBox9, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox9, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice4Layout.setVerticalGroup(
@@ -441,7 +528,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice4Layout.createSequentialGroup()
+                        .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(Choice4Layout.createSequentialGroup()
+                        .addComponent(image4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -462,6 +556,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel31.setText("Image");
+
+        image5.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        image5.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice5Layout = new javax.swing.GroupLayout(Choice5);
         Choice5.setLayout(Choice5Layout);
         Choice5Layout.setHorizontalGroup(
@@ -470,11 +574,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField9)
-                    .addComponent(jComboBox10, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox10, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice5Layout.setVerticalGroup(
@@ -488,7 +594,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice5Layout.createSequentialGroup()
+                        .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(Choice5Layout.createSequentialGroup()
+                        .addComponent(image5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -509,6 +622,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel32.setText("Image");
+
+        image6.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        image6.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice6Layout = new javax.swing.GroupLayout(Choice6);
         Choice6.setLayout(Choice6Layout);
         Choice6Layout.setHorizontalGroup(
@@ -517,11 +640,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField10)
-                    .addComponent(jComboBox11, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox11, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice6Layout.setVerticalGroup(
@@ -535,7 +660,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice6Layout.createSequentialGroup()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(Choice6Layout.createSequentialGroup()
+                        .addComponent(image6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -556,6 +688,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox12.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel33.setText("Image");
+
+        image7.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        image7.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice7Layout = new javax.swing.GroupLayout(Choice7);
         Choice7.setLayout(Choice7Layout);
         Choice7Layout.setHorizontalGroup(
@@ -564,11 +706,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField11)
-                    .addComponent(jComboBox12, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox12, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice7Layout.setVerticalGroup(
@@ -582,7 +726,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice7Layout.createSequentialGroup()
+                        .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(Choice7Layout.createSequentialGroup()
+                        .addComponent(image7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Choice8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -603,6 +754,16 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jComboBox13.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "100%", "90%", "83.33333%", "80%", "75%", "70%", "66.66667%", "60%", "50%", "40%", "33.33333%", "30%", "25%", "20%", "16.66667%", "14.28571%", "12.5%", "11.11111%", "10%", "5%", "-5%", "-10%", "-11.11111%", "-12.5%", "-14.28571%", "-16.66667%", "-20%", "-25%", "-30%", "-33.33333%", "-40%", "-50%", "-60%", "-66.66667%", "-70%", "-75%", "-80%", "-83.33333%" }));
 
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel34.setText("Image");
+
+        image8.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
+        image8.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                chooseImage(me);
+            }
+        });
+
         javax.swing.GroupLayout Choice8Layout = new javax.swing.GroupLayout(Choice8);
         Choice8.setLayout(Choice8Layout);
         Choice8Layout.setHorizontalGroup(
@@ -611,11 +772,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addContainerGap()
                 .addGroup(Choice8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(Choice8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField12)
-                    .addComponent(jComboBox13, 0, 447, Short.MAX_VALUE))
+                    .addComponent(jComboBox13, 0, 447, Short.MAX_VALUE)
+                    .addComponent(image8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         Choice8Layout.setVerticalGroup(
@@ -629,7 +792,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
                 .addGroup(Choice8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Choice8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Choice8Layout.createSequentialGroup()
+                        .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))
+                    .addGroup(Choice8Layout.createSequentialGroup()
+                        .addComponent(image8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1101,6 +1271,14 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private javax.swing.JButton SaveChButton1;
     private javax.swing.JLabel add;
     private javax.swing.JLabel general1;
+    private javax.swing.JLabel image1;
+    private javax.swing.JLabel image2;
+    private javax.swing.JLabel image3;
+    private javax.swing.JLabel image4;
+    private javax.swing.JLabel image5;
+    private javax.swing.JLabel image6;
+    private javax.swing.JLabel image7;
+    private javax.swing.JLabel image8;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
@@ -1111,6 +1289,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1125,6 +1304,13 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1138,5 +1324,6 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel jPanel;
+    private javax.swing.JLabel jLabel;
     // End of variables declaration//GEN-END:variables
 }
