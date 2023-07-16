@@ -1,9 +1,7 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -20,8 +18,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Duration;
@@ -51,7 +47,7 @@ public class GUI_7_3_Exam extends JPanel {
     private ButtonGroup[] onlyChoice = new ButtonGroup[listOfQuestions.size()];
     private JPanel[] multiChoice = new JPanel[listOfQuestions.size()];
 
-    private JLabel label1, finishLabel, timer;
+    private JLabel label1, finishLabel, timer, exportLabel;
     private JPanel navigationPanel, qListPanel, quizPanel, labelState = new JPanel(new GridLayout(6, 1)), state = new JPanel(new GridLayout(6, 1));
     private JScrollPane quizScrollPane;
     private LocalDateTime begin = LocalDateTime.now(), end;
@@ -127,13 +123,21 @@ public class GUI_7_3_Exam extends JPanel {
             public void mousePressed(MouseEvent me) {}
             public void mouseReleased(MouseEvent me) {}
         });
+
+        exportLabel = new JLabel();
+
+        JPanel navigationSouthPanel = new JPanel(new BorderLayout());
+        navigationSouthPanel.setBackground(Color.WHITE);
+        navigationSouthPanel.add(finishLabel, BorderLayout.WEST);
+        navigationSouthPanel.add(exportLabel, BorderLayout.EAST);
         
         navigationPanel = new JPanel();
         navigationPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1, false));
         navigationPanel.setLayout(new BorderLayout());
         navigationPanel.setMaximumSize(new Dimension(254, 520));
-        navigationPanel.add(label1, BorderLayout.NORTH); navigationPanel.add(qListPanel, BorderLayout.CENTER);
-        navigationPanel.add(finishLabel, BorderLayout.SOUTH);
+        navigationPanel.add(label1, BorderLayout.NORTH);
+        navigationPanel.add(qListPanel, BorderLayout.CENTER);
+        navigationPanel.add(navigationSouthPanel, BorderLayout.SOUTH);
 
         quizPanel = new JPanel();
         quizPanel.setBackground(Color.WHITE);
@@ -319,11 +323,29 @@ public class GUI_7_3_Exam extends JPanel {
         if (_frame != null) _frame.setVisible(false);
 
         finishLabel.removeMouseListener(finishLabel.getMouseListeners()[0]);
-        finishLabel.setForeground(Color.GRAY);
-        finishLabel.setText("  Finish review");
+        finishLabel.setText("Finish review");
         finishLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 mainFrame.returnHomeFrame();
+            }
+            public void mouseEntered(MouseEvent me) {
+                finishLabel.setText("<HTML><U>&nbsp;Finish review</U></HTML");
+            }
+            public void mouseExited(MouseEvent me) {
+                finishLabel.setText("Finish review");
+            }
+        });
+
+        exportLabel.setText("     Export PDF");
+        exportLabel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+
+            }
+            public void mouseEntered(MouseEvent me) {
+                exportLabel.setText("<HTML><U>&nbsp      Export PDF</U></HTML");
+            }
+            public void mouseExited(MouseEvent me) {
+                exportLabel.setText("     Export PDF");
             }
         });
 
