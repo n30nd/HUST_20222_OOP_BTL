@@ -16,9 +16,14 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Duration;
@@ -32,6 +37,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
@@ -59,6 +65,8 @@ public class GUI_7_3_Exam extends JPanel {
 
     private Timer countDownTimer;
     private int timeRemaining = 3600;
+
+    private JPasswordField password;
 
     private GUI1_1_MainFrame mainFrame;
 
@@ -346,8 +354,6 @@ public class GUI_7_3_Exam extends JPanel {
         exportLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 //xuất pdf
-                // GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
-                // xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
                 exportEncrypt();
             }
             public void mouseEntered(MouseEvent me) {
@@ -425,6 +431,60 @@ public class GUI_7_3_Exam extends JPanel {
 
     public void exportEncrypt() {
         JFrame _frame = new JFrame("Đặt mật khẩu");
+        JButton verify = new JButton("Xác nhận"), cancel = new JButton("Hủy");
+        JCheckBox show = new JCheckBox("Hiện mật khẩu");
+        JPanel panel = new JPanel(new GridLayout(1, 5));
+        password = new JPasswordField();
+
+        verify.setBackground(Color.BLUE);
+        verify.setForeground(Color.WHITE);
+        verify.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
+                xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
+            }
+        });
+
+        cancel.setBackground(Color.RED);
+        cancel.setForeground(Color.WHITE);
+        cancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                mainFrame.setEnabled(true);
+                _frame.setVisible(false);
+            }
+        });
+
+        show.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ie) {
+                if (ie.getStateChange() == ItemEvent.SELECTED) {
+                    password.setEchoChar((char)0);
+                } else {
+                    password.setEchoChar((char)8226);
+                }
+            }
+        });        panel.add(new JLabel());
+        panel.add(verify);
+        panel.add(new JLabel());
+        panel.add(cancel);
+        panel.add(new JLabel());
+
+        _frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                mainFrame.setEnabled(true);
+            }
+        });
+        _frame.setLayout(new BorderLayout(10, 0));
+        _frame.setLocationRelativeTo(mainFrame);
+        _frame.setSize(500, 100);
+
+        _frame.add(new JLabel("Mật khẩu"), BorderLayout.WEST);
+        _frame.add(password, BorderLayout.CENTER);
+        _frame.add(show, BorderLayout.EAST);
+        _frame.add(panel, BorderLayout.SOUTH);
+
+        mainFrame.setEnabled(false);
+
+        _frame.setVisible(true);
     }
 
     public Timer getCountDownTimer() {return countDownTimer;}
