@@ -186,10 +186,11 @@ public class GUI_7_3_Exam extends JPanel {
             if (checkMutiple(listOfQuestions.get(i))) {                
                 for (int j = 0; j < listOfQuestions.get(i).getChoice().size(); j++) {
                     multiChoice[i].add(new JCheckBox(listOfQuestions.get(i).getChoice().get(j)));
-                    multiChoice[i].add(new JLabel(new ImageIcon(listOfQuestions.get(i).getChoiceImage().get(j))));
+                    String _temp = listOfQuestions.get(i).getChoiceImage().get(j);
+                    if (_temp.isEmpty()) multiChoice[i].add(new JLabel()); else multiChoice[i].add(new JLabel(new ImageIcon(_temp)));
                     
                     final int temp = i;
-                    ((JCheckBox)multiChoice[i].getComponent(j)).addActionListener(new ActionListener() {
+                    ((JCheckBox)multiChoice[i].getComponent(j * 2)).addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent ae) {
                             done(temp);
                         }
@@ -199,10 +200,12 @@ public class GUI_7_3_Exam extends JPanel {
                 onlyChoice[i] = new ButtonGroup();
                 for (int j = 0; j < listOfQuestions.get(i).getChoice().size(); j++) {
                     multiChoice[i].add(new JRadioButton(listOfQuestions.get(i).getChoice().get(j)));
-                    onlyChoice[i].add((JRadioButton)multiChoice[i].getComponent(j));
+                    String _temp = listOfQuestions.get(i).getChoiceImage().get(j);
+                    if (_temp.isEmpty()) multiChoice[i].add(new JLabel()); else multiChoice[i].add(new JLabel(new ImageIcon(_temp)));
+                    onlyChoice[i].add((JRadioButton)multiChoice[i].getComponent(j * 2));
 
                     final int temp = i;
-                    ((JRadioButton)multiChoice[i].getComponent(j)).addActionListener(new ActionListener() {
+                    ((JRadioButton)multiChoice[i].getComponent(j * 2)).addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent ae) {
                             done(temp);
                         }
@@ -339,12 +342,12 @@ public class GUI_7_3_Exam extends JPanel {
             }
         });
 
-        exportLabel.setText("     Export PDF");
+        exportLabel.setText("Export PDF");
         exportLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 //xuất pdf
-        GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
-        xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
+                GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
+                xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
             }
             public void mouseEntered(MouseEvent me) {
                 exportLabel.setText("<HTML><U>Export PDF</U></HTML");
@@ -395,15 +398,15 @@ public class GUI_7_3_Exam extends JPanel {
             JLabel label = new JLabel("The correct answer is: ");
 
             if (onlyChoice[i] == null) {
-                for (int j = 0; j < multiChoice[i].getComponentCount(); j++) {
-                    if (((JCheckBox)multiChoice[i].getComponent(j)).isSelected()) {
+                for (int j = 0; j < multiChoice[i].getComponentCount() / 2; j++) {
+                    if (((JCheckBox)multiChoice[i].getComponent(j * 2)).isSelected()) {
                         mark[0] += listOfQuestions.get(i).getMark() * listOfQuestions.get(i).getAnswer().get(j);
                     }
                     if (listOfQuestions.get(i).getAnswer().get(j) > 0) label.setText(label.getText() + listOfQuestions.get(i).getChoice().get(j) + ", ");
                 }
             } else {
-                for (int j = 0; j < multiChoice[i].getComponentCount(); j++) {
-                    if (((JRadioButton)multiChoice[i].getComponent(j)).isSelected()) {
+                for (int j = 0; j < multiChoice[i].getComponentCount() / 2; j++) {
+                    if (((JRadioButton)multiChoice[i].getComponent(j * 2)).isSelected()) {
                         mark[0] += listOfQuestions.get(i).getMark() * listOfQuestions.get(i).getAnswer().get(j);
                     }
                     if (listOfQuestions.get(i).getAnswer().get(j) > 0) label.setText(label.getText() + listOfQuestions.get(i).getChoice().get(j) + ", ");

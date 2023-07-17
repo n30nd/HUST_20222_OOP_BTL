@@ -52,9 +52,9 @@ D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\drag.png
 A. Lauriel
 B. Florentino
 C. Tất cả các tướng
-D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
-D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
-D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+
+
+
 0.0
 0.0
 1.0
