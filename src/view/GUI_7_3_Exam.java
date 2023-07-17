@@ -442,6 +442,8 @@ public class GUI_7_3_Exam extends JPanel {
             public void actionPerformed(ActionEvent ae) {
                 GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
                 xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf",String.valueOf(password.getPassword()));
+                mainFrame.setEnabled(true);
+                _frame.setVisible(false);
             }
         });
 
