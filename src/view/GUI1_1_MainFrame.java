@@ -237,7 +237,10 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Hiển thị PopUpMenu GUI_1.2 khi ấn vào nút cài đặt
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+// Hiển thị PopUpMenu GUI_1.2 khi ấn vào nút cài đặt
     private void showPopupMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showPopupMenu
         PopUpMenu = new JPopupMenu();
         PopUpMenu.setLayout(new GridLayout(4, 2, 50, 0));

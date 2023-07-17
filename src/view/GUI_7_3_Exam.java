@@ -1,5 +1,6 @@
 package view;
 
+import controller.GUI7_3ToPDFConverter;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.BorderLayout;
@@ -341,7 +342,9 @@ public class GUI_7_3_Exam extends JPanel {
         exportLabel.setText("     Export PDF");
         exportLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
-
+                //xuất pdf
+        GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
+        xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
             }
             public void mouseEntered(MouseEvent me) {
                 exportLabel.setText("<HTML><U>Export PDF</U></HTML");
