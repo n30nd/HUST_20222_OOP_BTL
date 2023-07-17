@@ -2,12 +2,12 @@
 0
 Một cộng một theo em bằng mấy?
 
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\download_arrow.png
 1.0
 A. 2
 B. 3
-
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
 1.0
 0.0
 0
@@ -15,14 +15,14 @@ B. 3
 0
  Trong tiếng Việt, chủ nhật còn có tên gọi là gì?
 
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\image.png
 1.0
 A. Chủ nhật
 B. Sunday
 C. Ngày tất niên
-
-
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
 1.0
 0.0
 0.0
@@ -31,14 +31,14 @@ C. Ngày tất niên
 0
  Anh Quân có pro, đỉnh của chóp không?
 
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\officeSign.png
 1.0
 A. Có
 B. Tất nhiên
 C. Chính xác
-
-
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
 0.33333334
 0.33333334
 0.33333334
@@ -47,14 +47,14 @@ C. Chính xác
 0
  Quân chơi tướng gì giỏi nhất?
 
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\drag.png
 1.0
 A. Lauriel
 B. Florentino
 C. Tất cả các tướng
-
-
-
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
+D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
 0.0
 0.0
 1.0

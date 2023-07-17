@@ -175,16 +175,18 @@ public class GUI_7_3_Exam extends JPanel {
             _gbc.fill = GridBagConstraints.NORTHWEST; _gbc.gridx = 0; _gbc.gridy = i + 1; _gbc.weightx = 1; quizPanel.add(panelLeft, _gbc);
 
             //Right - Content of question
-            JPanel panelRight = new JPanel(new GridLayout(3, 1, 10, 0));
+            JPanel panelRight = new JPanel(new GridLayout(4, 1, 10, 0));
 
             panelRight.add(new JLabel(listOfQuestions.get(i).getName()));
+            panelRight.add(new JLabel(new ImageIcon(listOfQuestions.get(i).getQuestionImage())));
 
-            multiChoice[i] = new JPanel(new GridLayout(listOfQuestions.get(i).getChoice().size(), 1));
+            multiChoice[i] = new JPanel(new GridLayout(listOfQuestions.get(i).getChoice().size(), 2));
 
             if (checkMutiple(listOfQuestions.get(i))) {                
                 for (int j = 0; j < listOfQuestions.get(i).getChoice().size(); j++) {
                     multiChoice[i].add(new JCheckBox(listOfQuestions.get(i).getChoice().get(j)));
-
+                    multiChoice[i].add(new JLabel(new ImageIcon(listOfQuestions.get(i).getChoiceImage().get(j))));
+                    
                     final int temp = i;
                     ((JCheckBox)multiChoice[i].getComponent(j)).addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent ae) {
@@ -329,7 +331,7 @@ public class GUI_7_3_Exam extends JPanel {
                 mainFrame.returnHomeFrame();
             }
             public void mouseEntered(MouseEvent me) {
-                finishLabel.setText("<HTML><U>&nbsp;Finish review</U></HTML");
+                finishLabel.setText("<HTML><U>Finish review</U></HTML");
             }
             public void mouseExited(MouseEvent me) {
                 finishLabel.setText("Finish review");
@@ -342,7 +344,7 @@ public class GUI_7_3_Exam extends JPanel {
 
             }
             public void mouseEntered(MouseEvent me) {
-                exportLabel.setText("<HTML><U>&nbsp      Export PDF</U></HTML");
+                exportLabel.setText("<HTML><U>Export PDF</U></HTML");
             }
             public void mouseExited(MouseEvent me) {
                 exportLabel.setText("     Export PDF");

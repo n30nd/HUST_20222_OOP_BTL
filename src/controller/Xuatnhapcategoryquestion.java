@@ -96,6 +96,7 @@ public class Xuatnhapcategoryquestion {
                         _choiceImage.add(str);
                         str = sc.nextLine();
                     }
+                    question.setChoiceImage(_choiceImage);
                     //Read answer point percent
                     for (int i = 0; i < _choice.size(); i++) {
                         _answer.add(Float.parseFloat(str));

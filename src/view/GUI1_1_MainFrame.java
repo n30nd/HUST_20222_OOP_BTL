@@ -35,7 +35,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        
         PopUpMenu = new javax.swing.JPopupMenu();
         question_MenuItem = new javax.swing.JMenuItem();
         catagories_MenuItem = new javax.swing.JMenuItem();
