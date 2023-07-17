@@ -483,11 +483,16 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     private void jComboBox1ItemStateChanged(ItemEvent ie) {
         if (ie.getStateChange() == ItemEvent.SELECTED) {
-            List<Question> questions = xn.readQuestionList(categories.get(jComboBox1.getSelectedIndex()).getId());
-
             question_panel_list.removeAll();
-            question_panel_list.setLayout(new GridLayout(questions.size() + 2, 1));
+            if (jComboBox1.getSelectedIndex() == 0) {
+                mainFrame.revalidate();
+                mainFrame.repaint();
+                return;
+            };
 
+            List<Question> questions = xn.readQuestionList(categories.get(jComboBox1.getSelectedIndex() - 1).getId());
+
+            question_panel_list.setLayout(new GridLayout(questions.size() + 2, 1));
             question_panel_list.add(new JPanel(new BorderLayout(10, 0)));
             ((JPanel)question_panel_list.getComponent(0)).add(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/drop_arrow_increase.png")), BorderLayout.WEST);
             ((JPanel)question_panel_list.getComponent(0)).add(new JLabel("Question"), BorderLayout.CENTER);
