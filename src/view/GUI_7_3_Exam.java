@@ -179,7 +179,7 @@ public class GUI_7_3_Exam extends JPanel {
             JPanel panelRight = new JPanel(new GridLayout(4, 1, 10, 0));
 
             panelRight.add(new JLabel(listOfQuestions.get(i).getName()));
-            panelRight.add(new JLabel(new ImageIcon(listOfQuestions.get(i).getQuestionImage())));
+            if (listOfQuestions.get(i).getQuestionImage().isEmpty()) panelRight.add(new JLabel()); else panelRight.add(new JLabel(new ImageIcon(listOfQuestions.get(i).getQuestionImage())));
 
             multiChoice[i] = new JPanel(new GridLayout(listOfQuestions.get(i).getChoice().size(), 2));
 

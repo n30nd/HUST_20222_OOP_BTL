@@ -47,7 +47,7 @@ D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\blue_pen.png
 0
  Quân chơi tướng gì giỏi nhất?
 
-D:\Quoc\Project\HUST_20222_OOP_BTL\src\view\img\drag.png
+
 1.0
 A. Lauriel
 B. Florentino
