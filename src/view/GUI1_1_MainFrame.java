@@ -297,7 +297,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
 
     private void addNewQuiz(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewQuiz
         // TODO add your handling code here:
-        this.MainPath.setText("Home / My Courses / THI CUỐI KỲ / Add new Question");
+        this.MainPath.setText("Home / My Courses / THI CUỐI KỲ / Add new Quiz");
         GUI_5_1_AddNewQuiz addNewQuiz = new GUI_5_1_AddNewQuiz(this);
         this.panel_content.removeAll();
         addNewQuiz.setSize(1030, 519);
