@@ -346,8 +346,9 @@ public class GUI_7_3_Exam extends JPanel {
         exportLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 //xuất pdf
-                GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
-                xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
+                // GUI7_3ToPDFConverter xpf = new GUI7_3ToPDFConverter();
+                // xpf.convertToPDF(mainFrame.getjPanel3(),quizPanel, "src\\Data\\quizExport.pdf");
+                exportEncrypt();
             }
             public void mouseEntered(MouseEvent me) {
                 exportLabel.setText("<HTML><U>Export PDF</U></HTML");
@@ -420,6 +421,10 @@ public class GUI_7_3_Exam extends JPanel {
         }
 
         return mark;
+    }
+
+    public void exportEncrypt() {
+        JFrame _frame = new JFrame("Đặt mật khẩu");
     }
 
     public Timer getCountDownTimer() {return countDownTimer;}
