@@ -478,7 +478,11 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     private void jComboBox1ItemStateChanged(ItemEvent ie) {
         if (ie.getStateChange() == ItemEvent.SELECTED) {
-            question_panel_list.removeAll();
+            showQsOfCategory();
+        }
+    }
+    private void showQsOfCategory() {
+        question_panel_list.removeAll();
             if (jComboBox1.getSelectedIndex() == 0) {
                 mainFrame.revalidate();
                 mainFrame.repaint();
@@ -524,7 +528,6 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
             mainFrame.revalidate();
             mainFrame.repaint();
-        }
     }
 
     private void btn_importFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_importFileActionPerformed
@@ -535,6 +538,19 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
             fileImport = "";
 
             JOptionPane.showOptionDialog(GUI_2_TabbedPaneMenu.this, "Nhập câu hỏi thành công!", "Thông báo", JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+            showQsOfCategory();
+
+            categories = xn.readCategoryList();
+            for (Category c : categories) c.setNumOfQuestions(xn.readQuestionList(c.getId()).size());
+
+            jComboBox1.removeAllItems();
+
+            categoryName[0] = "";
+            jComboBox1.addItem(categoryName[0]);
+            for (int i = 0; i < categories.size(); i++) {
+                categoryName[i + 1] = categories.get(i).getName() + " (" + categories.get(i).getNumOfQuestions() + ")";
+                jComboBox1.addItem(categoryName[i + 1]);
+            }
         }
         else JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Chưa nhập file", "Lỗi", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btn_importFileActionPerformed
