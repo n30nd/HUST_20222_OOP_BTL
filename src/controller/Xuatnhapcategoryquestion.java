@@ -207,11 +207,13 @@ public class Xuatnhapcategoryquestion {
             Question _question;
             String str;
             List<String> _choice;
+            List<String> _choiceImage;
             List<Float> _answer;
 
             while (sc.hasNextLine()) {
                 str = sc.nextLine(); row++;
                 _choice = new ArrayList<String>();
+                _choiceImage = new ArrayList<String>();
                 _answer = new ArrayList<Float>();
 
                 if (str == "") {
@@ -229,9 +231,11 @@ public class Xuatnhapcategoryquestion {
                     if (str.charAt(0) > 90 || str.charAt(0) < 65) {System.out.println("Error at row: " + row); return;}
                     while (str.charAt(0) >= 65 && str.charAt(0) <= 90 && str.charAt(1) == '.') {
                         _choice.add(str);
+                        _choiceImage.add("");
                         str = sc.nextLine(); row++;
                     }
                     _question.setChoice(_choice);
+                    _question.setChoiceImage(_choiceImage);
 
                     if (!str.substring(0, 7).equals("ANSWER:")) {System.out.println("Error at row: " + row); return;}
                     str = str.replace("ANSWER:", "").replaceAll("\\s", "").replaceAll(",", "");
@@ -242,7 +246,6 @@ public class Xuatnhapcategoryquestion {
                     _question.setAnswer(_answer);
                     
                     writeQuestion(_question);
-                    
                 }
             }
 

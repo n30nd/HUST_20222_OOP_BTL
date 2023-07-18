@@ -45,7 +45,7 @@ import model.Question;
 public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
     private GUI1_1_MainFrame mainFrame;
-    private boolean isValidFileImport;
+    private boolean isValidFileImport = false;
 
     /**
      * Creates new form panel_PopUpMenu
@@ -528,7 +528,15 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     }
 
     private void btn_importFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_importFileActionPerformed
-        // TODO add your handling code here:
+        Object[] options = {"OK"};
+        if (isValidFileImport) {
+            xn.fetchQuestion(jComboBox1.getSelectedIndex() - 1, fileImport);
+            isValidFileImport = false;
+            fileImport = "";
+
+            JOptionPane.showOptionDialog(GUI_2_TabbedPaneMenu.this, "Nhập câu hỏi thành công!", "Thông báo", JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        }
+        else JOptionPane.showMessageDialog(GUI_2_TabbedPaneMenu.this, "Chưa nhập file", "Lỗi", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btn_importFileActionPerformed
 
     private void createNewQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewQuestion
@@ -572,6 +580,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
                         null,
                         options,
                         options[0]);
+                fileImport = file.getAbsolutePath();
             }
         }
     }//GEN-LAST:event_chooseFile
@@ -630,6 +639,7 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
     private List<Category> categories;
     private String[] categoryName;
     private Xuatnhapcategoryquestion xn;
+    private String fileImport;
     // End of variables declaration//GEN-END:variables
 
     public JTabbedPane getTabbedPaneMenu() {
