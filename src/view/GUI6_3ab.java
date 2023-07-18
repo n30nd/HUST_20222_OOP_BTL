@@ -36,15 +36,14 @@ import model.Quiz;
  */
 public class GUI6_3ab extends javax.swing.JPanel {
     GUI1_1_MainFrame mainFrame;
-    GUI_6_2_a gUI_6_2_a;
+//
     /**
      * Creates new form NewJPanel
      * @param mainframe;
      */
-    public GUI6_3ab(GUI1_1_MainFrame mainFrame, Quiz quiz, GUI_6_2_a gUI_6_2_a) {
+    public GUI6_3ab(GUI1_1_MainFrame mainFrame, Quiz quiz) {
         this.mainFrame = mainFrame;
         this.quiz = quiz;
-        this.gUI_6_2_a = gUI_6_2_a;
         initComponents();
         loadCategories();
         //showPanelQuestions();

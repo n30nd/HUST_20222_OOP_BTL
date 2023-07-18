@@ -10,7 +10,7 @@ import model.Question;
 import model.Quiz;
 /**
  *
- * @author viet0
+ * @author viet
  */
 public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customizer {
     
@@ -288,7 +288,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_newQ_MenuItemActionPerformed
 
     private void Qbank_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Qbank_MenuItemActionPerformed
-        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame, quiz, this);
+        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame, quiz);
 
         gui6_3ab.setLocation(0, 0);
 
