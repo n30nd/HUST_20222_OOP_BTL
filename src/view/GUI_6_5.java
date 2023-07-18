@@ -143,7 +143,7 @@ public class GUI_6_5 extends javax.swing.JPanel {
                 )
             )
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(410, 410, 410)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
