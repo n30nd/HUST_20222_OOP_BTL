@@ -59,3 +59,47 @@ C. Tất cả các tướng
 0.0
 1.0
 3
+
+0
+Việt có đzai không?
+
+\view\img\mainLogo.png
+1.0
+A. Có
+B. Không
+C. 
+D. 
+E. 
+F. 
+G. 
+H. 
+\view\img\accountMenu_information.png
+\view\img\delete.png
+/view/img/image.png
+/view/img/image.png
+/view/img/image.png
+/view/img/image.png
+/view/img/image.png
+/view/img/image.png
+1.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+4
+
+0
+Việt có đzai không?
+
+src\view\img\download_arrow.png
+1.0
+A. Có
+B. Không
+src\view\img\accountMenu_sign.png
+src\view\img\detail.png
+1.0
+0.0
+5

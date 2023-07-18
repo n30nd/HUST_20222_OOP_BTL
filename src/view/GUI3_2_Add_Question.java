@@ -267,7 +267,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jScrollPane2.setPreferredSize(new java.awt.Dimension(600, 1600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(590, 1630));
+        jPanel1.setPreferredSize(new java.awt.Dimension(590, 2050));
 
         Choice1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -427,7 +427,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel29.setText("Image");
 
-        image3.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image/png"));
+        image3.setIcon(new ImageIcon(System.getProperty("user.dir") + "/src/view/img/image.png"));
         image3.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 chooseImage(me);
@@ -1120,71 +1120,130 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
            
            return 0;
     }
-
+    Integer Qlevel=-1; 
     public void SAVE() {
+        String Local=System.getProperty("user.dir");
+        Integer Leng=Local.length()+1;
         Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
+        
+        List<Question> _qList=new ArrayList<Question>();
+        _qList= xn.readAllQuestionList();
+        
+        int stt=0;
         Question tmp = new Question();
         tmp.setCategory(CateBox1.getSelectedIndex());
         tmp.setName(QnameField1.getText());
         tmp.setText(QtextArea1.getText());
+        
+        String QImage=jLabel.getIcon().toString().substring(Leng);
+        if(QImage.equals( "src/view/img/image.png"))QImage="";
+        tmp.setQuestionImage(QImage);
+        
         tmp.setMark(Float.parseFloat(Markfield1.getText()));
-
+        if(Qlevel==-1){
+            Qlevel=_qList.size();
+        }    
+        tmp.setLevel(Qlevel);
         List<String> SChoi = new ArrayList<>();
+        List<String> SChoiImage = new ArrayList<>();
         List<Float> Diem = new ArrayList<>();
 
         String Choi = jTextField3.getText();
-        if (!Choi.equals( "")) {
+        String CImage=image1.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
-            Diem.add(TRANFER(jComboBox6.getSelectedIndex()));
-
+            SChoiImage.add(CImage);
+            Diem.add(TRANFER(jComboBox6.getSelectedIndex()));   
         }
         
         Choi = jTextField6.getText();
-        if (!Choi.equals( "")) {
+        CImage=image2.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);
             Diem.add(TRANFER(jComboBox7.getSelectedIndex()));
         }
         
         Choi = jTextField7.getText();
-        if (!Choi.equals( "")) {
+        CImage=image3.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);
             Diem.add(TRANFER(jComboBox8.getSelectedIndex()));
         }
         
         Choi = jTextField8.getText();
-        if (!Choi.equals( "")) {
+        CImage=image4.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);
             Diem.add(TRANFER(jComboBox9.getSelectedIndex()));
         }
         
         Choi = jTextField9.getText();
-        if (!Choi.equals( "")) {
+        CImage=image5.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);    
             Diem.add(TRANFER(jComboBox10.getSelectedIndex()));
         }
         
         Choi = jTextField10.getText();
-        if (!Choi.equals( "")) {
+        CImage=image6.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+             if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);    
             Diem.add(TRANFER(jComboBox11.getSelectedIndex()));
         }
       
         Choi = jTextField11.getText();
-        if (!Choi.equals( "")) {
+        CImage=image7.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+             if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);    
             Diem.add(TRANFER(jComboBox12.getSelectedIndex()));
         }
         
         Choi = jTextField12.getText();
-        if (!Choi.equals( "")) {
+        CImage=image8.getIcon().toString().substring(Leng);
+        if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
+             if(CImage.equals( "src/view/img/image.png"))CImage="";
+            Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
+            SChoiImage.add(CImage);    
             Diem.add(TRANFER(jComboBox13.getSelectedIndex()));
         }
         
         tmp.setChoice(SChoi);
+        tmp.setChoiceImage(SChoiImage);
         tmp.setAnswer(Diem);
-        xn.writeQuestion(tmp);
-        tmp.display();
+        xn.ClearData();
+        Boolean ck=false;
+        for( var v: _qList){
+            if(v.getLevel()==Qlevel){
+                ck=true;
+                xn.writeQuestion(tmp);
+            }
+            else xn.writeQuestion(v);
+        }
+        if(ck.equals(false)){
+            xn.writeQuestion(tmp);
+        }
+        //tmp.display();
     }
     public void CANCEL(){
         GUI_2_TabbedPaneMenu gui2 = new GUI_2_TabbedPaneMenu(mainFrame);
