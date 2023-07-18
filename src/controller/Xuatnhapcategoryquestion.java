@@ -8,6 +8,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -122,6 +124,57 @@ public class Xuatnhapcategoryquestion {
 
         return _qList;
     }
+    
+    public List<Question> readAllQuestionList() {
+        Question question;
+        List<Question> _qList = new ArrayList<Question>();
+        try {
+            Scanner sc = new Scanner(new File(System.getProperty("user.dir") + "\\src\\Data\\questionSource.txt"), "UTF-8");
+            String str;
+
+            while (sc.hasNextLine()) {
+                if (sc.nextLine() == "") {
+                    List<String> _choice = new ArrayList<String>();
+                    List<String> _choiceImage = new ArrayList<String>();
+                    List<Float> _answer = new ArrayList<Float>();
+
+                    question = new Question(Integer.parseInt(sc.nextLine()), sc.nextLine(), sc.nextLine(), sc.nextLine(), Float.parseFloat(sc.nextLine()));
+                    //Read choice
+                    str = sc.nextLine();
+                    while (str.length() > 0 && str.charAt(0) <= 'Z' && str.charAt(0) >= 'A' && str.charAt(1) == '.') {
+                        _choice.add(str);
+                        str = sc.nextLine();
+                    }
+                    question.setChoice(_choice);
+                    //Read images of choice
+                    for (int i = 0; i < _choice.size(); i++) {
+                        _choiceImage.add(str);
+                        str = sc.nextLine();
+                    }
+                    question.setChoiceImage(_choiceImage);
+                    //Read answer point percent
+                    for (int i = 0; i < _choice.size(); i++) {
+                        _answer.add(Float.parseFloat(str));
+                        str = sc.nextLine();
+                    }
+                    question.setAnswer(_answer);
+                    //Read level
+                    question.setLevel(Integer.parseInt(str));
+                    _qList.add(question);
+                    
+                }
+            }
+            sc.close();
+
+            return _qList;
+        } catch (InputMismatchException e) {
+            System.err.println("Mismatch exception!");
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+        }
+
+        return _qList;
+    }
     public void writeQuestion(Question _question) {
         try {
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(System.getProperty("user.dir") + "\\src\\Data\\questionSource.txt", true), "UTF-8"));
@@ -195,6 +248,17 @@ public class Xuatnhapcategoryquestion {
 
         } catch (FileNotFoundException e) {
             System.err.println("Has exception!");
+        }
+    }
+    
+    public void ClearData(){
+         try {
+            
+            FileWriter writer = new FileWriter(System.getProperty("user.dir") + "\\src\\Data\\questionSource.txt");
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
