@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JLabel;
 import model.Question;
 import model.Quiz;
 /**
@@ -14,6 +15,7 @@ import model.Quiz;
 public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customizer {
     
      GUI1_1_MainFrame mainFrame;
+     Quiz quiz;
     /**
      * Creates new customizer GUI_6_2_a
      * @param mainFrame
@@ -256,6 +258,15 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+    
+    
     private void jLabel7ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jLabel7ComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7ComponentShown
@@ -277,7 +288,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_newQ_MenuItemActionPerformed
 
     private void Qbank_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Qbank_MenuItemActionPerformed
-        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame, quiz);
+        GUI6_3ab gui6_3ab = new GUI6_3ab(mainFrame, quiz, this);
 
         gui6_3ab.setLocation(0, 0);
 
@@ -333,6 +344,5 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     private java.awt.Label label1;
     private javax.swing.JMenuItem newQ_MenuItem;
     private javax.swing.JMenuItem randQ_MenuItem;
-    private Quiz quiz;
     // End of variables declaration//GEN-END:variables
 }

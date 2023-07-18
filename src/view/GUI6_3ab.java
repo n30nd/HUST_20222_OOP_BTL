@@ -36,13 +36,15 @@ import model.Quiz;
  */
 public class GUI6_3ab extends javax.swing.JPanel {
     GUI1_1_MainFrame mainFrame;
+    GUI_6_2_a gUI_6_2_a;
     /**
      * Creates new form NewJPanel
      * @param mainframe;
      */
-    public GUI6_3ab(GUI1_1_MainFrame mainFrame, Quiz quiz) {
+    public GUI6_3ab(GUI1_1_MainFrame mainFrame, Quiz quiz, GUI_6_2_a gUI_6_2_a) {
         this.mainFrame = mainFrame;
         this.quiz = quiz;
+        this.gUI_6_2_a = gUI_6_2_a;
         initComponents();
         loadCategories();
         //showPanelQuestions();
@@ -238,6 +240,9 @@ public class GUI6_3ab extends javax.swing.JPanel {
         mainFrame.getPanel_content().removeAll();
         
         if (qstoQuiz.size() > 0) {
+            gui_6_2_a.getjLabel4().setText("Question: "+qstoQuiz.size()+" | This quiz is open");
+            gui_6_2_a.getjLabel3().setText("Total of marks: "+qstoQuiz.size()+".00");
+            
             GUI_6_4_Quoc gui_6_4 = new GUI_6_4_Quoc(mainFrame, qstoQuiz);
             gui_6_4.setLocation(0, 293);
             gui_6_4.setSize(1034, qstoQuiz.size() * 25);
