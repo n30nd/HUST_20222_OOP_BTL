@@ -200,7 +200,9 @@ public class Xuatnhapcategoryquestion {
             e.printStackTrace();
         }
     }
+    Integer Qcount;
     public void fetchQuestion(int _categoryId, String directory) {
+        Qcount=this.readAllQuestionList().size();
         try {
             int row = 0;
             Scanner sc = new Scanner(new File(directory), "UTF-8");
@@ -221,10 +223,11 @@ public class Xuatnhapcategoryquestion {
                     
                     _question.setCategory(_categoryId);
                     str = sc.nextLine(); row++;
-                    if (str.substring(0, 5).equals("Easy:")) {_question.setLevel(1); str = str.replace("Easy:", "");} else
+                    /*if (str.substring(0, 5).equals("Easy:")) {_question.setLevel(1); str = str.replace("Easy:", "");} else
                     if (str.substring(0, 7).equals("Medium:")) {_question.setLevel(2); str = str.replace("Medium:", "");} else
                     if (str.substring(0, 5).equals("Hard:")) {_question.setLevel(3); str = str.replace("Hard:", "");} else
-                    {_question.setLevel(0);}
+                    {_question.setLevel(0);}*/
+                    _question.setLevel(Qcount++);
                     _question.setName(str);
 
                     str = sc.nextLine(); row++;

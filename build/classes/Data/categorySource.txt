@@ -12,4 +12,4 @@ Kiểm tra giữa kỳ sinh 7
 a
 b
 c�
-4
+2

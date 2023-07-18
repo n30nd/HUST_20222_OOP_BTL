@@ -10,12 +10,6 @@ B. Sunday
 C. Ngày tất niên
 ANSWER: A
 
-Medium: Anh Quân có pro, đỉnh của chóp không?
-A. Có
-B. Tất nhiên
-C. Chính xác
-ANSWER: A, B, C
-
 Hard: Quân chơi tướng gì giỏi nhất?
 A. Lauriel
 B. Florentino
