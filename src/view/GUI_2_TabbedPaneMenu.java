@@ -226,6 +226,11 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Roboto Slab", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ADD CATEGORY");
+        jButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                jButton2ActionPerformed();
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("There are required fields in this form marked");
@@ -482,6 +487,22 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
             showQsOfCategory();
         }
     }
+
+    private void jButton2ActionPerformed() {
+        categories.add(new Category(jComboBox1.getSelectedItem().toString(), jTextField1.getText(), jTextArea1.getText(), Integer.parseInt(jTextField2.getText())));
+        xn.writeCategoryList(categories);
+
+        GUI_2_TabbedPaneMenu gui_2_TabbedPaneMenu = new GUI_2_TabbedPaneMenu(mainFrame);
+        gui_2_TabbedPaneMenu.setLocation(0, 0);
+        gui_2_TabbedPaneMenu.setSize(1024, 527);
+        gui_2_TabbedPaneMenu.getTabbedPaneMenu().setSelectedIndex(1);
+
+        mainFrame.getPanel_content().removeAll();
+        mainFrame.getPanel_content().add(gui_2_TabbedPaneMenu);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
     private void showQsOfCategory() {
         question_panel_list.removeAll();
             if (jComboBox1.getSelectedIndex() == 0) {
