@@ -37,6 +37,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import controller.Xuatnhapcategoryquestion;
 import model.Category;
 import model.Question;
+import model.Quiz;
 
 /**
  *

@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JOptionPane;
+
 import model.Quiz;
 
 /**
@@ -37,6 +39,7 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        System.out.println(quiz.getName());
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -214,7 +217,12 @@ public class GUI_7_2_StartAttempt extends javax.swing.JPanel {
     }
 
     public void startAttempt() {
-        GUI_7_3_Exam gui_7_3_Exam = new GUI_7_3_Exam(mainFrame);
+        if (quiz.getQuestions().size() == 0) {
+            JOptionPane.showMessageDialog(GUI_7_2_StartAttempt.this, "Bài kiểm tra hiện tại chưa có câu hỏi nào", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return ;
+        }
+
+        GUI_7_3_Exam gui_7_3_Exam = new GUI_7_3_Exam(mainFrame, quiz);
 
         gui_7_3_Exam.setLocation(0, 0);
         

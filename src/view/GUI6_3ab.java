@@ -23,7 +23,6 @@ import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 
 import model.Category;
 import model.Question;
@@ -57,6 +56,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.GRAY, 1, false));
         setBounds(0, 0, 1034, 527);
@@ -233,19 +233,19 @@ public class GUI6_3ab extends javax.swing.JPanel {
             }
         }
 
-        GUI_6_2_a gui_6_2_a = new GUI_6_2_a(mainFrame, quiz);
+        GUI_6_2_a gui_6_2_a = new GUI_6_2_a(mainFrame, quiz, qstoQuiz);
         gui_6_2_a.setLocation(0, 0);
         gui_6_2_a.setSize(1034, 527);
         mainFrame.getPanel_content().removeAll();
         
         if (qstoQuiz.size() > 0) {
-            gui_6_2_a.getjLabel4().setText("Question: "+qstoQuiz.size()+" | This quiz is open");
-            gui_6_2_a.getjLabel3().setText("Total of marks: "+qstoQuiz.size()+".00");
+            gui_6_2_a.getjLabel4().setText("Question: " + qstoQuiz.size() + " | This quiz is open");
+            gui_6_2_a.getjLabel3().setText("Total of marks: " + qstoQuiz.size() + ".00");
             
             GUI_6_4_Quoc gui_6_4 = new GUI_6_4_Quoc(mainFrame, qstoQuiz);
             gui_6_4.setLocation(0, 293);
-            gui_6_4.setSize(1034, qstoQuiz.size() * 25);
-            mainFrame.getPanel_content().add(gui_6_4);
+            gui_6_4.setSize(1034, 238);
+            gui_6_2_a.add(gui_6_4);
         }
         mainFrame.getPanel_content().add(gui_6_2_a);
         mainFrame.validate();
@@ -304,10 +304,7 @@ public class GUI6_3ab extends javax.swing.JPanel {
         }
     }
     
-    public List<Question> qstoQuiz;
-    public List<JCheckBox> jCheckBoxs;
-    public List<Question> questionChooses;
-    public boolean[] tick = new boolean[100]; // Khai báo mảng tick có 100 phần tử
+   
 
 
     private void showQuestion(int i) {
@@ -431,6 +428,10 @@ public class GUI6_3ab extends javax.swing.JPanel {
     private javax.swing.JButton selectQsButton;
     private javax.swing.JCheckBox tickAllQsCheckbox;
     private Quiz quiz;
+    private List<Question> qstoQuiz;
+    private List<JCheckBox> jCheckBoxs;
+    private List<Question> questionChooses;
+    private boolean[] tick = new boolean[100]; // Khai báo mảng tick có 100 phần tử
     // End of variables declaration//GEN-END:variables
 
     public void setLocationRelativeTo(Object object) {

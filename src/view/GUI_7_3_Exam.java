@@ -23,7 +23,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Duration;
@@ -46,16 +45,17 @@ import javax.swing.UIManager;
 
 import controller.Xuatnhapcategoryquestion;
 import model.Question;
+import model.Quiz;
 
 public class GUI_7_3_Exam extends JPanel {
-    private Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
-    private List<JLabel> questionLabel = new ArrayList<JLabel>();
-    private List<Question> listOfQuestions = xn.readQuestionList(0);
-    private ButtonGroup[] onlyChoice = new ButtonGroup[listOfQuestions.size()];
-    private JPanel[] multiChoice = new JPanel[listOfQuestions.size()];
+    private Xuatnhapcategoryquestion xn;
+    private List<JLabel> questionLabel;
+    private Quiz quiz;
+    private ButtonGroup[] onlyChoice;
+    private JPanel[] multiChoice;
 
     private JLabel label1, finishLabel, timer, exportLabel;
-    private JPanel navigationPanel, qListPanel, quizPanel, labelState = new JPanel(new GridLayout(6, 1)), state = new JPanel(new GridLayout(6, 1));
+    private JPanel navigationPanel, qListPanel, quizPanel, labelState, state;
     private JScrollPane quizScrollPane;
     private LocalDateTime begin = LocalDateTime.now(), end;
 
@@ -70,9 +70,16 @@ public class GUI_7_3_Exam extends JPanel {
 
     private GUI1_1_MainFrame mainFrame;
 
-    public GUI_7_3_Exam(GUI1_1_MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
-        mainFrame.add(this);
+    public GUI_7_3_Exam(GUI1_1_MainFrame mainFrame, Quiz quiz) {
+        this.mainFrame = mainFrame; mainFrame.add(this);
+        this.quiz = quiz;
+
+        xn = new Xuatnhapcategoryquestion();
+        questionLabel = new ArrayList<JLabel>();
+        onlyChoice = new ButtonGroup[quiz.getQuestions().size()];
+        multiChoice = new JPanel[quiz.getQuestions().size()];
+        labelState = new JPanel(new GridLayout(6, 1));
+        state = new JPanel(new GridLayout(6, 1));
 
         UIManager.put("Label.font", new Font("SegoeUI", Font.PLAIN, 14));
         
@@ -92,7 +99,7 @@ public class GUI_7_3_Exam extends JPanel {
         qListPanel.setBackground(Color.WHITE);
         qListPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
         qListPanel.setMinimumSize(new Dimension(100, 520));
-        for (int i = 0; i < listOfQuestions.size(); i++) {
+        for (int i = 0; i < quiz.getQuestions().size(); i++) {
             questionLabel.add(new JLabel("" + (i + 1), JLabel.CENTER));
             questionLabel.get(i).setBackground(Color.WHITE);
             questionLabel.get(i).setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, true));
@@ -155,7 +162,7 @@ public class GUI_7_3_Exam extends JPanel {
         _gbc.insets = new Insets(5, 5, 5, 5);
         _gbc.fill = GridBagConstraints.BOTH; _gbc.gridx = 0; _gbc.gridy = 0; _gbc.weightx = 1.00; _gbc.weighty = 1; quizPanel.add(labelState, _gbc);
         _gbc.fill = GridBagConstraints.BOTH; _gbc.gridx = 1;                 _gbc.weightx = 5.75;                   quizPanel.add(state, _gbc);
-        for (int i = 0; i < listOfQuestions.size(); i++) {
+        for (int i = 0; i < quiz.getQuestions().size(); i++) {
             //Left - Number of question
             JLabel label1, label2, label3, label4;
             JPanel panelLeft = new JPanel(new GridLayout(4, 1, 0, 5));
@@ -168,7 +175,7 @@ public class GUI_7_3_Exam extends JPanel {
             label2 = new JLabel("Not yet answered");
             label2.setFont(label2.getFont().deriveFont((float)10.0));
 
-            label3 = new JLabel("Marked out of " + listOfQuestions.get(i).getMark());
+            label3 = new JLabel("Marked out of " + quiz.getQuestions().get(i).getMark());
             label3.setFont(label3.getFont().deriveFont((float)10.0));
 
             label4 = new JLabel("Flag question", new ImageIcon(System.getProperty("user.dir") + "\\src\\view\\img\\flag.png"), JLabel.LEFT);
@@ -186,15 +193,15 @@ public class GUI_7_3_Exam extends JPanel {
             //Right - Content of question
             JPanel panelRight = new JPanel(new GridLayout(4, 1, 10, 0));
 
-            panelRight.add(new JLabel(listOfQuestions.get(i).getName()));
-            if (listOfQuestions.get(i).getQuestionImage().isEmpty()) panelRight.add(new JLabel()); else panelRight.add(new JLabel(new ImageIcon(listOfQuestions.get(i).getQuestionImage())));
+            panelRight.add(new JLabel(quiz.getQuestions().get(i).getName()));
+            if (quiz.getQuestions().get(i).getQuestionImage().isEmpty()) panelRight.add(new JLabel()); else panelRight.add(new JLabel(new ImageIcon(quiz.getQuestions().get(i).getQuestionImage())));
 
-            multiChoice[i] = new JPanel(new GridLayout(listOfQuestions.get(i).getChoice().size(), 2));
+            multiChoice[i] = new JPanel(new GridLayout(quiz.getQuestions().get(i).getChoice().size(), 2));
 
-            if (checkMutiple(listOfQuestions.get(i))) {                
-                for (int j = 0; j < listOfQuestions.get(i).getChoice().size(); j++) {
-                    multiChoice[i].add(new JCheckBox(listOfQuestions.get(i).getChoice().get(j)));
-                    String _temp = listOfQuestions.get(i).getChoiceImage().get(j);
+            if (checkMutiple(quiz.getQuestions().get(i))) {                
+                for (int j = 0; j < quiz.getQuestions().get(i).getChoice().size(); j++) {
+                    multiChoice[i].add(new JCheckBox(quiz.getQuestions().get(i).getChoice().get(j)));
+                    String _temp = quiz.getQuestions().get(i).getChoiceImage().get(j);
                     if (_temp.isEmpty()) multiChoice[i].add(new JLabel()); else multiChoice[i].add(new JLabel(new ImageIcon(_temp)));
                     
                     final int temp = i;
@@ -206,9 +213,9 @@ public class GUI_7_3_Exam extends JPanel {
                 }
             } else {
                 onlyChoice[i] = new ButtonGroup();
-                for (int j = 0; j < listOfQuestions.get(i).getChoice().size(); j++) {
-                    multiChoice[i].add(new JRadioButton(listOfQuestions.get(i).getChoice().get(j)));
-                    String _temp = listOfQuestions.get(i).getChoiceImage().get(j);
+                for (int j = 0; j < quiz.getQuestions().get(i).getChoice().size(); j++) {
+                    multiChoice[i].add(new JRadioButton(quiz.getQuestions().get(i).getChoice().get(j)));
+                    String _temp = quiz.getQuestions().get(i).getChoiceImage().get(j);
                     if (_temp.isEmpty()) multiChoice[i].add(new JLabel()); else multiChoice[i].add(new JLabel(new ImageIcon(_temp)));
                     onlyChoice[i].add((JRadioButton)multiChoice[i].getComponent(j * 2));
 
@@ -329,7 +336,7 @@ public class GUI_7_3_Exam extends JPanel {
     }
     //GUI_7_4_Review
     public void review() {
-        for (int i = 0; i < listOfQuestions.size(); i++) {
+        for (int i = 0; i < quiz.getQuestions().size(); i++) {
             for (Component c : multiChoice[i].getComponents()) c.setEnabled(false);
         }
 
@@ -407,19 +414,19 @@ public class GUI_7_3_Exam extends JPanel {
             if (onlyChoice[i] == null) {
                 for (int j = 0; j < multiChoice[i].getComponentCount() / 2; j++) {
                     if (((JCheckBox)multiChoice[i].getComponent(j * 2)).isSelected()) {
-                        mark[0] += listOfQuestions.get(i).getMark() * listOfQuestions.get(i).getAnswer().get(j);
+                        mark[0] += quiz.getQuestions().get(i).getMark() * quiz.getQuestions().get(i).getAnswer().get(j);
                     }
-                    if (listOfQuestions.get(i).getAnswer().get(j) > 0) label.setText(label.getText() + listOfQuestions.get(i).getChoice().get(j) + ", ");
+                    if (quiz.getQuestions().get(i).getAnswer().get(j) > 0) label.setText(label.getText() + quiz.getQuestions().get(i).getChoice().get(j) + ", ");
                 }
             } else {
                 for (int j = 0; j < multiChoice[i].getComponentCount() / 2; j++) {
                     if (((JRadioButton)multiChoice[i].getComponent(j * 2)).isSelected()) {
-                        mark[0] += listOfQuestions.get(i).getMark() * listOfQuestions.get(i).getAnswer().get(j);
+                        mark[0] += quiz.getQuestions().get(i).getMark() * quiz.getQuestions().get(i).getAnswer().get(j);
                     }
-                    if (listOfQuestions.get(i).getAnswer().get(j) > 0) label.setText(label.getText() + listOfQuestions.get(i).getChoice().get(j) + ", ");
+                    if (quiz.getQuestions().get(i).getAnswer().get(j) > 0) label.setText(label.getText() + quiz.getQuestions().get(i).getChoice().get(j) + ", ");
                 }
             }
-            mark[1] += listOfQuestions.get(i).getMark();
+            mark[1] += quiz.getQuestions().get(i).getMark();
 
             label.setBackground(Color.YELLOW);
             label.setOpaque(true);

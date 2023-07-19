@@ -51,6 +51,7 @@ public class GUI1_1_MainFrame extends javax.swing.JFrame {
         panel_content = new javax.swing.JPanel();
         panel_examList = new javax.swing.JPanel();
         lbl_exam = new ArrayList<JLabel>();
+        quizzes = new ArrayList<Quiz>();
 
         question_MenuItem.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         question_MenuItem.setForeground(new java.awt.Color(0, 159, 229));

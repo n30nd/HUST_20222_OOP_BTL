@@ -21,6 +21,7 @@ public class Quiz {
     public Quiz(String name, int timeLimit) {
         this.name = name;
         this.timeLimit = timeLimit;
+        questions = new ArrayList<Question>();
     }
     public Quiz(String name, int timeLimit, List<Question> questions) {
         this(name, timeLimit);

@@ -2,9 +2,8 @@ package view;
 
 import javax.swing.JPopupMenu;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
+
 import javax.swing.JLabel;
 import model.Question;
 import model.Quiz;
@@ -16,6 +15,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     
      GUI1_1_MainFrame mainFrame;
      Quiz quiz;
+     List<Question> qstoQuiz;
     /**
      * Creates new customizer GUI_6_2_a
      * @param mainFrame
@@ -24,6 +24,12 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     public GUI_6_2_a(GUI1_1_MainFrame mainFrame, Quiz quiz) {
         this.mainFrame = mainFrame;
         this.quiz = quiz;
+        initComponents();
+    }
+    public GUI_6_2_a(GUI1_1_MainFrame mainFrame, Quiz quiz, List<Question> qstoQuiz) {
+        this.mainFrame = mainFrame;
+        this.quiz = quiz;
+        this.qstoQuiz = qstoQuiz;
         initComponents();
     }
     
@@ -36,7 +42,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        
         jPopupMenuGUI62b = new javax.swing.JPopupMenu();
         newQ_MenuItem = new javax.swing.JMenuItem();
         Qbank_MenuItem = new javax.swing.JMenuItem();
@@ -300,6 +306,10 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_Qbank_MenuItemActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        for (int i = 0; i < qstoQuiz.size(); i++) {
+            quiz.getQuestions().add(qstoQuiz.get(i));
+        }
+        
         GUI_6_1 gui6_1_exam = new GUI_6_1(mainFrame, quiz);
 
         gui6_1_exam.setSize(1030, 519);
