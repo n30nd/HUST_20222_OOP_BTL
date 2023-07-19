@@ -303,9 +303,6 @@ public class GUI6_3ab extends javax.swing.JPanel {
             jComboBox1.addItem(categories.get(i).toString1());
         }
     }
-    
-   
-
 
     private void showQuestion(int i) {
         Arrays.fill(tick, false);

@@ -6,20 +6,21 @@ package view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.Xuatnhapcategoryquestion;
 import model.Category;
 import model.Question;
+import model.Quiz;
 
 /**
  *
@@ -30,8 +31,10 @@ public class GUI_6_5 extends javax.swing.JPanel {
      * Creates new form GUI_6_3_b
      * @param mainFrame
      */
-    public GUI_6_5(GUI1_1_MainFrame mainFrame) {
+    public GUI_6_5(GUI1_1_MainFrame mainFrame, Quiz quiz, List<Question> qstoQuiz) {
         this.mainFrame = mainFrame;
+        this.quiz = quiz;
+        this.qstoQuiz = qstoQuiz;
         initComponents();
         importCategories();
     }
@@ -58,6 +61,7 @@ public class GUI_6_5 extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jButton1 = new javax.swing.JButton();
+        qstoQuiz = new ArrayList<Question>();
 
         setPreferredSize(new java.awt.Dimension(800, 650));
 
@@ -88,6 +92,11 @@ public class GUI_6_5 extends javax.swing.JPanel {
         });
 
         jButton1.setText("ADD RANDOM QUESTIONS TO THE QUIZ");
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                jButton1ActionPerformed();
+            } 
+        });
 
         jTextArea1.setBorder(null);
         jTextArea1.setEditable(false);
@@ -217,8 +226,35 @@ public class GUI_6_5 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
+    private void jButton1ActionPerformed() {
+        List<Integer> mnemonic = new ArrayList<Integer>();
+        List<Question> questions = xn.readQuestionList(jComboBox1.getSelectedIndex() - 1);
 
+        for (int i = 0; i < jComboBox2.getSelectedIndex() + 1; i++) {
+            Integer temp = (int)(Math.random() * questions.size());
+            
+            while (mnemonic.contains(temp)) temp = (int)(Math.random() * questions.size());
+            mnemonic.add(temp);
+            qstoQuiz.add(questions.get(mnemonic.get(mnemonic.size() - 1)));
+        }
+
+        GUI_6_2_a gui_6_2_a = new GUI_6_2_a(mainFrame, quiz, qstoQuiz);
+        gui_6_2_a.setLocation(0, 0);
+        gui_6_2_a.setSize(1034, 527);
+        mainFrame.getPanel_content().removeAll();
+        
+        if (qstoQuiz.size() > 0) {
+            gui_6_2_a.getjLabel4().setText("Question: " + qstoQuiz.size() + " | This quiz is open");
+            gui_6_2_a.getjLabel3().setText("Total of marks: " + qstoQuiz.size() + ".00");
+            
+            GUI_6_4_Quoc gui_6_4 = new GUI_6_4_Quoc(mainFrame, qstoQuiz);
+            gui_6_4.setLocation(0, 293);
+            gui_6_4.setSize(1034, 238);
+            gui_6_2_a.add(gui_6_4);
+        }
+        mainFrame.getPanel_content().add(gui_6_2_a);
+        mainFrame.validate();
+        mainFrame.repaint();
     }
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -226,9 +262,6 @@ public class GUI_6_5 extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox2ActionPerformed
           
     public void importCategories() {
-        Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
-        List<Category> categories = xn.readCategoryList();
-
         jComboBox1.addItem("");
         for (Category c : categories) jComboBox1.addItem(c.getName() + " (" + xn.readQuestionList(c.getId()).size() + ")");
 
@@ -257,7 +290,7 @@ public class GUI_6_5 extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame mainFrame;
+    private GUI1_1_MainFrame mainFrame;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -271,5 +304,9 @@ public class GUI_6_5 extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jButton1;
+    private List<Question> qstoQuiz;
+    private Xuatnhapcategoryquestion xn = new Xuatnhapcategoryquestion();
+    private List<Category> categories = xn.readCategoryList();
+    private Quiz quiz;
     // End of variables declaration//GEN-END:variables
 }

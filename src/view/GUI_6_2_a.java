@@ -323,7 +323,7 @@ public class GUI_6_2_a extends javax.swing.JPanel implements java.beans.Customiz
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void randQ_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randQ_MenuItemActionPerformed
-       GUI_6_5 gui_6_5 = new GUI_6_5(mainFrame);
+       GUI_6_5 gui_6_5 = new GUI_6_5(mainFrame, quiz, qstoQuiz);
 
         gui_6_5.setLocation(0, 0);
         gui_6_5.setSize(1030, 519);

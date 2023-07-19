@@ -16,13 +16,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import model.Question;
-import model.Quiz;
 
 public class GUI_6_4_Quoc extends JPanel {
     private GUI1_1_MainFrame mainFrame;
     private JPanel panelQuestionsList;
     private List<Question> qsOfQuiz;
-    private Quiz quiz;
 
     public GUI_6_4_Quoc (GUI1_1_MainFrame mainFrame, List<Question> qsOfQuiz) {
         GridBagLayout gb = new GridBagLayout();
