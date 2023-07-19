@@ -35,6 +35,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.Xuatnhapcategoryquestion;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import model.Category;
 import model.Question;
 import model.Quiz;
@@ -527,9 +529,17 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
 
             for (int i = 2; i < questions.size() + 2; i++) {
                 question_panel_list.add(new JPanel(new BorderLayout(0, 0)));
+                int QiD_Edit=questions.get(i - 2).getLevel();
                 ((JPanel)question_panel_list.getComponent(i)).add(new JCheckBox(), BorderLayout.WEST);
                 ((JPanel)question_panel_list.getComponent(i)).add(new JLabel(questions.get(i - 2).getName(), new ImageIcon(System.getProperty("user.dir") + "/src/view/img/detail.png"), JLabel.LEFT), BorderLayout.CENTER);
+                
                 ((JPanel)question_panel_list.getComponent(i)).add(new JLabel("Edit   ", new ImageIcon(System.getProperty("user.dir") + "/src/view/img/drop_arrow_open.png"), JLabel.LEFT), BorderLayout.EAST);
+                ((JPanel)question_panel_list.getComponent(i)).addMouseListener(new MouseAdapter(){
+                    public void mouseClicked(MouseEvent me) {
+                        EditmouseClicked(me,QiD_Edit);
+                        }
+                    }
+                );
                 ((BorderLayout)((JPanel)question_panel_list.getComponent(i)).getLayout()).getLayoutComponent(BorderLayout.EAST).setForeground(Color.BLUE);
                 ((JLabel)((BorderLayout)((JPanel)question_panel_list.getComponent(i)).getLayout()).getLayoutComponent(BorderLayout.EAST)).setHorizontalTextPosition(JLabel.LEFT);
             }
@@ -634,6 +644,15 @@ public class GUI_2_TabbedPaneMenu extends javax.swing.JPanel {
         mainFrame.getMainPath().setText("Home / My Courses / THI CUỐI KỲ" + " / " + selectedTabTitle);
     }//GEN-LAST:event_TabbedPaneMenuStateChanged
 
+     private void EditmouseClicked(java.awt.event.MouseEvent evt, Integer Qid){
+        GUI3_2_Edit_Question gui3_2_Edit_Question=new GUI3_2_Edit_Question(mainFrame,Qid);
+        mainFrame.getPanel_content().removeAll();
+        gui3_2_Edit_Question.setSize(1115, 530);
+        gui3_2_Edit_Question.setLocation(-32, 0);
+        mainFrame.getPanel_content().add(gui3_2_Edit_Question, BorderLayout.CENTER);
+        mainFrame.validate();
+        mainFrame.repaint();
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TabbedPaneMenu;
     private javax.swing.JButton btn_importFile;
