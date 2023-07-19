@@ -598,3 +598,16 @@ C. Tất cả các tướng
 0.0
 1.0
 3
+
+0
+ertwt
+
+D:\Quoc\Project\HUST_20222_OOP_BTL/src/view/img/image.png
+1.0
+A. dsasd
+B. wqqeq
+D:\Quoc\Project\HUST_20222_OOP_BTL/src/view/img/image.png
+D:\Quoc\Project\HUST_20222_OOP_BTL/src/view/img/image.png
+1.0
+0.0
+39

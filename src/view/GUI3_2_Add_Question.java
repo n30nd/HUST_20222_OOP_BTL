@@ -1135,8 +1135,8 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         tmp.setName(QnameField1.getText());
         tmp.setText(QtextArea1.getText());
         
-        String QImage=jLabel.getIcon().toString().substring(Leng);
-        if(QImage.equals( "src/view/img/image.png"))QImage="";
+        String QImage=jLabel.getIcon().toString();
+        if(QImage.substring(Leng).equals( "src/view/img/image.png"))QImage="";
         tmp.setQuestionImage(QImage);
         
         tmp.setMark(Float.parseFloat(Markfield1.getText()));
@@ -1149,9 +1149,9 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         List<Float> Diem = new ArrayList<>();
 
         String Choi = jTextField3.getText();
-        String CImage=image1.getIcon().toString().substring(Leng);
+        String CImage=image1.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
             SChoiImage.add(CImage);
@@ -1159,9 +1159,9 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         }
         
         Choi = jTextField6.getText();
-        CImage=image2.getIcon().toString().substring(Leng);
+        CImage=image2.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
             SChoi.add(Choi);
             SChoiImage.add(CImage);
@@ -1169,63 +1169,75 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
         }
         
         Choi = jTextField7.getText();
-        CImage=image3.getIcon().toString().substring(Leng);
+        CImage=image3.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
-            SChoi.add(Choi);
-            SChoiImage.add(CImage);
-            Diem.add(TRANFER(jComboBox8.getSelectedIndex()));
+            if (jTextField7.getText().length() > 0) {
+                SChoi.add(Choi);
+                SChoiImage.add(CImage);
+                Diem.add(TRANFER(jComboBox8.getSelectedIndex()));
+            }
         }
         
         Choi = jTextField8.getText();
-        CImage=image4.getIcon().toString().substring(Leng);
+        CImage=image4.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
-            SChoi.add(Choi);
-            SChoiImage.add(CImage);
-            Diem.add(TRANFER(jComboBox9.getSelectedIndex()));
+            if (jTextField8.getText().length() > 0) {
+                SChoi.add(Choi);
+                SChoiImage.add(CImage);
+                Diem.add(TRANFER(jComboBox9.getSelectedIndex()));
+            }
         }
         
         Choi = jTextField9.getText();
-        CImage=image5.getIcon().toString().substring(Leng);
+        CImage=image5.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-            if(CImage.equals( "src/view/img/image.png"))CImage="";
+            if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
-            SChoi.add(Choi);
-            SChoiImage.add(CImage);    
-            Diem.add(TRANFER(jComboBox10.getSelectedIndex()));
+            if (jTextField9.getText().length() > 0) {
+                SChoi.add(Choi);
+                SChoiImage.add(CImage);    
+                Diem.add(TRANFER(jComboBox10.getSelectedIndex()));
+            }
         }
         
         Choi = jTextField10.getText();
-        CImage=image6.getIcon().toString().substring(Leng);
+        CImage=image6.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-             if(CImage.equals( "src/view/img/image.png"))CImage="";
+            if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
-            SChoi.add(Choi);
-            SChoiImage.add(CImage);    
-            Diem.add(TRANFER(jComboBox11.getSelectedIndex()));
+            if (jTextField10.getText().length() > 0) {
+                SChoi.add(Choi);
+                SChoiImage.add(CImage);    
+                Diem.add(TRANFER(jComboBox11.getSelectedIndex()));
+            }
         }
       
         Choi = jTextField11.getText();
-        CImage=image7.getIcon().toString().substring(Leng);
+        CImage=image7.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-             if(CImage.equals( "src/view/img/image.png"))CImage="";
+             if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
-            SChoi.add(Choi);
-            SChoiImage.add(CImage);    
-            Diem.add(TRANFER(jComboBox12.getSelectedIndex()));
+            if (jTextField11.getText().length() > 0) {
+                SChoi.add(Choi);
+                SChoiImage.add(CImage);    
+                Diem.add(TRANFER(jComboBox12.getSelectedIndex()));
+            }
         }
         
         Choi = jTextField12.getText();
-        CImage=image8.getIcon().toString().substring(Leng);
+        CImage=image8.getIcon().toString();
         if (!Choi.equals( "")||!CImage.equals( "src/view/img/image.png")) {
-             if(CImage.equals( "src/view/img/image.png"))CImage="";
+             if(CImage.substring(Leng).equals( "src/view/img/image.png"))CImage="";
             Choi= (char)(stt+'A')+". "+Choi; stt++;
-            SChoi.add(Choi);
-            SChoiImage.add(CImage);    
-            Diem.add(TRANFER(jComboBox13.getSelectedIndex()));
+            if (jTextField12.getText().length() > 0) {
+                SChoi.add(Choi);
+                SChoiImage.add(CImage);    
+                Diem.add(TRANFER(jComboBox13.getSelectedIndex()));
+            }
         }
         
         tmp.setChoice(SChoi);
