@@ -611,3 +611,16 @@ D:\Quoc\Project\HUST_20222_OOP_BTL/src/view/img/image.png
 1.0
 0.0
 39
+
+0
+sdadas
+sdfsdf
+D:\Quoc\Hình ảnh\Doraemon Sticker\Stickers (106).gif
+1.0
+A. rsetr
+B. erear
+D:\Quoc\Hình ảnh\Doraemon Sticker\Stickers (106).gif
+D:\Quoc\Hình ảnh\Doraemon Sticker\Stickers (107).gif
+1.0
+0.0
+40

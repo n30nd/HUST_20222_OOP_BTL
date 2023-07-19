@@ -1033,7 +1033,7 @@ public class GUI3_2_Add_Question extends javax.swing.JPanel implements java.bean
 
     private void chooseImage(MouseEvent me) {
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
-        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Hình ảnh", "png", "jpg", "jpeg");
+        FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Hình ảnh", "png", "jpg", "jpeg", "gif");
 
         fileChooser.setFileFilter(txtFilter);
         fileChooser.setMultiSelectionEnabled(false);
